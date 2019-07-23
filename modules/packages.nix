@@ -134,12 +134,76 @@ let
         '';
       };
 
-      other-tags = mkOption {
-        type = types.str;
-        default = "";
-        description = ''
-          Anything else to go into use-package body
-        '';
+      if-keyword = mkOption {
+         type = types.str;
+         default = "";
+         description = ''
+           :if keyword of use-package
+         '';
+      };
+
+      disabled = mkOption {
+         type = types.bool;
+         default = false;
+         description = ''
+           :disabled keyword of use-package
+         '';
+      };
+
+      when = mkOption {
+         type = types.str;
+         default = "";
+         description = ''
+           :when keyword of use-package
+         '';
+      };
+
+      unless = mkOption {
+         type = types.str;
+         default = "";
+         description = ''
+           :unless keyword of use-package
+         '';
+      };
+
+      after = mkOption {
+         type = types.str;
+         default = "";
+         description = ''
+           :after keyword of use-package
+         '';
+      };
+
+      defines = mkOption {
+         type = types.str;
+         default = "";
+         description = ''
+           :defines keyword of use-package
+         '';
+      };
+
+      functions = mkOption {
+         type = types.str;
+         default = "";
+         description = ''
+           :functions keyword of use-package
+         '';
+      };
+
+      diminish = mkOption {
+         type = types.str;
+         default = "";
+         description = ''
+           :diminish keyword of use-package
+         '';
+      };
+
+      delight = mkOption {
+         type = types.str;
+         default = "";
+         description = ''
+           :delight keyword of use-package
+         '';
       };
     };
   };
@@ -162,7 +226,15 @@ let
     ${if p.custom != "" then ":custom\n${p.custom}" else ""}
     ${if p.custom-face != "" then ":custom-face\n${p.custom-face}" else ""}
     ${if p.demand then ":demand t" else ""}
-    ${if p.other-tags != "" then ":other-tags\n${p.other-tags}" else ""}
+    ${if p.if-keyword != "" then ":if\n${p.if-keyword}" else ""}
+    ${if p.disabled then ":disabled t" else ""}
+    ${if p.when != "" then ":when\n${p.when}" else ""}
+    ${if p.unless != "" then ":unless\n${p.unless}" else ""}
+    ${if p.after != "" then ":after\n${p.after}" else ""}
+    ${if p.defines != "" then ":defines\n${p.defines}" else ""}
+    ${if p.functions != "" then ":functions\n${p.functions}" else ""}
+    ${if p.diminish != "" then ":diminish\n${p.diminish}" else ""}
+    ${if p.delight != "" then ":delight\n${p.delight}" else ""}
     )
   '';
 in
