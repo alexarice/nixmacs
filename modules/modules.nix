@@ -6,4 +6,5 @@
   ./bootstrap.nix
   ./betterDefaults.nix
   ./packages.nix
+  ./theme.nix
 ]
