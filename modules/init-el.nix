@@ -24,8 +24,10 @@ with lib;
 
   config = {
     initEl = ''
+      ;; Preamble
       ${config.init-el.preamble}
 
+      ;; Packages
       ${config.init-el.packageSetup}
     '';
   };
