@@ -7,6 +7,8 @@ let
   packageOpts = { name, config, ... }:
   {
     options = {
+      enable = mkEnableOption name;
+
       package = mkOption {
         type = types.package;
         description = ''
@@ -142,14 +144,6 @@ let
          '';
       };
 
-      disabled = mkOption {
-         type = types.bool;
-         default = false;
-         description = ''
-           :disabled keyword of use-package
-         '';
-      };
-
       when = mkOption {
          type = types.str;
          default = "";
@@ -227,7 +221,6 @@ let
     ${if p.custom-face != "" then ":custom-face\n${p.custom-face}" else ""}
     ${if p.demand then ":demand t" else ""}
     ${if p.if-keyword != "" then ":if\n${p.if-keyword}" else ""}
-    ${if p.disabled then ":disabled t" else ""}
     ${if p.when != "" then ":when\n${p.when}" else ""}
     ${if p.unless != "" then ":unless\n${p.unless}" else ""}
     ${if p.after != "" then ":after\n${p.after}" else ""}
@@ -252,8 +245,8 @@ in
   };
 
   config = {
-    rawPackageList = map (p: p.package) (builtins.attrValues(config.packages));
+    rawPackageList = map (p: p.package) (filter (p: p.enable) (builtins.attrValues(config.packages)));
 
-    init-el.packageSetup = builtins.concatStringsSep "\n\n" (map packageToConfig (builtins.attrValues (config.packages)));
+    init-el.packageSetup = builtins.concatStringsSep "\n\n" (map packageToConfig (filter (p: p.enable)(builtins.attrValues (config.packages))));
   };
 }

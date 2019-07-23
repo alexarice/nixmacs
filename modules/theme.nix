@@ -29,6 +29,7 @@ in
 
   config = mkIf cfg.enable {
     packages."${cfg.package.pname}" = {
+      enable = true;
       inherit (cfg) package;
       config = "(load-theme '${cfg.themeName} t)";
     };
