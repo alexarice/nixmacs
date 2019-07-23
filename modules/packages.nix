@@ -153,7 +153,7 @@ let
     ${if p.config != "" then ":config\n${p.config}" else ""}
     ${if p.commands != [] then ":commands (${builtins.concatStringsSep " " p.commands})" else ""}
     ${if p.bind != [] then ":bind\n${printBinding (p.bind)}" else ""}
-    ${if p.bind-keymap != "" then ":bind-keymap\n${printBinding (p.bind-keymap)}" else ""}
+    ${if p.bind-keymap != [] then ":bind-keymap\n${printBinding (p.bind-keymap)}" else ""}
     ${if p.mode != "" then ":mode\n${p.mode}" else ""}
     ${if p.interpreter != "" then ":interpreter\n${p.interpreter}" else ""}
     ${if p.magic != "" then ":magic\n${p.magic}" else ""}
@@ -176,13 +176,12 @@ in
     rawPackageList = mkOption {
       type = with types; listOf package;
       visible = false;
-      readOnly = true;
     };
   };
 
   config = {
     rawPackageList = map (p: p.package) (builtins.attrValues(config.packages));
 
-    initEl = builtins.concatStringsSep "\n\n" (map packageToConfig (builtins.attrValues (config.packages)));
+    init-el.packageSetup = builtins.concatStringsSep "\n\n" (map packageToConfig (builtins.attrValues (config.packages)));
   };
 }

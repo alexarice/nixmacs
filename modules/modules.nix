@@ -1,9 +1,8 @@
 { pkgs, lib }:
 
-let
-  bindTypeModule = import ./bindType.nix { };
-in
 [
+  ./init-el.nix
   ./base.nix
+  ./bootstrap.nix
   ./packages.nix
 ]
