@@ -5,7 +5,7 @@ with lib;
 {
   options.init-el = {
     preamble = mkOption {
-      type = types.separatedString "\n";
+      type = types.separatedString "\n\n";
       default = "";
       description = ''
         Items to be put at the top of init.el. Should not rely on any package.
@@ -20,6 +20,14 @@ with lib;
         init.el fragment for setting up packages using use-package
       '';
     };
+
+    postSetup = mkOption {
+      type = types.separatedString "\n\n";
+      default = "";
+      description = ''
+        Items to be put after package initialisation
+      '';
+    };
   };
 
   config = {
@@ -29,6 +37,9 @@ with lib;
 
       ;; Packages
       ${config.init-el.packageSetup}
+
+      ;; Post package initialisation
+      ${config.init-el.postSetup}
     '';
   };
 }
