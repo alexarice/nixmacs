@@ -57,16 +57,16 @@ let
       };
 
       bind = mkOption {
-        type = types.listOf bindType;
-        default = [];
+        type = bindType;
+        default = {};
         description = ''
           List of bindings to be passed to :bind keyword of use-package
         '';
       };
 
       bind-keymap = mkOption {
-        type = types.listOf bindType;
-        default = [];
+        type = bindType;
+        default = {};
         description = ''
           List of bindings to be passed to :bind-keymap keyword of use-package
         '';
@@ -210,8 +210,8 @@ let
     ${if p.init != "" then ":init\n${p.init}" else ""}
     ${if p.config != "" then ":config\n${p.config}" else ""}
     ${if p.commands != [] then ":commands (${builtins.concatStringsSep " " p.commands})" else ""}
-    ${if p.bind != [] then ":bind\n${printBinding (p.bind)}" else ""}
-    ${if p.bind-keymap != [] then ":bind-keymap\n${printBinding (p.bind-keymap)}" else ""}
+    ${if p.bind != {} then ":bind\n${printBinding (p.bind)}" else ""}
+    ${if p.bind-keymap != {} then ":bind-keymap\n${printBinding (p.bind-keymap)}" else ""}
     ${if p.mode != "" then ":mode\n${p.mode}" else ""}
     ${if p.interpreter != "" then ":interpreter\n${p.interpreter}" else ""}
     ${if p.magic != "" then ":magic\n${p.magic}" else ""}

@@ -3,35 +3,23 @@
 with lib;
 
 let
-  assocOption = { name, config, ... }:
-  {
-    options = {
-      name = mkOption {
-        type = types.str;
-      };
-      val = mkOption {
-        type = types.str;
-      };
-    };
-  };
+  inherit (builtins) concatStringsSep attrNames isString getAttr;
   mapOption = { name, config, ... }:
   {
     options = {
-      name = mkOption {
-        type = types.str;
-      };
       bindings = mkOption {
-        type = with types; loaOf (submodule assocOption);
+        type = with types; loaOf str;
       };
     };
   };
   wrapBrackets = x: "(${x})";
 in
 {
-  bindType = with types; loaOf (either (submodule assocOption) (submodule mapOption));
+  bindType = with types; loaOf (either str (submodule mapOption));
 
-  printBinding = b: wrapBrackets (builtins.concatStringsSep "\n" (flip map b (x:
-  if builtins.hasAttr val
-  then "(${x.name} . '${x.val})"
-  else "(:map ${x.name})\n" ++ builtins.concatStringsSep "\n" (map (y: "(${name} . '${val})") (x.bindings)))));
+  printBinding = b: wrapBrackets (concatStringsSep "\n" (flip map (attrNames b) (x:
+  let item = getAttr x b;
+  in if isString item
+  then "(\"${x}\" . ${item})"
+  else ":map ${x.name})\n" ++ concatStringsSep "\n" (map (y: "(\"${y}\" . ${getAttr y item})") (attrNames (x.bindings))))));
 }

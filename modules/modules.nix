@@ -7,4 +7,5 @@
   ./betterDefaults.nix
   ./packages.nix
   ./theme.nix
+  ./layers/ivy.nix
 ]
