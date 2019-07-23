@@ -2,11 +2,14 @@
 
 {
   config = {
-    rawPackageList = [ pkgs.emacsPackagesNg.melpaStablePackages.use-package ];
+    rawPackageList = with pkgs.emacsPackagesNg.melpaStablePackages; [ use-package diminish ] ++ [pkgs.emacsPackagesNg.elpaPackages.delight];
 
     init-el.preamble = ''
       (eval-when-compile
         (require 'use-package))
+
+      (require 'diminish)
+      (require 'delight)
     '';
   };
 }
