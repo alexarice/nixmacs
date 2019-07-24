@@ -3,7 +3,7 @@
 with lib;
 
 let
-  inherit (builtins) concatStringsSep attrNames isString getAttr;
+  inherit (builtins) concatStringsSep attrNames isString getAttr sort;
   mapOption = { name, config, ... }:
   {
     options = {
@@ -17,7 +17,11 @@ in
 {
   bindType = with types; loaOf (either str (submodule mapOption));
 
-  printBinding = b: wrapBrackets (concatStringsSep "\n" (flip map (attrNames b) (x:
+  printBinding = b:
+  let
+    items = attrNames b;
+    sortedItems = sort (x: y: isString x && !(isString y)) items;
+  in wrapBrackets (concatStringsSep "\n" (flip map (sortedItems) (x:
   let item = getAttr x b;
   in if isString item
   then "(\"${x}\" . ${item})"
