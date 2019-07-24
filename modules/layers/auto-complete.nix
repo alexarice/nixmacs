@@ -46,10 +46,10 @@ in
         bind."yas-minor-mode-map" =
           if cfg.yas-expand-key == "TAB" then {} else {
             "TAB" = "nil";
-            "${cfg.yas-expand-key}" = "yas-maybe-expand";
+            "${cfg.yas-expand-key}" = "yas-next-field-or-maybe-expand";
           };
-        config = ''
-          (yas-global-mode 1)
+        init = ''
+          (add-hook 'prog-mode-hook #'yas-minor-mode)
         '';
       };
 
@@ -62,7 +62,6 @@ in
       company = {
         enable = true;
         package = epkgs.melpaPackages.company;
-        defer = true;
         init = ''
           (setq company-idle-delay 0.1
                 company-minimum-prefix-length 2
