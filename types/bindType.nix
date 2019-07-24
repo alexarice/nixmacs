@@ -19,6 +19,6 @@ in
   in if isString item
   then "(\"${x}\" . ${item})"
   else ":map ${x}\n${concatStringsSep "\n" (map (y: ''
-    "${y}" . ${getAttr y item})
+    ("${y}" . ${getAttr y item})
   '') (attrNames item))}")));
 }

@@ -212,7 +212,7 @@ let
     ${if p.commands != [] then ":commands (${builtins.concatStringsSep " " p.commands})" else ""}
     ${if p.bind != {} then ":bind\n${printBinding (p.bind)}" else ""}
     ${if p.bind-keymap != {} then ":bind-keymap\n${printBinding (p.bind-keymap)}" else ""}
-    ${if p.mode != "" then ":mode\n${p.mode}" else ""}
+    ${if p.mode != "" then ":mode ${p.mode}" else ""}
     ${if p.interpreter != "" then ":interpreter\n${p.interpreter}" else ""}
     ${if p.magic != "" then ":magic\n${p.magic}" else ""}
     ${if p.magic-fallback != "" then ":magic-fallback\n${p.magic-fallback}" else ""}

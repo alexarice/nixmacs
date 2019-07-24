@@ -14,7 +14,7 @@ let
   let
     hooks = attrNames s;
   in
-  concatStringsSep "\n" (map (x: writeCompanyHook x (getAttr s)) hooks);
+  concatStringsSep "\n" (map (x: writeCompanyHook x (getAttr x s)) hooks);
 in
 {
   options.layers.auto-complete = {
@@ -45,7 +45,7 @@ in
         commands = [ "yas-global-mode" "yas-minor-mode" ];
         bind."yas-minor-mode-map" =
           if cfg.yas-expand-key == "TAB" then {} else {
-            "TAB" = nil;
+            "TAB" = "nil";
             "${cfg.yas-expand-key}" = "yas-maybe-expand";
           };
         config = ''
