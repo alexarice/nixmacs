@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, epkgs, lib, ... }:
 
 with lib;
 
@@ -16,7 +16,7 @@ in
     packages = {
       ivy = {
         enable = true;
-        package = pkgs.emacsPackagesNg.melpaPackages.ivy;
+        package = epkgs.melpaPackages.ivy;
         config = ''
           (ivy-mode 1)
         '';
@@ -24,7 +24,7 @@ in
       };
       counsel = {
         enable = true;
-        package = pkgs.emacsPackagesNg.melpaPackages.counsel;
+        package = epkgs.melpaPackages.counsel;
         config = ''
           (counsel-mode 1)
         '';
@@ -32,7 +32,7 @@ in
       };
       swiper = {
         enable = true;
-        package = pkgs.emacsPackagesNg.melpaPackages.swiper;
+        package = epkgs.melpaPackages.swiper;
         bind."C-s" = "swiper";
       };
     };

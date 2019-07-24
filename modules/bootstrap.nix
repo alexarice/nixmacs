@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, epkgs, ... }:
 
 {
   config = {
-    rawPackageList = with pkgs.emacsPackagesNg.melpaStablePackages; [ use-package diminish ] ++ [pkgs.emacsPackagesNg.elpaPackages.delight];
+    rawPackageList = with epkgs.melpaStablePackages; [ use-package diminish ] ++ [ epkgs.elpaPackages.delight ];
 
     init-el.preamble = ''
       (eval-when-compile
