@@ -11,4 +11,5 @@
   ./layers/nixmacs-base.nix
   ./layers/auto-complete.nix
   ./layers/nix.nix
+  ./settings.nix
 ]
