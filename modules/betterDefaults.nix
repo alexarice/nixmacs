@@ -17,6 +17,9 @@
       (setq sentence-end-double-space nil)	; sentence SHOULD end with only a point.
       (setq default-fill-column 80)		; toggle wrapping text at the 80th character
       (setq initial-scratch-message "Welcome to Emacs") ; print a default message in the empty scratch buffer opened at startup
+
+      (tool-bar-mode -1) ; disable toolbar
+      (menu-bar-mode -1) ; disable menu
     '';
   };
 }
