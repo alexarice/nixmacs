@@ -9,4 +9,5 @@
   ./theme.nix
   ./layers/ivy.nix
   ./layers/nixmacs-base.nix
+  ./layers/auto-complete.nix
 ]

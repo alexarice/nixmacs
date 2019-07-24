@@ -4,18 +4,11 @@ with lib;
 
 let
   inherit (builtins) concatStringsSep attrNames isString getAttr sort;
-  mapOption = { name, config, ... }:
-  {
-    options = {
-      bindings = mkOption {
-        type = with types; loaOf str;
-      };
-    };
-  };
+
   wrapBrackets = x: "(${x})";
 in
 {
-  bindType = with types; loaOf (either str (submodule mapOption));
+  bindType = with types; loaOf (either str (loaOf str));
 
   printBinding = b:
   let
@@ -25,5 +18,7 @@ in
   let item = getAttr x b;
   in if isString item
   then "(\"${x}\" . ${item})"
-  else ":map ${x.name})\n" ++ concatStringsSep "\n" (map (y: "(\"${y}\" . ${getAttr y item})") (attrNames (x.bindings))))));
+  else ":map ${x}\n${concatStringsSep "\n" (map (y: ''
+    "${y}" . ${getAttr y item})
+  '') (attrNames item))}")));
 }
