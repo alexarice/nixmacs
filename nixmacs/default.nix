@@ -1,9 +1,7 @@
-{ stdenv, emacsWithPackages, packageList, initEl, writeText, makeWrapper, runCommand }:
+{ emacsPackage , initEl, writeText, makeWrapper, runCommand }:
 
 let
   initElDrv = writeText "init-el" initEl;
-
-  emacsPackage = emacsWithPackages (p: packageList);
 
   pname = "nixmacs";
   version = "0.1.0";

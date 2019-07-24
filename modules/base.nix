@@ -9,18 +9,5 @@ with lib;
       visible = false;
       readOnly = true;
     };
-
-    finalPackage = mkOption {
-      type = types.package;
-      visible = false;
-      readOnly = true;
-    };
-  };
-
-  config = {
-    finalPackage = pkgs.callPackage ../nixmacs {
-      initEl = config.initEl;
-      packageList = config.rawPackageList;
-    };
   };
 }
