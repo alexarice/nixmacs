@@ -35,6 +35,15 @@ in
         package = epkgs.melpaPackages.swiper;
         bind."C-s" = "swiper";
       };
+      counsel-projectile = {
+        enable = config.packages.projectile.enable;
+        package = epkgs.melpaPackages.counsel-projectile;
+      };
+      projectile = {
+        init = ''
+          (setq projectile-switch-project-action 'counsel-projectile-find-file)
+        '';
+      };
     };
   };
 }

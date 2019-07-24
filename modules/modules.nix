@@ -8,4 +8,5 @@
   ./packages.nix
   ./theme.nix
   ./layers/ivy.nix
+  ./layers/nixmacs-base.nix
 ]
