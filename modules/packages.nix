@@ -3,7 +3,7 @@
 with lib;
 
 let
-  inherit (import ./bindType.nix { inherit lib; }) bindType printBinding;
+  inherit (import ../types/bindType.nix { inherit lib; }) bindType printBinding;
   packageOpts = { name, config, ... }:
   {
     options = {
