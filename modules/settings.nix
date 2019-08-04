@@ -33,7 +33,7 @@ in
           (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
           (global-visual-line-mode 1)
         '';
-        diminish = "Wrap";
+        diminish = "visual-line-mode";
       };
 
       smooth-scrolling = {
