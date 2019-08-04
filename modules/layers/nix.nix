@@ -22,7 +22,7 @@ in
         enable = true;
         mode = "\"\\\\.nix\\\\'\"";
         package = epkgs.melpaPackages.nix-mode;
-        init = ''
+        init = singleton ''
           (setq nix-indent-function 'nix-indent-line)
         '';
       };

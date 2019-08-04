@@ -48,9 +48,7 @@ in
             "TAB" = "nil";
             "${cfg.yas-expand-key}" = "yas-next-field-or-maybe-expand";
           };
-        init = ''
-          (add-hook 'prog-mode-hook #'yas-minor-mode)
-        '';
+        init = singleton "(add-hook 'prog-mode-hook #'yas-minor-mode)";
       };
 
       auto-yasnippet = {
@@ -62,12 +60,12 @@ in
       company = {
         enable = true;
         package = epkgs.melpaPackages.company;
-        init = ''
+        init = singleton ''
           (setq company-idle-delay 0.1
                 company-minimum-prefix-length 2
                 company-selection-wrap-around t)
               '';
-        config = ''
+        config = singleton ''
           (progn
           ${writeAllHooks (cfg.company-hooks)}
           )

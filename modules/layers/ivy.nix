@@ -17,7 +17,7 @@ in
       ivy = {
         enable = true;
         package = epkgs.melpaPackages.ivy;
-        config = ''
+        config = singleton ''
           (ivy-mode 1)
         '';
         diminish = "ivy-mode";
@@ -25,7 +25,7 @@ in
       counsel = {
         enable = true;
         package = epkgs.melpaPackages.counsel;
-        config = ''
+        config = singleton ''
           (counsel-mode 1)
         '';
         diminish = "counsel-mode";
@@ -40,7 +40,7 @@ in
         package = epkgs.melpaPackages.counsel-projectile;
       };
       projectile = {
-        init = ''
+        init = singleton ''
           (setq projectile-switch-project-action 'counsel-projectile-find-file)
         '';
       };

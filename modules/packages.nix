@@ -33,23 +33,23 @@ let
       };
 
       init = mkOption {
-        type = types.separatedString "\n";
-        default = "";
+        type = with types; listOf str;
+        default = [];
         description = ''
           String to be passed to :init keyword of use-package
         '';
       };
 
       config = mkOption {
-        type = types.separatedString "\n";
-        default = "";
+        type = with types; listOf str;
+        default = [];
         description = ''
           String to be passed to :config keyword of use-package
         '';
       };
 
       commands = mkOption {
-        type = with types; listOf str;
+        type = with types; either (listOf str) str;
         default = [];
         description = ''
           List of strings to be passed to :commands keyword of use-package
@@ -89,7 +89,7 @@ let
       };
 
       magic = mkOption {
-        type = types.str;
+        type = with types; either (listOf str) str;
         default = "";
         description = ''
           :magic keyword of use-package
@@ -97,7 +97,7 @@ let
       };
 
       magic-fallback = mkOption {
-        type = types.str;
+        type = with types; either (listOf str) str;
         default = "";
         description = ''
           :magic-fallback keyword of use-package
@@ -105,7 +105,7 @@ let
       };
 
       hook = mkOption {
-        type = types.str;
+        type = with types; either (listOf str) str;
         default = "";
         description = ''
           :hook keyword of use-package
@@ -113,7 +113,7 @@ let
       };
 
       custom = mkOption {
-        type = types.str;
+        type = with types; either (listOf str) str;
         default = "";
         description = ''
           :custom keyword of use-package
@@ -121,7 +121,7 @@ let
       };
 
       custom-face = mkOption {
-        type = types.str;
+        type = with types; either (listOf str) str;
         default = "";
         description = ''
           :custom-face keyword of use-package
@@ -169,7 +169,7 @@ let
       };
 
       defines = mkOption {
-         type = types.str;
+         type = with types; either (listOf str) str;
          default = "";
          description = ''
            :defines keyword of use-package
@@ -177,7 +177,7 @@ let
       };
 
       functions = mkOption {
-         type = types.str;
+         type = with types; either (listOf str) str;
          default = "";
          description = ''
            :functions keyword of use-package
@@ -204,28 +204,30 @@ let
 
   removeNonEmptyLines = s: builtins.concatStringsSep "\n" (builtins.filter (l: l != "") (splitString "\n" s));
 
+  concatLines = s: if builtins.isList s then builtins.concatStringsSep "\n" s else s;
+
   packageToConfig = p: removeNonEmptyLines ''
     (use-package ${p.name}
     ${if p.defer then ":defer t" else ""}
-    ${if p.init != "" then ":init\n${p.init}" else ""}
-    ${if p.config != "" then ":config\n${p.config}" else ""}
+    ${if p.init != [] then ":init\n${concatLines p.init}" else ""}
+    ${if p.config != [] then ":config\n${concatLines p.config}" else ""}
     ${if p.commands != [] then ":commands (${builtins.concatStringsSep " " p.commands})" else ""}
     ${if p.bind != {} then ":bind\n${printBinding (p.bind)}" else ""}
     ${if p.bind-keymap != {} then ":bind-keymap\n${printBinding (p.bind-keymap)}" else ""}
     ${if p.mode != "" then ":mode ${p.mode}" else ""}
     ${if p.interpreter != "" then ":interpreter\n${p.interpreter}" else ""}
-    ${if p.magic != "" then ":magic\n${p.magic}" else ""}
-    ${if p.magic-fallback != "" then ":magic-fallback\n${p.magic-fallback}" else ""}
+    ${if p.magic != "" then ":magic\n${concatLines p.magic}" else ""}
+    ${if p.magic-fallback != "" then ":magic-fallback\n${concatLines p.magic-fallback}" else ""}
     ${if p.hook != "" then ":hook\n${p.hook}" else ""}
-    ${if p.custom != "" then ":custom\n${p.custom}" else ""}
-    ${if p.custom-face != "" then ":custom-face\n${p.custom-face}" else ""}
+    ${if p.custom != "" then ":custom\n${concatLines p.custom}" else ""}
+    ${if p.custom-face != "" then ":custom-face\n${concatLines p.custom-face}" else ""}
     ${if p.demand then ":demand t" else ""}
     ${if p.if-keyword != "" then ":if\n${p.if-keyword}" else ""}
     ${if p.when != "" then ":when\n${p.when}" else ""}
     ${if p.unless != "" then ":unless\n${p.unless}" else ""}
     ${if p.after != "" then ":after\n${p.after}" else ""}
-    ${if p.defines != "" then ":defines\n${p.defines}" else ""}
-    ${if p.functions != "" then ":functions\n${p.functions}" else ""}
+    ${if p.defines != "" then ":defines\n${concatLines p.defines}" else ""}
+    ${if p.functions != "" then ":functions\n${concatLines p.functions}" else ""}
     ${if p.diminish != "" then ":diminish\n${p.diminish}" else ""}
     ${if p.delight != "" then ":delight\n${p.delight}" else ""}
     )

@@ -31,7 +31,7 @@ in
     packages."${cfg.package.pname}" = {
       enable = true;
       inherit (cfg) package;
-      config = "(load-theme '${cfg.themeName} t)";
+      config = singleton "(load-theme '${cfg.themeName} t)";
     };
   };
 }

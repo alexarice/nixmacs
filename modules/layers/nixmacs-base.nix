@@ -40,7 +40,7 @@ in
           "projectile-switch-to-buffer"
           "projectile-vc"
         ];
-        config = ''
+        config = singleton ''
           (projectile-global-mode)
         '';
         diminish = "projectile-mode";
