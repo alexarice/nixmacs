@@ -105,7 +105,7 @@ let
       };
 
       hook = mkOption {
-        type = with types; either (listOf str) str;
+        type = types.str;
         default = "";
         description = ''
           :hook keyword of use-package

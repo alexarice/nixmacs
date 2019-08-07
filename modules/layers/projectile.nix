@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.layers.nixmacs-base;
+  cfg = config.layers.projectile;
 in
 {
-  options.layers.nixmacs-base = {
-    enable = (mkEnableOption "Nixmacs Base Layer") // { default = true; };
+  options.layers.projectile = {
+    enable = mkEnableOption "Projectile Layer";
   };
 
   config = mkIf cfg.enable {

@@ -8,7 +8,8 @@
   ./packages.nix
   ./theme.nix
   ./layers/ivy.nix
-  ./layers/nixmacs-base.nix
+  ./layers/projectile.nix
+  ./layers/smartparens.nix
   ./layers/auto-complete.nix
   ./layers/nix.nix
   ./layers/latex.nix

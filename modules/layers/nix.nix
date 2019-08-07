@@ -33,5 +33,6 @@ in
       };
     };
     layers.auto-complete.company-hooks."nix-mode-hook" = [ "company-nixos-options" ];
+    layers.smartparens.hooks = "nix-mode";
   };
 }
