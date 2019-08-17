@@ -23,6 +23,10 @@ in
     line-numbers.enable = mkEnableOption "line numbers";
 
     debug.enable = mkEnableOption "debug mode";
+
+    delete-trailing-whitespace = mkEnableOption "whitespace";
+
+    crux-C-a = mkEnableOption "Use Crux C-a";
   };
 
   config = {
@@ -63,5 +67,11 @@ in
           (interactive)
           (find-file (getenv "INITEL")))
         '')];
+
+     init-el.preamble = mkIf cfg.delete-trailing-whitespace ''
+       (add-hook 'before-save-hook 'delete-trailing-whitespace)
+     '';
+
+     packages.crux.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
   };
 }
