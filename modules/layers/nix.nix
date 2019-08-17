@@ -30,6 +30,7 @@ in
       nixos-options = {
         enable = true;
         package = epkgs.melpaPackages.nixos-options;
+        defer = true;
       };
     };
     layers.auto-complete.company-hooks."nix-mode-hook" = [ "company-nixos-options" ];
