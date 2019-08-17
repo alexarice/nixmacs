@@ -43,6 +43,10 @@ in
       projectile = {
         custom = [ "(projectile-completion-system 'ivy)" ];
       };
+      smex = {
+        enable = true;
+        package = epkgs.melpaPackages.smex;
+      };
     };
   };
 }
