@@ -56,8 +56,12 @@ in
         (when (version<= "26.0.50" emacs-version )
           (global-display-line-numbers-mode))
         '')
-        (mkIf cfg.debug.enable ''
-          (setq debug-on-error t)
+      (mkIf cfg.debug.enable ''
+        (setq debug-on-error t)
+        (defun show-config ()
+          "Show init.el"
+          (interactive)
+          (find-file (getenv "INITEL")))
         '')];
   };
 }

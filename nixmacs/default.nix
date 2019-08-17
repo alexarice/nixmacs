@@ -12,7 +12,8 @@ runCommand "${pname}-${version}" {
   nativeBuildInputs = [ makeWrapper ];
 } ''
   mkdir $out
-  cp ${initElDrv} $out
+  cp ${initElDrv} $out/init.el
   makeWrapper ${emacsPackage}/bin/emacs $out/bin/nixmacs \
-    --add-flags "-q -l ${initElDrv}"
+    --add-flags "-q -l ${initElDrv}" \
+    --set INITEL ${initElDrv}
   ''
