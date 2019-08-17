@@ -21,6 +21,8 @@ in
     smooth-scrolling.enable = mkEnableOption "smooth scrolling";
 
     line-numbers.enable = mkEnableOption "line numbers";
+
+    debug.enable = mkEnableOption "debug mode";
   };
 
   config = {
@@ -49,10 +51,13 @@ in
       };
     };
 
-    init-el.postSetup = mkIf cfg.line-numbers.enable ''
-      (when (version<= "26.0.50" emacs-version )
-        (global-display-line-numbers-mode))
-    '';
-
+    init-el.postSetup = mkMerge [
+      (mkIf cfg.line-numbers.enable ''
+        (when (version<= "26.0.50" emacs-version )
+          (global-display-line-numbers-mode))
+        '')
+        (mkIf cfg.debug.enable ''
+          (setq debug-on-error t)
+        '')];
   };
 }
