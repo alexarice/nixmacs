@@ -21,6 +21,7 @@ in
           (ivy-mode 1)
         '';
         diminish = "ivy-mode";
+        custom = [ "(ivy-initial-inputs-alist nil)" ];
       };
       counsel = {
         enable = true;
@@ -40,9 +41,7 @@ in
         package = epkgs.melpaPackages.counsel-projectile;
       };
       projectile = {
-        init = singleton ''
-          (setq projectile-switch-project-action 'counsel-projectile-find-file)
-        '';
+        custom = [ "(projectile-completion-system 'ivy)" ];
       };
     };
   };
