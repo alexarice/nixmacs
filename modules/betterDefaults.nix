@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, epkgs, ... }:
 
 {
   # From https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
@@ -7,7 +7,7 @@
       (setq delete-old-versions -1 )		; delete excess backup versions silently
       (setq version-control t )		; use version control
       (setq vc-make-backup-files t )		; make backups file even when in version controlled dir
-      (setq backup-directory-alist `(("." . "~/.emacs.d/backups")) ) ; which directory to put backups file
+      (setq backup-directory-alist '(("." . "~/.emacs.d/backups")) ) ; which directory to put backups file
       (setq vc-follow-symlinks t )				       ; don't ask for confirmation when opening symlinked file
       (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)) ) ;transform backups file name
       (setq inhibit-startup-screen t )	; inhibit useless and old-school startup screen
@@ -21,5 +21,14 @@
       (tool-bar-mode -1) ; disable toolbar
       (menu-bar-mode -1) ; disable menu
     '';
+
+    packages = {
+      undo-tree = {
+        enable = true;
+        package = epkgs.elpaPackages.undo-tree;
+        diminish = "undo-tree-mode";
+        config = [ "(global-undo-tree-mode 1)" ];
+      };
+    };
   };
 }
