@@ -47,6 +47,6 @@ in
       };
     };
     layers.auto-complete.company-hooks."LaTeX-mode" = [ "company-auctex" ];
-    layers.smartparens.hooks = "LaTeX-mode";
+    layers.parens.hooks = "LaTeX-mode";
   };
 }

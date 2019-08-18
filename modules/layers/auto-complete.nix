@@ -18,7 +18,7 @@ let
   concatStringsSep "\n" (map (x: writeCompanyHook x (getAttr x s)) hooks);
 in
 {
-  
+
   options.layers.auto-complete = {
     enable = mkEnableOption "Auto-complete Layer";
 
@@ -72,7 +72,7 @@ in
         bind."yas-minor-mode-map" =
           if cfg.yas-expand-key == "TAB" then {} else {
             "TAB" = "nil";
-            "<tab>" = "nil";          
+            "<tab>" = "nil";
             "${cfg.yas-expand-key}" = "yas-expand";
           };
         init = singleton "(add-hook 'prog-mode-hook #'yas-minor-mode)";

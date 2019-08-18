@@ -9,10 +9,11 @@
   ./theme.nix
   ./layers/ivy.nix
   ./layers/projectile.nix
-  ./layers/smartparens.nix
+  ./layers/parens.nix
   ./layers/auto-complete.nix
   ./layers/nix.nix
   ./layers/latex.nix
   ./layers/file-tree.nix
+  ./layers/rainbow.nix
   ./settings.nix
 ]

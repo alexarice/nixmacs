@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.layers.smartparens;
+  cfg = config.layers.parens;
 in
 {
-  options.layers.smartparens = {
+  options.layers.parens = {
     enable = mkEnableOption "Enable smartparens package";
 
     strict = mkOption {
@@ -22,6 +22,14 @@ in
       default = "";
       description = ''
         hooks to start smartparens on
+      '';
+    };
+
+    rainbow-delimiters = mkOption {
+      type = types.bool;
+      default = true;
+      description = ''
+        enable rainbow delimiters
       '';
     };
   };
@@ -52,6 +60,11 @@ in
         config = [
           "(require 'smartparens-config)"
         ];
+      };
+      rainbow-delimiters = {
+        enable = cfg.rainbow-delimiters;
+        package = epkgs.melpaPackages.rainbow-delimiters;
+        hook = "(prog-mode . rainbow-delimiters-mode)";
       };
     };
   };
