@@ -13,5 +13,6 @@
   ./layers/auto-complete.nix
   ./layers/nix.nix
   ./layers/latex.nix
+  ./layers/file-tree.nix
   ./settings.nix
 ]
