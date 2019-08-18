@@ -27,6 +27,8 @@ in
     delete-trailing-whitespace = mkEnableOption "whitespace";
 
     crux-C-a = mkEnableOption "Use Crux C-a";
+
+    global-hl-line = mkEnableOption "Highlight line mode";
   };
 
   config = {
@@ -34,7 +36,7 @@ in
       adaptive-wrap = {
         inherit (cfg.adaptive-wrap) enable;
         package = epkgs.elpaPackages.adaptive-wrap;
-        config = [ 
+        config = [
           "(setq-default adaptive-wrap-extra-indent ${builtins.toString cfg.adaptive-wrap.indent})"
           "(add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)"
           "(global-visual-line-mode 1)"
@@ -68,9 +70,14 @@ in
           (find-file (getenv "INITEL")))
         '')];
 
-     init-el.preamble = mkIf cfg.delete-trailing-whitespace ''
-       (add-hook 'before-save-hook 'delete-trailing-whitespace)
-     '';
+        init-el.preamble = mkMerge [
+          (mkIf cfg.delete-trailing-whitespace ''
+            (add-hook 'before-save-hook 'delete-trailing-whitespace)
+          '')
+          (mkIf cfg.global-hl-line ''
+            (global-hl-line-mode 1)
+          '')
+        ];
 
      packages.crux.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
   };
