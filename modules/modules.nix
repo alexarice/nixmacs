@@ -15,5 +15,6 @@
   ./layers/latex.nix
   ./layers/file-tree.nix
   ./layers/rainbow.nix
+  ./layers/git.nix
   ./settings.nix
 ]
