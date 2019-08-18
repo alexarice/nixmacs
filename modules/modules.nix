@@ -16,5 +16,6 @@
   ./layers/file-tree.nix
   ./layers/rainbow.nix
   ./layers/git.nix
+  ./layers/powerline.nix
   ./settings.nix
 ]
