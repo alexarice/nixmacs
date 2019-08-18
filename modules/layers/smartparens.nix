@@ -40,6 +40,9 @@ in
           "(sp-show-pair-delay 0.1)"
           "(sp-show-pair-from-inside t)"
           "(sp-cancel-autoskip-on-backward-movement nil)"
+          "(sp-highlight-pair-overlay nil)"
+          "(sp-highlight-wrap-overlay nil)"
+          "(sp-highlight-wrap-tag-overlay nil)"
         ];
 
         diminish = sp-mode;
