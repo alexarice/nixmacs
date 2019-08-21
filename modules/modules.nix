@@ -1,22 +1,22 @@
 { ... }:
 
 [
-  ./init-el.nix
   ./base.nix
-  ./bootstrap.nix
   ./betterDefaults.nix
-  ./use-package.nix
-  ./theme.nix
-  ./packages/ivy.nix
-  ./packages/projectile.nix
-  ./packages/parens.nix
+  ./bootstrap.nix
+  ./init-el.nix
   ./packages/auto-complete.nix
-  ./packages/nix.nix
-  ./packages/latex.nix
   ./packages/file-tree.nix
-  ./packages/rainbow.nix
-  ./packages/git.nix
-  ./packages/powerline.nix
   ./packages/flycheck.nix
+  ./packages/git.nix
+  ./packages/ivy.nix
+  ./packages/latex.nix
+  ./packages/nix.nix
+  ./packages/parens.nix
+  ./packages/powerline.nix
+  ./packages/projectile.nix
+  ./packages/rainbow.nix
   ./settings.nix
+  ./theme.nix
+  ./use-package.nix
 ]
