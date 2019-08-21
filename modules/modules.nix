@@ -17,5 +17,6 @@
   ./layers/rainbow.nix
   ./layers/git.nix
   ./layers/powerline.nix
+  ./layers/flycheck.nix
   ./settings.nix
 ]

@@ -9,7 +9,7 @@ in
   options.layers.rainbow.enable = mkEnableOption "Rainbow mode";
 
   config = mkIf cfg.enable {
-    packages = {
+    use-package = {
       rainbow-mode = {
         enable = true;
         package = epkgs.elpaPackages.rainbow-mode;

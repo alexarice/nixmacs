@@ -9,7 +9,7 @@ in
   options.layers.powerline.enable = mkEnableOption "Powerline";
 
   config = mkIf cfg.enable {
-    packages = {
+    use-package = {
       powerline = {
         enable = true;
         package = epkgs.melpaPackages.powerline;

@@ -11,7 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    packages = {
+    use-package = {
       flycheck = {
         enable = true;
         package = epkgs.melpaPackages.flycheck;

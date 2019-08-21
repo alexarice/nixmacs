@@ -32,7 +32,7 @@ in
   };
 
   config = {
-    packages = {
+    use-package = {
       adaptive-wrap = {
         inherit (cfg.adaptive-wrap) enable;
         package = epkgs.elpaPackages.adaptive-wrap;
@@ -79,6 +79,6 @@ in
           '')
         ];
 
-     packages.crux.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
+     use-package.crux.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
   };
 }

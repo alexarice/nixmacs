@@ -22,7 +22,7 @@
       (menu-bar-mode -1) ; disable menu
     '';
 
-    packages = {
+    use-package = {
       undo-tree = {
         enable = true;
         package = epkgs.elpaPackages.undo-tree;

@@ -11,7 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    packages = {
+    use-package = {
       projectile = {
         enable = true;
         defer = true;

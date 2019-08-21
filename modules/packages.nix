@@ -235,7 +235,7 @@ let
 in
 {
   options = {
-    packages = mkOption {
+    use-package = mkOption {
       default = {};
       type = with types; loaOf (submodule packageOpts);
     };
@@ -247,8 +247,8 @@ in
   };
 
   config = {
-    rawPackageList = map (p: p.package) (filter (p: p.enable) (builtins.attrValues(config.packages)));
+    rawPackageList = map (p: p.package) (filter (p: p.enable) (builtins.attrValues(config.use-package)));
 
-    init-el.packageSetup = builtins.concatStringsSep "\n\n" (map packageToConfig (filter (p: p.enable)(builtins.attrValues (config.packages))));
+    init-el.packageSetup = builtins.concatStringsSep "\n\n" (map packageToConfig (filter (p: p.enable)(builtins.attrValues (config.use-package))));
   };
 }

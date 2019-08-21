@@ -19,7 +19,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    packages = {
+    use-package = {
       tex = {
         defer = true;
         enable = true;
@@ -35,6 +35,7 @@ in
           "(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)"
           "(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)"
           "(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)"
+          "(add-hook 'LaTeX-mode-hook 'flyspell-mode)"
         ] ++ optional cfg.enable-folding "(add-hook 'LaTeX-mode-hook 'TeX-fold-mode)";
         config = singleton "(auctex-latexmk-setup)";
       };

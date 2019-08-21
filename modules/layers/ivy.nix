@@ -13,7 +13,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    packages = {
+    use-package = {
       ivy = {
         enable = true;
         package = epkgs.melpaPackages.ivy;
@@ -37,7 +37,7 @@ in
         bind."C-s" = "swiper";
       };
       counsel-projectile = {
-        enable = config.packages.projectile.enable;
+        enable = config.use-package.projectile.enable;
         package = epkgs.melpaPackages.counsel-projectile;
       };
       projectile = {

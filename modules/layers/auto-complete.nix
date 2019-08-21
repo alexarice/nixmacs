@@ -64,7 +64,7 @@ in
   };
 
   config = {
-    packages = {
+    use-package = {
       yasnippet = {
         enable = true;
         package = epkgs.elpaPackages.yasnippet;

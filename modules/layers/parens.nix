@@ -35,7 +35,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    packages = {
+    use-package = {
       smartparens = let sp-mode = "smartparens-${if cfg.strict then "strict-" else ""}mode";
       in {
         enable = true;

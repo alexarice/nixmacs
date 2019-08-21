@@ -19,7 +19,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    packages = {
+    use-package = {
       neotree = {
         enable = true;
         package = epkgs.melpaPackages.neotree;

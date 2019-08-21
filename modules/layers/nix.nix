@@ -11,9 +11,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    packages = {
+    use-package = {
       company-nixos-options = {
-        enable = config.packages.company.enable;
+        enable = config.use-package.company.enable;
         package = epkgs.melpaPackages.company-nixos-options;
         defer = true;
       };
