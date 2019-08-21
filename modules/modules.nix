@@ -5,7 +5,7 @@
   ./betterDefaults.nix
   ./bootstrap.nix
   ./init-el.nix
-  ./packages/auto-complete.nix
+  ./packages/company.nix
   ./packages/file-tree.nix
   ./packages/flycheck.nix
   ./packages/git.nix

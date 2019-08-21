@@ -33,7 +33,7 @@ in
         defer = true;
       };
     };
-    packages.auto-complete.company-hooks."nix-mode-hook" = [ "company-nixos-options" ];
+    packages.company.company-hooks."nix-mode-hook" = [ "company-nixos-options" ];
     packages.parens.hooks = "nix-mode";
   };
 }

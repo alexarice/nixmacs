@@ -47,7 +47,7 @@ in
         custom = "(auctex-latexmk-inherit-TeX-PDF-mode t)";
       };
     };
-    packages.auto-complete.company-hooks."LaTeX-mode" = [ "company-auctex" ];
+    packages.company.company-hooks."LaTeX-mode" = [ "company-auctex" ];
     packages.parens.hooks = "LaTeX-mode";
   };
 }
