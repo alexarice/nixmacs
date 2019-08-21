@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.layers.parens;
+  cfg = config.packages.parens;
 in
 {
-  options.layers.parens = {
+  options.packages.parens = {
     enable = mkEnableOption "Enable smartparens package";
 
     strict = mkOption {

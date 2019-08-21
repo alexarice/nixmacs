@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.layers.nix;
+  cfg = config.packages.nix;
 in
 {
-  options.layers.nix = {
+  options.packages.nix = {
     enable = mkEnableOption "Nix Layer";
   };
 
@@ -33,7 +33,7 @@ in
         defer = true;
       };
     };
-    layers.auto-complete.company-hooks."nix-mode-hook" = [ "company-nixos-options" ];
-    layers.parens.hooks = "nix-mode";
+    packages.auto-complete.company-hooks."nix-mode-hook" = [ "company-nixos-options" ];
+    packages.parens.hooks = "nix-mode";
   };
 }

@@ -5,18 +5,18 @@
   ./base.nix
   ./bootstrap.nix
   ./betterDefaults.nix
-  ./packages.nix
+  ./use-package.nix
   ./theme.nix
-  ./layers/ivy.nix
-  ./layers/projectile.nix
-  ./layers/parens.nix
-  ./layers/auto-complete.nix
-  ./layers/nix.nix
-  ./layers/latex.nix
-  ./layers/file-tree.nix
-  ./layers/rainbow.nix
-  ./layers/git.nix
-  ./layers/powerline.nix
-  ./layers/flycheck.nix
+  ./packages/ivy.nix
+  ./packages/projectile.nix
+  ./packages/parens.nix
+  ./packages/auto-complete.nix
+  ./packages/nix.nix
+  ./packages/latex.nix
+  ./packages/file-tree.nix
+  ./packages/rainbow.nix
+  ./packages/git.nix
+  ./packages/powerline.nix
+  ./packages/flycheck.nix
   ./settings.nix
 ]

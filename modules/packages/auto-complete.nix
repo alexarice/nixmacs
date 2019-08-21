@@ -4,7 +4,7 @@ with lib;
 
 let
   inherit (builtins) concatStringsSep attrNames getAttr;
-  cfg = config.layers.auto-complete;
+  cfg = config.packages.auto-complete;
   default = cfg.default-backends;
   writeCompanyHook = name: backends: ''
     (add-hook '${name}
@@ -19,7 +19,7 @@ let
 in
 {
 
-  options.layers.auto-complete = {
+  options.packages.auto-complete = {
     enable = mkEnableOption "Auto-complete Layer";
 
     yas-expand-key = mkOption {

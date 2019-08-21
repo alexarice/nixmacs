@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.layers.flycheck;
+  cfg = config.packages.flycheck;
 in
 {
-  options.layers.flycheck = {
+  options.packages.flycheck = {
     enable = mkEnableOption "Enable Flycheck";
   };
 
