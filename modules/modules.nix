@@ -14,11 +14,11 @@
   ./layers/nixmacs.nix
   ./layers/parens.nix
   ./layers/powerline.nix
-  ./layers/projectile.nix
   ./layers/rainbow.nix
   ./packages/counsel.nix
   ./packages/ivy.nix
   ./packages/neotree.nix
+  ./packages/projectile.nix
   ./packages/swiper.nix
   ./settings.nix
   ./theme.nix

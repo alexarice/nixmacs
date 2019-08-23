@@ -19,9 +19,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    use-package.neotree = {
-      enable = mkDefault true;
-      neo-theme = "'${cfg.neo-theme}";
+    use-package = {
+      neotree = {
+        enable = mkDefault true;
+        custom.neo-theme = mkDefault "'${cfg.neo-theme}";
+      };
+      projectile.enable = mkDefault true;
     };
   };
 }
