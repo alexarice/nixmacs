@@ -16,6 +16,9 @@
   ./layers/powerline.nix
   ./layers/projectile.nix
   ./layers/rainbow.nix
+  ./packages/counsel.nix
+  ./packages/ivy.nix
+  ./packages/swiper.nix
   ./settings.nix
   ./theme.nix
   ./use-package.nix
