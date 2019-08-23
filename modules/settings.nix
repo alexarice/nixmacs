@@ -47,6 +47,8 @@ in
     };
 
     recent-files-mode = mkEnableOption "Enable recentf-mode";
+
+    electric-pair-mode = mkEnableOption "Enable electric-pair-mode";
   };
 
   config = {
@@ -98,6 +100,9 @@ in
     init-el.preamble = mkMerge [
       (mkIf cfg.delete-trailing-whitespace ''
         (add-hook 'before-save-hook 'delete-trailing-whitespace)
+      '')
+      (mkIf cfg.electric-pair-mode ''
+        (add-hook 'prog-mode-hook 'electric-pair-mode)
       '')
       (mkIf cfg.global-hl-line ''
         (global-hl-line-mode 1)
