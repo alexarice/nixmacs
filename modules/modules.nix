@@ -5,7 +5,7 @@
   ./betterDefaults.nix
   ./bootstrap.nix
   ./init-el.nix
-  ./layers/company.nix
+  ./layers/completion.nix
   ./layers/flycheck.nix
   ./layers/git.nix
   ./layers/ivy.nix

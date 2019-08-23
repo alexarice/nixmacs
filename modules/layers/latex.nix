@@ -46,7 +46,7 @@ in
         custom.auctex-latexmk-inherit-TeX-PDF-mode = "t";
       };
     };
-    layers.company.company-hooks."LaTeX-mode" = [ "company-auctex" ];
+    layers.completion.company-hooks."LaTeX-mode" = [ "company-auctex" ];
     layers.parens.hooks = "LaTeX-mode";
   };
 }

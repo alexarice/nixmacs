@@ -4,7 +4,7 @@ with lib;
 
 let
   inherit (builtins) concatStringsSep attrNames getAttr;
-  cfg = config.layers.company;
+  cfg = config.layers.completion;
   default = cfg.default-backends;
   writeCompanyHook = name: backends: ''
     (add-hook '${name}
@@ -19,7 +19,7 @@ let
 in
 {
 
-  options.layers.company = {
+  options.layers.completion = {
     enable = mkEnableOption "company Layer";
 
     yas-expand-key = mkOption {

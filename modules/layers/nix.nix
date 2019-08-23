@@ -28,7 +28,7 @@ in
         defer = true;
       };
     };
-    layers.company.company-hooks."nix-mode-hook" = [ "company-nixos-options" ];
+    layers.completion.company-hooks."nix-mode-hook" = [ "company-nixos-options" ];
     layers.parens.hooks = "nix-mode";
   };
 }
