@@ -27,6 +27,7 @@ in
       projectile.enable = mkDefault true;
       powerline.enable = mkDefault true;
       rainbow-mode.enable = mkDefault true;
+      flycheck = mkDefault true;
     };
     layers.ivy.enable = mkDefault true;
   };

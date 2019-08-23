@@ -6,7 +6,6 @@
   ./bootstrap.nix
   ./init-el.nix
   ./layers/completion.nix
-  ./layers/flycheck.nix
   ./layers/git.nix
   ./layers/ivy.nix
   ./layers/latex.nix
@@ -15,6 +14,7 @@
   ./layers/parens.nix
   ./packages/company.nix
   ./packages/counsel.nix
+  ./packages/flycheck.nix
   ./packages/git-gutter.nix
   ./packages/ivy.nix
   ./packages/neotree.nix
