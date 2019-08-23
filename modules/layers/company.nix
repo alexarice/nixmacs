@@ -67,14 +67,12 @@ in
     use-package = {
       yasnippet = {
         enable = true;
-        commands = [ "yas-global-mode" "yas-minor-mode" ];
         bind."yas-minor-mode-map" =
           if cfg.yas-expand-key == "TAB" then {} else {
             "TAB" = "nil";
             "<tab>" = "nil";
             "${cfg.yas-expand-key}" = "yas-expand";
           };
-        hook = "prog-mode";
         custom.yas-snippet-dirs = "${cfg.yas-snippet-dirs}";
       };
 
@@ -85,11 +83,6 @@ in
 
       company = {
         enable = true;
-        init = singleton ''
-          (setq company-idle-delay 0.1
-                company-minimum-prefix-length 2
-                company-selection-wrap-around t)
-              '';
         config = singleton ''
           (progn
           ${writeAllHooks (cfg.company-hooks)}

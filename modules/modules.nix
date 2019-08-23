@@ -13,6 +13,7 @@
   ./layers/nix.nix
   ./layers/nixmacs.nix
   ./layers/parens.nix
+  ./packages/company.nix
   ./packages/counsel.nix
   ./packages/git-gutter.nix
   ./packages/ivy.nix
@@ -21,6 +22,7 @@
   ./packages/projectile.nix
   ./packages/rainbow-mode.nix
   ./packages/swiper.nix
+  ./packages/yasnippet.nix
   ./settings.nix
   ./theme.nix
   ./use-package.nix
