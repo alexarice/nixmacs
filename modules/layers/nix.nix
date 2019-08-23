@@ -20,9 +20,7 @@ in
       nix-mode = {
         enable = true;
         mode = "\"\\\\.nix\\\\'\"";
-        init = singleton ''
-          (setq nix-indent-function 'nix-indent-line)
-        '';
+        custom.nix-indent-function = "'nix-indent-line";
       };
 
       nixos-options = {
