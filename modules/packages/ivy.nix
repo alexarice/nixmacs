@@ -9,8 +9,8 @@ with lib;
     '');
     diminish = mkDefault "ivy-mode";
     custom = {
-      ivy-initial-inputs-alist = mkDefault "nil";
-      ivy-use-selectable-prompt = mkDefault "t";
+      ivy-initial-inputs-alist = mkDefault false;
+      ivy-use-selectable-prompt = mkDefault true;
     };
     bind."ivy-minibuffer-map"."RET" = mkDefault "ivy-alt-done";
   };

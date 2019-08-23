@@ -108,7 +108,7 @@ in
       '')
     ];
 
-    use-package.ivy.custom.ivy-use-virtual-buffers = mkIf cfg.recent-files-mode "t";
+    use-package.ivy.custom.ivy-use-virtual-buffers = mkIf cfg.recent-files-mode true;
 
     use-package.crux.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
   };

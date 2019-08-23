@@ -22,11 +22,11 @@ with lib;
       mode = "(\"\\\\.tex\\\\'\" . TeX-latex-mode)";
       package = mkDefault epkgs.elpaPackages.auctex;
       custom = {
-        TeX-auto-save = mkDefault "t";
-        TeX-parse-self = mkDefault "t";
-        TeX-syntactic-comment = mkDefault "t";
-        TeX-source-cerrelate-start-server = mkDefault "t";
-        LaTeX-fill-break-at-separators = mkDefault "nil";
+        TeX-auto-save = mkDefault true;
+        TeX-parse-self = mkDefault true;
+        TeX-syntactic-comment = mkDefault true;
+        TeX-source-cerrelate-start-server = mkDefault true;
+        LaTeX-fill-break-at-separators = mkDefault false;
       };
     };
   };
