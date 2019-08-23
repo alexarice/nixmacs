@@ -16,8 +16,6 @@ in
 
       git-gutter = {
         enable = true;
-        diminish = "git-gutter-mode";
-        config = [ "(global-git-gutter-mode 1)" ];
       };
 
       git-timemachine = {

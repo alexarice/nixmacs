@@ -14,6 +14,7 @@
   ./layers/nixmacs.nix
   ./layers/parens.nix
   ./packages/counsel.nix
+  ./packages/git-gutter.nix
   ./packages/ivy.nix
   ./packages/neotree.nix
   ./packages/powerline.nix
