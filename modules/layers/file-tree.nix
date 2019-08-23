@@ -22,10 +22,10 @@ in
     use-package = {
       neotree = {
         enable = true;
-        custom = [
-          "(neo-smart-open t)"
-          "(neo-theme '${cfg.neo-theme})"
-        ];
+        custom = {
+          neo-smart-open = "t";
+          neo-theme = "'${cfg.neo-theme}";
+        };
       };
     };
   };

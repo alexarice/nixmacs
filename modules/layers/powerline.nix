@@ -12,7 +12,7 @@ in
     use-package = {
       powerline = {
         enable = true;
-        custom = [ "(powerline-default-separator 'utf-8)" ];
+        custom.powerline-default-separator = "'utf-8";
       };
     };
   };

@@ -24,13 +24,13 @@ in
         defer = true;
         enable = true;
         package = epkgs.elpaPackages.auctex;
-        custom = [
-          "(TeX-auto-save t)"
-          "(TeX-parse-self t)"
-          "(TeX-syntactic-comment t)"
-          "(TeX-source-cerrelate-start-server t)"
-          "(LaTeX-fill-break-at-separators nil)"
-        ];
+        custom = {
+          TeX-auto-save = "t";
+          TeX-parse-self = "t";
+          TeX-syntactic-comment = "t";
+          TeX-source-cerrelate-start-server = "t";
+          LaTeX-fill-break-at-separators = "nil";
+        };
         init = [
           "(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)"
           "(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)"
@@ -43,7 +43,7 @@ in
       auctex-latexmk = {
         defer = true;
         enable = true;
-        custom = "(auctex-latexmk-inherit-TeX-PDF-mode t)";
+        custom.auctex-latexmk-inherit-TeX-PDF-mode = "t";
       };
     };
     layers.company.company-hooks."LaTeX-mode" = [ "company-auctex" ];

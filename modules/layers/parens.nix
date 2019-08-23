@@ -40,14 +40,14 @@ in
       in {
         enable = true;
         commands = [ "sp-split-sexp" "sp-newline" "sp-up-sexp" ];
-        custom = [
-          "(sp-show-pair-delay 0.1)"
-          "(sp-show-pair-from-inside t)"
-          "(sp-cancel-autoskip-on-backward-movement nil)"
-          "(sp-highlight-pair-overlay nil)"
-          "(sp-highlight-wrap-overlay nil)"
-          "(sp-highlight-wrap-tag-overlay nil)"
-        ];
+        custom = {
+          sp-show-pair-delay = "0.1";
+          sp-show-pair-from-inside = "t";
+          sp-cancel-autoskip-on-backward-movement = "nil";
+          sp-highlight-pair-overlay = "nil";
+          sp-highlight-wrap-overlay = "nil";
+          sp-highlight-wrap-tag-overlay = "nil";
+        };
         diminish = sp-mode;
         hook = "((${cfg.hooks}) . ${sp-mode})";
         config = [

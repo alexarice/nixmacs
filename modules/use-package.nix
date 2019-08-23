@@ -4,6 +4,7 @@ with lib;
 
 let
   inherit (import ../types/bindType.nix { inherit lib; }) bindType printBinding;
+  inherit (import ../types/customType.nix { inherit lib; }) customType printCustom;
   inherit (builtins) hasAttr getAttr;
   packageOpts = { name, config, ... }:
   {
@@ -115,16 +116,16 @@ let
       };
 
       custom = mkOption {
-        type = with types; either (listOf str) str;
-        default = "";
+        type = customType;
+        default = {};
         description = ''
           :custom keyword of use-package
         '';
       };
 
       custom-face = mkOption {
-        type = with types; either (listOf str) str;
-        default = "";
+        type = customType;
+        default = {};
         description = ''
           :custom-face keyword of use-package
         '';
@@ -221,8 +222,8 @@ let
     ${if p.magic != "" then ":magic\n${concatLines p.magic}" else ""}
     ${if p.magic-fallback != "" then ":magic-fallback\n${concatLines p.magic-fallback}" else ""}
     ${if p.hook != "" then ":hook\n${p.hook}" else ""}
-    ${if p.custom != "" then ":custom\n${concatLines p.custom}" else ""}
-    ${if p.custom-face != "" then ":custom-face\n${concatLines p.custom-face}" else ""}
+    ${if p.custom != {} then ":custom\n${printCustom p.custom}" else ""}
+    ${if p.custom-face != {} then ":custom-face\n${printCustom p.custom-face}" else ""}
     ${if p.demand then ":demand t" else ""}
     ${if p.if-keyword != "" then ":if\n${p.if-keyword}" else ""}
     ${if p.when != "" then ":when\n${p.when}" else ""}
