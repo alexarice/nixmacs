@@ -26,5 +26,7 @@ in
       };
       projectile.enable = mkDefault true;
     };
+
+    layers.ivy.enable = mkDefault true;
   };
 }
