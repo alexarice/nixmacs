@@ -1,4 +1,4 @@
-{ config, epkgs, lib, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -22,7 +22,6 @@ in
     use-package = {
       neotree = {
         enable = true;
-        package = epkgs.melpaPackages.neotree;
         custom = [
           "(neo-smart-open t)"
           "(neo-theme '${cfg.neo-theme})"

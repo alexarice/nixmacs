@@ -1,4 +1,4 @@
-{ config, epkgs, lib, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -14,7 +14,6 @@ in
     use-package = {
       flycheck = {
         enable = true;
-        package = epkgs.melpaPackages.flycheck;
         config = [ "(global-flycheck-mode)" ];
       };
     };

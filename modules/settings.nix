@@ -1,4 +1,4 @@
-{ config, epkgs, lib, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -35,7 +35,6 @@ in
     use-package = {
       adaptive-wrap = {
         inherit (cfg.adaptive-wrap) enable;
-        package = epkgs.elpaPackages.adaptive-wrap;
         config = [
           "(setq-default adaptive-wrap-extra-indent ${builtins.toString cfg.adaptive-wrap.indent})"
           "(add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)"
@@ -46,7 +45,6 @@ in
 
       smooth-scrolling = {
         inherit (cfg.smooth-scrolling) enable;
-        package = epkgs.melpaPackages.smooth-scrolling;
         config = [
           "(smooth-scrolling-mode 1)"
           "(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))"
@@ -70,14 +68,14 @@ in
           (find-file (getenv "INITEL")))
         '')];
 
-        init-el.preamble = mkMerge [
-          (mkIf cfg.delete-trailing-whitespace ''
-            (add-hook 'before-save-hook 'delete-trailing-whitespace)
-          '')
-          (mkIf cfg.global-hl-line ''
-            (global-hl-line-mode 1)
-          '')
-        ];
+    init-el.preamble = mkMerge [
+      (mkIf cfg.delete-trailing-whitespace ''
+        (add-hook 'before-save-hook 'delete-trailing-whitespace)
+      '')
+      (mkIf cfg.global-hl-line ''
+        (global-hl-line-mode 1)
+      '')
+    ];
 
      use-package.crux.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
   };

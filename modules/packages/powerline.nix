@@ -1,4 +1,4 @@
-{ config, epkgs, lib, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -12,7 +12,6 @@ in
     use-package = {
       powerline = {
         enable = true;
-        package = epkgs.melpaPackages.powerline;
         custom = [ "(powerline-default-separator 'utf-8)" ];
       };
     };

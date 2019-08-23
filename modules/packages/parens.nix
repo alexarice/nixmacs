@@ -1,4 +1,4 @@
-{ config, epkgs, lib, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -39,11 +39,7 @@ in
       smartparens = let sp-mode = "smartparens-${if cfg.strict then "strict-" else ""}mode";
       in {
         enable = true;
-
-        package = epkgs.melpaPackages.smartparens;
-
         commands = [ "sp-split-sexp" "sp-newline" "sp-up-sexp" ];
-
         custom = [
           "(sp-show-pair-delay 0.1)"
           "(sp-show-pair-from-inside t)"
@@ -52,18 +48,14 @@ in
           "(sp-highlight-wrap-overlay nil)"
           "(sp-highlight-wrap-tag-overlay nil)"
         ];
-
         diminish = sp-mode;
-
         hook = "((${cfg.hooks}) . ${sp-mode})";
-
         config = [
           "(require 'smartparens-config)"
         ];
       };
       rainbow-delimiters = {
         enable = cfg.rainbow-delimiters;
-        package = epkgs.melpaPackages.rainbow-delimiters;
         hook = "(prog-mode . rainbow-delimiters-mode)";
       };
     };

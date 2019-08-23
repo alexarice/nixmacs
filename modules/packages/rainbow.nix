@@ -1,4 +1,4 @@
-{ config, epkgs, lib, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -12,7 +12,6 @@ in
     use-package = {
       rainbow-mode = {
         enable = true;
-        package = epkgs.elpaPackages.rainbow-mode;
         hook = "prog-mode";
       };
     };

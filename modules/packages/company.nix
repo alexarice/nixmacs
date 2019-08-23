@@ -1,4 +1,4 @@
-{ config, lib, epkgs, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -67,7 +67,6 @@ in
     use-package = {
       yasnippet = {
         enable = true;
-        package = epkgs.elpaPackages.yasnippet;
         commands = [ "yas-global-mode" "yas-minor-mode" ];
         bind."yas-minor-mode-map" =
           if cfg.yas-expand-key == "TAB" then {} else {
@@ -81,13 +80,11 @@ in
 
       auto-yasnippet = {
         enable = true;
-        package = epkgs.melpaPackages.auto-yasnippet;
         bind."${cfg.yas-expand-key}" = "aya-expand";
       };
 
       company = {
         enable = true;
-        package = epkgs.melpaPackages.company;
         init = singleton ''
           (setq company-idle-delay 0.1
                 company-minimum-prefix-length 2

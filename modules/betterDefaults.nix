@@ -1,4 +1,4 @@
-{ config, epkgs, ... }:
+{ config, ... }:
 
 {
   # From https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
@@ -25,13 +25,11 @@
     use-package = {
       undo-tree = {
         enable = true;
-        package = epkgs.elpaPackages.undo-tree;
         diminish = "undo-tree-mode";
         config = [ "(global-undo-tree-mode 1)" ];
       };
       crux = {
         enable = true;
-        package = epkgs.melpaPackages.crux;
       };
     };
   };

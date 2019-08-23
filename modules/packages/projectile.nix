@@ -1,4 +1,4 @@
-{ config, lib, epkgs, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -44,7 +44,6 @@ in
           (projectile-global-mode)
         '';
         diminish = "projectile-mode";
-        package = epkgs.melpaPackages.projectile;
       };
     };
   };

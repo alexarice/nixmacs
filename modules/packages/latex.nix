@@ -43,7 +43,6 @@ in
       auctex-latexmk = {
         defer = true;
         enable = true;
-        package = epkgs.melpaPackages.auctex-latexmk;
         custom = "(auctex-latexmk-inherit-TeX-PDF-mode t)";
       };
     };

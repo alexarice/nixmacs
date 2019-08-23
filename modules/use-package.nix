@@ -1,9 +1,10 @@
-{ lib, config, ... }:
+{ lib, epkgs, config, ... }:
 
 with lib;
 
 let
   inherit (import ../types/bindType.nix { inherit lib; }) bindType printBinding;
+  inherit (builtins) hasAttr getAttr;
   packageOpts = { name, config, ... }:
   {
     options = {
@@ -11,6 +12,7 @@ let
 
       package = mkOption {
         type = types.package;
+        default = if hasAttr name epkgs.melpaPackages then getAttr name epkgs.melpaPackages else getAttr name epkgs.elpaPackages;
         description = ''
           Nix package for the emacs package
         '';

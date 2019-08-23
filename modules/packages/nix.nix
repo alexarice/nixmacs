@@ -1,4 +1,4 @@
-{ config, epkgs, lib, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -14,14 +14,12 @@ in
     use-package = {
       company-nixos-options = {
         enable = config.use-package.company.enable;
-        package = epkgs.melpaPackages.company-nixos-options;
         defer = true;
       };
 
       nix-mode = {
         enable = true;
         mode = "\"\\\\.nix\\\\'\"";
-        package = epkgs.melpaPackages.nix-mode;
         init = singleton ''
           (setq nix-indent-function 'nix-indent-line)
         '';
@@ -29,7 +27,6 @@ in
 
       nixos-options = {
         enable = true;
-        package = epkgs.melpaPackages.nixos-options;
         defer = true;
       };
     };
