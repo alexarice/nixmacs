@@ -25,6 +25,7 @@ in
         custom.neo-theme = mkDefault "'${cfg.neo-theme}";
       };
       projectile.enable = mkDefault true;
+      powerline.enable = mkDefault true;
     };
     layers.ivy.enable = mkDefault true;
   };
