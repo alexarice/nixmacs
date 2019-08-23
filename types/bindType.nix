@@ -8,7 +8,7 @@ let
   wrapBrackets = x: "(${x})";
 in
 {
-  bindType = with types; loaOf (either str (loaOf str));
+  bindType = with types; attrsOf (either str (attrsOf str));
 
   printBinding = b:
   let

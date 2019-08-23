@@ -39,7 +39,7 @@ in
     };
 
     company-hooks = mkOption {
-      type = with types; loaOf (listOf str);
+      type = with types; attrsOf (listOf str);
       default = {};
       description = ''
         company backends for major modes

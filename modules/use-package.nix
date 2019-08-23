@@ -237,7 +237,7 @@ in
   options = {
     use-package = mkOption {
       default = {};
-      type = with types; loaOf (submodule packageOpts);
+      type = with types; attrsOf (submodule packageOpts);
     };
 
     rawPackageList = mkOption {
