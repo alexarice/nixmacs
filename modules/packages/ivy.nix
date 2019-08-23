@@ -21,7 +21,11 @@ in
           (ivy-mode 1)
         '';
         diminish = "ivy-mode";
-        custom = [ "(ivy-initial-inputs-alist nil)" ];
+        custom = [
+          "(ivy-initial-inputs-alist nil)"
+          "(ivy-use-selectable-prompt t)"
+        ];
+        bind."ivy-minibuffer-map"."RET" = "ivy-alt-done";
       };
       counsel = {
         enable = true;
