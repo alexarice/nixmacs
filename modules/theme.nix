@@ -3,26 +3,28 @@
 with lib;
 
 let
-  cfg = config.theme;
+  cfg = config.appearance.theme;
 in
 {
   options = {
-    theme = {
-      enable = mkEnableOption "Theme";
+    appearance = {
+      theme = {
+        enable = mkEnableOption "Theme";
 
-      package = mkOption {
-        type = types.package;
-        description = ''
-          emacs package for theme
-        '';
-      };
+        package = mkOption {
+          type = types.package;
+          description = ''
+            emacs package for theme
+          '';
+        };
 
-      themeName = mkOption {
-        type = types.str;
-        default = cfg.package.pname;
-        description = ''
-          theme name to be put in init-el
-        '';
+        themeName = mkOption {
+          type = types.str;
+          default = cfg.package.pname;
+          description = ''
+            theme name to be put in init-el
+          '';
+        };
       };
     };
   };

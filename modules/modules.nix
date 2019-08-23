@@ -3,6 +3,7 @@
 [
   ./base.nix
   ./bootstrap.nix
+  ./font.nix
   ./init-el.nix
   ./layers/completion.nix
   ./layers/git.nix
