@@ -74,7 +74,7 @@ in
             "<tab>" = "nil";
             "${cfg.yas-expand-key}" = "yas-expand";
           };
-        init = singleton "(add-hook 'prog-mode-hook #'yas-minor-mode)";
+        hook = "prog-mode";
         custom.yas-snippet-dirs = "${cfg.yas-snippet-dirs}";
       };
 
