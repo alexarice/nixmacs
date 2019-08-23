@@ -18,16 +18,15 @@ with lib;
     ];
 
     use-package.tex = {
-      tex = {
-        defer = mkDefault true;
-        package = mkDefault epkgs.elpaPackages.auctex;
-        custom = {
-          TeX-auto-save = mkDefault "t";
-          TeX-parse-self = mkDefault "t";
-          TeX-syntactic-comment = mkDefault "t";
-          TeX-source-cerrelate-start-server = mkDefault "t";
-          LaTeX-fill-break-at-separators = mkDefault "nil";
-        };
+      defer = mkDefault true;
+      mode = "(\"\\\\.tex\\\\'\" . TeX-latex-mode)";
+      package = mkDefault epkgs.elpaPackages.auctex;
+      custom = {
+        TeX-auto-save = mkDefault "t";
+        TeX-parse-self = mkDefault "t";
+        TeX-syntactic-comment = mkDefault "t";
+        TeX-source-cerrelate-start-server = mkDefault "t";
+        LaTeX-fill-break-at-separators = mkDefault "nil";
       };
     };
   };
