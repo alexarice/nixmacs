@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.packages.powerline;
+  cfg = config.layers.powerline;
 in
 {
-  options.packages.powerline.enable = mkEnableOption "Powerline";
+  options.layers.powerline.enable = mkEnableOption "Powerline";
 
   config = mkIf cfg.enable {
     use-package = {

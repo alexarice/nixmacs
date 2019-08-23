@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.packages.ivy;
+  cfg = config.layers.ivy;
 in
 {
-  options.packages = {
+  options.layers = {
     ivy = {
       enable = mkEnableOption "Ivy layer";
     };

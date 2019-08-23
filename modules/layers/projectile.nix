@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.packages.projectile;
+  cfg = config.layers.projectile;
 in
 {
-  options.packages.projectile = {
+  options.layers.projectile = {
     enable = mkEnableOption "Projectile Layer";
   };
 

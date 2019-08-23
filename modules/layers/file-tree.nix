@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.packages.file-tree;
+  cfg = config.layers.file-tree;
 in
 {
-  options.packages.file-tree = {
+  options.layers.file-tree = {
     enable = mkEnableOption "File tree layer";
 
     neo-theme = mkOption {

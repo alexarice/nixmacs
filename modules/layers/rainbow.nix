@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.packages.rainbow;
+  cfg = config.layers.rainbow;
 in
 {
-  options.packages.rainbow.enable = mkEnableOption "Rainbow mode";
+  options.layers.rainbow.enable = mkEnableOption "Rainbow mode";
 
   config = mkIf cfg.enable {
     use-package = {

@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.packages.git;
+  cfg = config.layers.git;
 in
 {
-  options.packages.git.enable = mkEnableOption "Git layer";
+  options.layers.git.enable = mkEnableOption "Git layer";
 
   config = mkIf cfg.enable {
     use-package = {

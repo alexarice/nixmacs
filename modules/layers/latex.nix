@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.packages.latex;
+  cfg = config.layers.latex;
 in
 {
-  options.packages.latex = {
+  options.layers.latex = {
     enable = mkEnableOption "Latex layer";
 
     enable-folding = mkOption {
@@ -46,7 +46,7 @@ in
         custom = "(auctex-latexmk-inherit-TeX-PDF-mode t)";
       };
     };
-    packages.company.company-hooks."LaTeX-mode" = [ "company-auctex" ];
-    packages.parens.hooks = "LaTeX-mode";
+    layers.company.company-hooks."LaTeX-mode" = [ "company-auctex" ];
+    layers.parens.hooks = "LaTeX-mode";
   };
 }
