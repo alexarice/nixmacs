@@ -10,7 +10,6 @@
   ./layers/latex.nix
   ./layers/nix.nix
   ./layers/nixmacs.nix
-  ./layers/parens.nix
   ./packages/auctex-latexmk.nix
   ./packages/auctex.nix
   ./packages/company-nixos-options.nix
@@ -24,7 +23,9 @@
   ./packages/nixos-options.nix
   ./packages/powerline.nix
   ./packages/projectile.nix
+  ./packages/rainbow-delimiters.nix
   ./packages/rainbow-mode.nix
+  ./packages/smartparens.nix
   ./packages/swiper.nix
   ./packages/yasnippet.nix
   ./settings.nix

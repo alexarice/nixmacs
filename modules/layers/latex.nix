@@ -29,6 +29,5 @@ in
       auctex-latexmk.enable = true;
     };
     layers.completion.company-hooks."LaTeX-mode" = [ "company-auctex" ];
-    layers.parens.hooks = "LaTeX-mode";
   };
 }

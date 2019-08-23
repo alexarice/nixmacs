@@ -8,14 +8,6 @@ in
 {
   options.layers.nixmacs = {
     enable = (mkEnableOption "Nixmacs base layer") // { default = true; };
-
-    neo-theme = mkOption {
-      type = types.str;
-      default = "arrow";
-      description = ''
-        neo-theme variable
-      '';
-    };
   };
 
   config = mkIf cfg.enable {
@@ -39,15 +31,14 @@ in
     '';
 
     use-package = {
-      neotree = {
-        enable = mkDefault true;
-        custom.neo-theme = mkDefault "'${cfg.neo-theme}";
-      };
-      projectile.enable = mkDefault true;
-      powerline.enable = mkDefault true;
-      rainbow-mode.enable = mkDefault true;
-      flycheck = mkDefault true;
       crux.enable = mkDefault true;
+      flycheck = mkDefault true;
+      neotree.enable = mkDefault true;
+      powerline.enable = mkDefault true;
+      projectile.enable = mkDefault true;
+      rainbow-delimiters = mkDefault true;
+      rainbow-mode.enable = mkDefault true;
+      smartparens.enable = mkDefault true;
       undo-tree.enable = mkDefault true;
     };
 

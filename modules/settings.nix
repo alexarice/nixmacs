@@ -29,6 +29,22 @@ in
     crux-C-a = mkEnableOption "Use Crux C-a";
 
     global-hl-line = mkEnableOption "Highlight line mode";
+
+    neo-theme = mkOption {
+      type = types.str;
+      default = "arrow";
+      description = ''
+        neo-theme variable
+      '';
+    };
+
+    smartparens-strict = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Use smartparens-strict-mode
+      '';
+    };
   };
 
   config = {
@@ -53,6 +69,15 @@ in
           "(setq scroll-step 1)"
         ];
       };
+
+      smartparens = let
+        sp-mode = "smartparens-${if cfg.smartparens-strict then "strict-" else ""}mode";
+      in {
+        diminish = sp-mode;
+        hook = "(prog-mode . ${sp-mode})";
+      };
+
+      neotree.custom.neo-theme = "'${cfg.neo-theme}";
     };
 
     init-el.postSetup = mkMerge [

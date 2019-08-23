@@ -25,6 +25,5 @@ in
       };
     };
     layers.completion.company-hooks."nix-mode-hook" = [ "company-nixos-options" ];
-    layers.parens.hooks = "nix-mode";
   };
 }
