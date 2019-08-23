@@ -13,12 +13,15 @@
   ./layers/parens.nix
   ./packages/auctex-latexmk.nix
   ./packages/auctex.nix
+  ./packages/company-nixos-options.nix
   ./packages/company.nix
   ./packages/counsel.nix
   ./packages/flycheck.nix
   ./packages/git-gutter.nix
   ./packages/ivy.nix
   ./packages/neotree.nix
+  ./packages/nix-mode.nix
+  ./packages/nixos-options.nix
   ./packages/powerline.nix
   ./packages/projectile.nix
   ./packages/rainbow-mode.nix
