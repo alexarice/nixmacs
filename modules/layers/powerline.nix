@@ -13,6 +13,9 @@ in
       powerline = {
         enable = true;
         custom.powerline-default-separator = "'utf-8";
+        config = singleton ''
+          (powerline-center-theme)
+        '';
       };
     };
   };
