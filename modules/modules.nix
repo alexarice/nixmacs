@@ -11,6 +11,8 @@
   ./layers/nix.nix
   ./layers/nixmacs.nix
   ./layers/parens.nix
+  ./packages/auctex-latexmk.nix
+  ./packages/auctex.nix
   ./packages/company.nix
   ./packages/counsel.nix
   ./packages/flycheck.nix
