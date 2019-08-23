@@ -45,6 +45,8 @@ in
         Use smartparens-strict-mode
       '';
     };
+
+    recent-files-mode = mkEnableOption "Enable recentf-mode";
   };
 
   config = {
@@ -100,8 +102,14 @@ in
       (mkIf cfg.global-hl-line ''
         (global-hl-line-mode 1)
       '')
+      (mkIf cfg.recent-files-mode ''
+        (recentf-mode 1)
+        (run-at-time nil (* 2 60) 'recentf-save-list)
+      '')
     ];
 
-     use-package.crux.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
+    use-package.ivy.custom.ivy-use-virtual-buffers = mkIf cfg.recent-files-mode "t";
+
+    use-package.crux.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
   };
 }
