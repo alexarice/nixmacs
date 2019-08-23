@@ -2,7 +2,6 @@
 
 [
   ./base.nix
-  ./betterDefaults.nix
   ./bootstrap.nix
   ./init-el.nix
   ./layers/completion.nix
