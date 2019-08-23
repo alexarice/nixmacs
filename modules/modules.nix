@@ -13,12 +13,12 @@
   ./layers/nix.nix
   ./layers/nixmacs.nix
   ./layers/parens.nix
-  ./layers/rainbow.nix
   ./packages/counsel.nix
   ./packages/ivy.nix
   ./packages/neotree.nix
   ./packages/powerline.nix
   ./packages/projectile.nix
+  ./packages/rainbow-mode.nix
   ./packages/swiper.nix
   ./settings.nix
   ./theme.nix
