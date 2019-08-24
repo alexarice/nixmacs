@@ -14,18 +14,18 @@ let
         modules = [ configurationFile pkgsModule ] ++ modules;
       };
     in {
-      inherit (evaledModule.config) rawPackageList initEl;
+      inherit (evaledModule.config) rawPackageList initEl externalPackageList;
     })).overrideAttrs (oldAttrs:
     let
       oldReqs = oldAttrs.explicitRequires;
       explicitRequires = oldReqs.rawPackageList;
     in {
       inherit explicitRequires;
-      initEl = oldReqs.initEl;
+      inherit (oldReqs) initEl externalPackageList;
       deps = oldAttrs.deps.overrideAttrs (o: { inherit explicitRequires; });
     });
 in
 pkgs.callPackage ./nixmacs {
   inherit emacsPackage;
-  initEl = emacsPackage.initEl;
+  inherit (emacsPackage) initEl externalPackageList;
 }

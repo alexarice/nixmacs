@@ -1,12 +1,13 @@
-{ config, lib, ... }:
+{ config, lib, epkgs, pkgs, ... }:
 
 with lib;
 
 {
   config.use-package.projectile = {
     defer = mkDefault true;
+    package = with epkgs.melpaPackages; [ projectile ag ];
+    external-packages = with pkgs; [ gnugrep ack ripgrep ag fd ];
     commands = mkDefault [
-      "projectile-ack"
       "projectile-ag"
       "projectile-compile-project"
       "projectile-dired"

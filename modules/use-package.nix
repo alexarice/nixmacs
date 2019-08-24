@@ -12,10 +12,18 @@ let
       enable = mkEnableOption name;
 
       package = mkOption {
-        type = types.package;
+        type = with types; either package (listOf package);
         default = if hasAttr name epkgs.melpaPackages then getAttr name epkgs.melpaPackages else getAttr name epkgs.elpaPackages;
         description = ''
           Nix package for the emacs package
+        '';
+      };
+
+      external-packages = mkOption {
+        type = with types; listOf package;
+        default = [];
+        description = ''
+          Any packages that should be added to emacs' exec-path
         '';
       };
 
@@ -247,10 +255,17 @@ in
       type = with types; listOf package;
       visible = false;
     };
+
+    externalPackageList = mkOption {
+      type = with types; listOf package;
+      visible = false;
+    };
   };
 
   config = {
-    rawPackageList = map (p: p.package) (filter (p: p.enable) (builtins.attrValues(config.use-package)));
+    rawPackageList = builtins.concatMap (p: if builtins.isList p.package then p.package else singleton p.package) (filter (p: p.enable) (builtins.attrValues(config.use-package)));
+
+    externalPackageList = builtins.concatMap (p: p.external-packages) (filter (p: p.enable) (builtins.attrValues (config.use-package)));
 
     init-el.packageSetup = builtins.concatStringsSep "\n\n" (map packageToConfig (filter (p: p.enable)(builtins.attrValues (config.use-package))));
   };

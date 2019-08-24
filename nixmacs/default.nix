@@ -1,7 +1,8 @@
-{ emacsPackage , initEl, writeText, makeWrapper, runCommand }:
+{ emacsPackage , initEl, externalPackageList, writeText, makeWrapper, runCommand, substituteAll, lib, runtimeShell}:
 
 let
-  initElDrv = writeText "init-el" initEl;
+  binpath = lib.makeBinPath externalPackageList;
+  initElDrv = (writeText "init.el" initEl);
 
   pname = "nixmacs";
   version = "0.1.0";
@@ -12,7 +13,11 @@ runCommand "${pname}-${version}" {
   nativeBuildInputs = [ makeWrapper ];
 } ''
   mkdir -p $out
+  makeWrapper ${runtimeShell} $out/shell \
+    --prefix PATH : ${binpath}
   makeWrapper ${emacsPackage}/bin/emacs $out/bin/nixmacs \
     --add-flags "-q -l ${initElDrv}" \
-    --set INITEL ${initElDrv}
+    --set INITEL ${initElDrv} \
+    --prefix PATH : ${binpath} \
+    --set SHELL $out/shell
   ''
