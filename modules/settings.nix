@@ -108,8 +108,13 @@ in
         (global-hl-line-mode 1)
       '')
       (mkIf cfg.recent-files-mode ''
+        (defun save-recentf-no-output ()
+          "recentf-save-list without output"
+          (interactive)
+          (let ((inhibit-message t))
+            (recentf-save-list)))
         (recentf-mode 1)
-        (run-at-time nil (* 2 60) 'recentf-save-list)
+        (run-at-time nil (* 2 60) 'save-recentf-no-output)
       '')
     ];
 
