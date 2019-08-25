@@ -5,8 +5,8 @@ with lib;
 {
   config.use-package.projectile = {
     defer = mkDefault true;
-    package = with epkgs.melpaPackages; [ projectile ag ];
-    external-packages = with pkgs; [ gnugrep ack ripgrep ag fd ];
+    package = with epkgs.melpaPackages; mkDefault [ projectile ag ];
+    external-packages = with pkgs; mkDefault [ gnugrep ack ripgrep ag fd ];
     commands = mkDefault [
       "projectile-ag"
       "projectile-compile-project"
