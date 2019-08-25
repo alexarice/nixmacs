@@ -32,11 +32,11 @@ in
 
     use-package = {
       crux.enable = mkDefault true;
-      flycheck = mkDefault true;
+      flycheck.enable = mkDefault true;
       neotree.enable = mkDefault true;
       powerline.enable = mkDefault true;
       projectile.enable = mkDefault true;
-      rainbow-delimiters = mkDefault true;
+      rainbow-delimiters.enable = mkDefault true;
       rainbow-mode.enable = mkDefault true;
       smartparens.enable = mkDefault true;
       undo-tree.enable = mkDefault true;
