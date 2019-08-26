@@ -5,6 +5,7 @@
   ./bootstrap.nix
   ./font.nix
   ./init-el.nix
+  ./layers/c.nix
   ./layers/completion.nix
   ./layers/git.nix
   ./layers/ivy.nix
@@ -13,11 +14,15 @@
   ./layers/nixmacs.nix
   ./packages/auctex-latexmk.nix
   ./packages/auctex.nix
+  ./packages/company-irony.nix
   ./packages/company-nixos-options.nix
   ./packages/company.nix
   ./packages/counsel.nix
+  ./packages/flycheck-irony.nix
   ./packages/flycheck.nix
   ./packages/git-gutter.nix
+  ./packages/irony-eldoc.nix
+  ./packages/irony.nix
   ./packages/ivy.nix
   ./packages/neotree.nix
   ./packages/nix-mode.nix

@@ -13,7 +13,7 @@ let
 
       package = mkOption {
         type = with types; either package (listOf package);
-        default = if hasAttr name epkgs.melpaPackages then getAttr name epkgs.melpaPackages else getAttr name epkgs.elpaPackages;
+        default = getAttr name epkgs;
         description = ''
           Nix package for the emacs package
         '';
