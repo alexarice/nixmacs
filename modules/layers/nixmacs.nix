@@ -38,8 +38,19 @@ in
       projectile.enable = mkDefault true;
       rainbow-delimiters.enable = mkDefault true;
       rainbow-mode.enable = mkDefault true;
-      smartparens.enable = mkDefault true;
       undo-tree.enable = mkDefault true;
+    };
+
+    settings = {
+      line-numbers.enable = mkDefault true;
+      adaptive-wrap.enable = mkDefault true;
+      smooth-scrolling.enable = mkDefault true;
+      delete-trailing-whitespace = mkDefault true;
+      crux-C-a = mkDefault true;
+      global-hl-line = mkDefault true;
+      neo-theme = mkDefault "arrow";
+      recent-files-mode = mkDefault true;
+      electric-pair-mode = if config.use-package.smartparens.enable then mkDefault false else mkDefault true;
     };
 
     layers.ivy.enable = mkDefault true;
