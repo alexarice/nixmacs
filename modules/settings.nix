@@ -4,8 +4,7 @@ with lib;
 
 let
   cfg = config.settings;
-in
-{
+in{
   options.settings = {
     adaptive-wrap = {
       enable = mkEnableOption "global adaptive-wrap";
@@ -78,7 +77,7 @@ in
         sp-mode = "smartparens-${if cfg.smartparens-strict then "strict-" else ""}mode";
       in {
         diminish = sp-mode;
-        hook = "(prog-mode . ${sp-mode})";
+        hook = "((prog-mode . ${sp-mode}) (prog-mode . show-smartparens-mode))";
       };
 
       neotree.custom.neo-theme = "'${cfg.neo-theme}";
