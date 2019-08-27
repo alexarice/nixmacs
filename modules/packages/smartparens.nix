@@ -2,9 +2,23 @@
 
 with lib;
 
+let
+  cfg = config.package.smartparens.settings;
+in
 {
-  config.package.smartparens =
-  {
+  options.package.smartparens.settings = {
+    strict = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Use smartparens-strict-mode
+      '';
+    };
+  };
+
+  config.package.smartparens = let
+    sp-mode = "smartparens-${if cfg.strict then "strict-" else ""}mode";
+  in {
     defer = mkDefault true;
     commands = mkDefault [ "sp-split-sexp" "sp-newline" "sp-up-sexp" ];
     custom = {
@@ -24,7 +38,9 @@ with lib;
         (forward-line -1)
         (indent-according-to-mode))
       (sp-local-pair 'prog-mode "{" nil :post-handlers '((newline-indent "RET")))
-    ''
-    ];
+      (sp-local-pair 'prog-mode "[" nil :post-handlers '((newline-indent "RET")))
+    '' ];
+    diminish = sp-mode;
+    hook = "((prog-mode . ${sp-mode}) (prog-mode . show-smartparens-mode))";
   };
 }

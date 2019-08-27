@@ -37,14 +37,6 @@ in{
       '';
     };
 
-    smartparens-strict = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        Use smartparens-strict-mode
-      '';
-    };
-
     recent-files-mode = mkEnableOption "Enable recentf-mode";
 
     electric-pair-mode = mkEnableOption "Enable electric-pair-mode";
@@ -71,13 +63,6 @@ in{
           "(setq mouse-wheel-follow-mouse 't)"
           "(setq scroll-step 1)"
         ];
-      };
-
-      smartparens = let
-        sp-mode = "smartparens-${if cfg.smartparens-strict then "strict-" else ""}mode";
-      in {
-        diminish = sp-mode;
-        hook = "((prog-mode . ${sp-mode}) (prog-mode . show-smartparens-mode))";
       };
 
       neotree.custom.neo-theme = "'${cfg.neo-theme}";
