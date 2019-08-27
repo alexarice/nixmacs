@@ -48,7 +48,6 @@ in
       delete-trailing-whitespace = mkDefault true;
       crux-C-a = mkDefault true;
       global-hl-line = mkDefault true;
-      neo-theme = mkDefault "arrow";
       recent-files-mode = mkDefault true;
       electric-pair-mode = if config.package.smartparens.enable then mkDefault false else mkDefault true;
     };

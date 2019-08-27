@@ -29,14 +29,6 @@ in{
 
     global-hl-line = mkEnableOption "Highlight line mode";
 
-    neo-theme = mkOption {
-      type = types.str;
-      default = "arrow";
-      description = ''
-        neo-theme variable
-      '';
-    };
-
     recent-files-mode = mkEnableOption "Enable recentf-mode";
 
     electric-pair-mode = mkEnableOption "Enable electric-pair-mode";
@@ -64,8 +56,6 @@ in{
           "(setq scroll-step 1)"
         ];
       };
-
-      neotree.custom.neo-theme = "'${cfg.neo-theme}";
     };
 
     init-el.postSetup = mkMerge [
