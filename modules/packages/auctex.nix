@@ -4,18 +4,18 @@ with lib;
 
 {
   options.latex-hooks = mkOption {
-    type = with types; listOf str;
+    type = types.str;
     readOnly = true;
     visible = false;
   };
 
   config = {
-    latex-hooks = [
-      "(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)"
-      "(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)"
-      "(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)"
-      "(add-hook 'LaTeX-mode-hook 'flyspell-mode)"
-    ];
+    latex-hooks = ''
+      (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+      (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+      (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
+      (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+    '';
 
     package.tex = {
       defer = mkDefault true;
