@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.use-package.smartparens =
+  config.package.smartparens =
   {
     defer = mkDefault true;
     commands = mkDefault [ "sp-split-sexp" "sp-newline" "sp-up-sexp" ];

@@ -51,7 +51,7 @@ in{
   };
 
   config = {
-    use-package = {
+    package = {
       adaptive-wrap = {
         inherit (cfg.adaptive-wrap) enable;
         config = [
@@ -117,8 +117,8 @@ in{
       '')
     ];
 
-    use-package.ivy.custom.ivy-use-virtual-buffers = mkIf cfg.recent-files-mode true;
+    package.ivy.custom.ivy-use-virtual-buffers = mkIf cfg.recent-files-mode true;
 
-    use-package.crux.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
+    package.crux.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
   };
 }

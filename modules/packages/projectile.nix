@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.use-package.projectile = {
+  config.package.projectile = {
     defer = mkDefault true;
     package = with epkgs.melpaPackages; mkDefault [ projectile ag ];
     external-packages = with pkgs; mkDefault [ gnugrep ack ripgrep ag fd ];

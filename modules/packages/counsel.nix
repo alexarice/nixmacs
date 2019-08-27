@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.use-package.counsel = {
+  config.package.counsel = {
     config = mkDefault (singleton ''
       (counsel-mode 1)
     '');

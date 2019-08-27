@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.use-package.rainbow-delimiters = {
+  config.package.rainbow-delimiters = {
     hook = mkDefault "(prog-mode . rainbow-delimiters-mode)";
   };
 }

@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.use-package.company-irony = {
+  config.package.company-irony = {
     defer = mkDefault true;
   };
 }

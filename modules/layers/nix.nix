@@ -11,9 +11,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    use-package = {
+    package = {
       company-nixos-options = {
-        enable = config.use-package.company.enable;
+        enable = config.package.company.enable;
       };
 
       nix-mode = {

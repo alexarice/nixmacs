@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.use-package.irony = {
+  config.package.irony = {
     external-packages = mkDefault [ pkgs.irony-server ];
     hook = mkDefault "((c++-mode c-mode) . irony-mode)";
     custom.irony-cdb-compilation-databases = "'(irony-cdb-libclang irony-cdb-clang-complete)";

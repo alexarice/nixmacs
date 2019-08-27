@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.use-package.swiper = {
+  config.package.swiper = {
     bind."C-s" = mkDefault "swiper";
   };
 }

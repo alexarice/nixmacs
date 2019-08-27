@@ -9,7 +9,7 @@ in
   options.layers.c.enable = mkEnableOption "C/C++ layer";
 
   config = mkIf cfg.enable {
-    use-package = {
+    package = {
       irony.enable = true;
       company-irony.enable = true;
       flycheck-irony.enable = true;

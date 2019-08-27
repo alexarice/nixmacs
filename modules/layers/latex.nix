@@ -19,7 +19,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    use-package = {
+    package = {
       tex = {
         enable = true;
         init = config.latex-hooks ++ optional cfg.enable-folding "(add-hook 'LaTeX-mode-hook 'TeX-fold-mode)";

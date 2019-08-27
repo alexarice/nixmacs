@@ -17,7 +17,7 @@ with lib;
       "(add-hook 'LaTeX-mode-hook 'flyspell-mode)"
     ];
 
-    use-package.tex = {
+    package.tex = {
       defer = mkDefault true;
       mode = "(\"\\\\.tex\\\\'\" . TeX-latex-mode)";
       package = mkDefault epkgs.elpaPackages.auctex;

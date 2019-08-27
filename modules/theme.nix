@@ -30,7 +30,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    use-package."${cfg.package.pname}" = {
+    package."${cfg.package.pname}" = {
       enable = true;
       inherit (cfg) package;
       config = singleton "(load-theme '${cfg.themeName} t)";

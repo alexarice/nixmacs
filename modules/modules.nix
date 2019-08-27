@@ -36,5 +36,5 @@
   ./packages/yasnippet.nix
   ./settings.nix
   ./theme.nix
-  ./use-package.nix
+  ./package.nix
 ]

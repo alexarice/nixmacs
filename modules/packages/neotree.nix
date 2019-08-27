@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.use-package.neotree = {
+  config.package.neotree = {
     custom = {
       neo-smart-open = mkDefault true;
     };

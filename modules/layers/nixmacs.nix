@@ -30,7 +30,7 @@ in
       (menu-bar-mode -1) ; disable menu
     '';
 
-    use-package = {
+    package = {
       crux.enable = mkDefault true;
       flycheck.enable = mkDefault true;
       neotree.enable = mkDefault true;
@@ -50,7 +50,7 @@ in
       global-hl-line = mkDefault true;
       neo-theme = mkDefault "arrow";
       recent-files-mode = mkDefault true;
-      electric-pair-mode = if config.use-package.smartparens.enable then mkDefault false else mkDefault true;
+      electric-pair-mode = if config.package.smartparens.enable then mkDefault false else mkDefault true;
     };
 
     layers.ivy.enable = mkDefault true;

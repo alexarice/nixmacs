@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.use-package.ivy = {
+  config.package.ivy = {
     config = mkDefault (singleton ''
       (ivy-mode 1)
     '');

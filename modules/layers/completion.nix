@@ -64,7 +64,7 @@ in
   };
 
   config = {
-    use-package = {
+    package = {
       yasnippet = {
         enable = true;
         bind."yas-minor-mode-map" =

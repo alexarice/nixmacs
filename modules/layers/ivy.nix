@@ -13,11 +13,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    use-package = {
+    package = {
       ivy.enable = true;
       counsel.enable = true;
       swiper.enable = true;
-      counsel-projectile.enable = config.use-package.projectile.enable;
+      counsel-projectile.enable = config.package.projectile.enable;
       projectile.custom.projectile-completion-system = "'ivy";
       smex.enable = true;
     };

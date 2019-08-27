@@ -9,7 +9,7 @@ in
   options.layers.git.enable = mkEnableOption "Git layer";
 
   config = mkIf cfg.enable {
-    use-package = {
+    package = {
       magit = {
         enable = true;
       };
