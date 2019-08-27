@@ -60,6 +60,9 @@ in
         "company-files"
         "(company-dabbrev-code company-gtags company-etags company-keywords)"
       ];
+      description = ''
+        Default company backends to be used in every buffer
+      '';
     };
   };
 

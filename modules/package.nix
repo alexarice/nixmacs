@@ -29,6 +29,9 @@ let
 
       settings = packageOptions.${name}.settings or (mkOption {
         type = types.unspecified;
+        description = ''
+          Package specific settings
+        '';
       });
 
       name = mkOption {
@@ -253,6 +256,9 @@ in
     package = mkOption {
       default = {};
       type = with types; attrsOf (submodule packageOpts);
+      description = ''
+        Package setup organised by package name
+      '';
     };
 
     rawPackageList = mkOption {
