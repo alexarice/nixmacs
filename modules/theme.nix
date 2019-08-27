@@ -21,7 +21,7 @@ in
         themeName = mkOption {
           type = types.str;
           default = cfg.package.pname;
-          defaultText = "config.appearance.theme.package.pname";
+          defaultText = literalExample "config.appearance.theme.package.pname";
           description = ''
             theme name to be put in init-el
           '';
