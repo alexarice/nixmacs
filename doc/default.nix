@@ -1,18 +1,23 @@
-{ pkgs, lib, modules }:
+{ pkgs, lib, modules, epkgs }:
 
 let
 
   nmdSrc = pkgs.fetchFromGitLab {
     owner = "rycee";
     repo = "nmd";
-    rev = "ddfb3861fd8aa7c59fc68e912f178270b13a672e";
-    sha256 = "02p136j10hj8q5qyp2y83qryk8zql7kwxcf23wzdlcskfv1b4ih2";
+    rev = "9751ca5ef6eb2ef27470010208d4c0a20e89443d";
+    sha256 = "0rbx10n8kk0bvp1nl5c8q79lz1w0p1b8103asbvwps3gmqd070hi";
   };
 
   nmd = import nmdSrc { inherit pkgs; };
 
+  packageModule = {
+    config._module.args.pkgs = nmd.scrubDerivations "pkgs" pkgs;
+    config._module.args.epkgs = nmd.scrubDerivations "epkgs" epkgs;
+  };
+
   moduleDocs = nmd.buildModulesDocs {
-    inherit modules;
+    modules = [ packageModule ] ++ modules;
     moduleRootPaths = [ ./.. ];
     mkModuleUrl = path:
       "https://github.com/alexarice/nixmacs/blob/master/${path}#blob-path";
