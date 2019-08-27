@@ -6,6 +6,12 @@
     <author><personname>Alex Rice</personname></author>
   </info>
   <refentry>
+    <refmeta>
+      <refentrytitle>Nixmacs</refentrytitle>
+      <manvolnum>1</manvolnum>
+      <refmiscinfo class="source">Nixmacs</refmiscinfo>
+      <refmiscinfo class="version">0.1.0</refmiscinfo>
+    </refmeta>
     <refnamediv>
       <refname><filename>nixmacs</filename></refname>
       <refpurpose>Nixmacs configuration specification</refpurpose>
