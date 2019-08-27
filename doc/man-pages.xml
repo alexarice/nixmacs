@@ -1,0 +1,18 @@
+<reference xmlns="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Nixmacs Reference Pages</title>
+  <info>
+    <author><personname>Alex Rice</personname></author>
+  </info>
+  <refentry>
+    <refnamediv>
+      <refname><filename>nixmacs</filename></refname>
+      <refpurpose>Nixmacs configuration specification</refpurpose>
+    </refnamediv>
+    <refsection>
+      <title>Options</title>
+      <xi:include href="./nmd-result/nixmacs-options.xml" />
+    </refsection>
+  </refentry>
+</reference>

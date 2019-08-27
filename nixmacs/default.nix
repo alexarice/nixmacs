@@ -14,7 +14,9 @@ runCommand "${pname}-${version}" {
 } ''
   mkdir -p $out/share/doc
   cp ${initElDrv} $out/init.el
-  cp -r ${docs} $out/share/doc
+  cp -r ${docs.json}/* $out/share/doc
+  cp -r ${docs.html}/* $out
+  cp -r ${docs.manPages}/* $out
   makeWrapper ${runtimeShell} $out/shell \
     --prefix PATH : ${binpath}
   makeWrapper ${emacsPackage.outPath}/bin/emacs $out/bin/nixmacs \
