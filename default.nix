@@ -57,7 +57,7 @@ let
     inherit (evaledModule.config) rawPackageList initEl externalPackageList;
     docs = import ./doc {
       inherit pkgs lib;
-      modules = [ {config._module.args.epkgs = (scrubDerivations "epkgs" epkgs) // { "‹name›" = pkgs.hello; }; } optionsModule ] ++ cleansedModules;
+      modules = [ {config._module.args.epkgs = (scrubDerivations "epkgs" epkgs); } optionsModule ] ++ cleansedModules;
     };
   })).overrideAttrs (oldAttrs:
   let

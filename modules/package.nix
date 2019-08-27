@@ -14,6 +14,7 @@ let
       package = mkOption {
         type = with types; either package (listOf package);
         default = getAttr name epkgs;
+        defaultText = "epkgs.‹name›";
         description = ''
           Nix package for the emacs package
         '';
