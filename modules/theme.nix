@@ -20,7 +20,6 @@ in
 
         themeName = mkOption {
           type = types.str;
-          default = cfg.package.pname;
           description = ''
             theme name to be put in init-el
           '';

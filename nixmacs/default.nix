@@ -1,4 +1,4 @@
-{ emacsPackage , initEl, externalPackageList, writeText, makeWrapper, runCommand, substituteAll, lib, runtimeShell}:
+{ emacsPackage , initEl, externalPackageList, writeText, makeWrapper, runCommand, substituteAll, lib, runtimeShell, docs }:
 
 let
   binpath = lib.makeBinPath externalPackageList;
@@ -12,12 +12,14 @@ runCommand "${pname}-${version}" {
   inherit pname version;
   nativeBuildInputs = [ makeWrapper ];
 } ''
-  mkdir -p $out
+  mkdir -p $out/share/doc
+  cp ${initElDrv} $out/init.el
+  cp -r ${docs} $out/share/doc
   makeWrapper ${runtimeShell} $out/shell \
     --prefix PATH : ${binpath}
-  makeWrapper ${emacsPackage}/bin/emacs $out/bin/nixmacs \
-    --add-flags "-q -l ${initElDrv}" \
-    --set INITEL ${initElDrv} \
+  makeWrapper ${emacsPackage.outPath}/bin/emacs $out/bin/nixmacs \
+    --add-flags "-q -l $out/init.el" \
+    --set INITEL $out/init.el \
     --prefix PATH : ${binpath} \
     --set SHELL $out/shell
-  ''
+''
