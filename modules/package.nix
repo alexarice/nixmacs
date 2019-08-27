@@ -1,4 +1,4 @@
-{ lib, epkgs, config, ... }:
+{ lib, epkgs, config, packageOptions, ... }:
 
 with lib;
 
@@ -26,6 +26,10 @@ let
           Any packages that should be added to emacs' exec-path
         '';
       };
+
+      settings = packageOptions.${name}.settings or (mkOption {
+        type = types.unspecified;
+      });
 
       name = mkOption {
         type = types.str;
