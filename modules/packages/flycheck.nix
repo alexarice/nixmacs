@@ -3,5 +3,5 @@
 with lib;
 
 {
-  config.package.flycheck.config = mkDefault (singleton "(global-flycheck-mode)");
+  config.package.flycheck.config = mkDefault "(global-flycheck-mode)";
 }

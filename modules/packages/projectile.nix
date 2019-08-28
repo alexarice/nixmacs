@@ -31,9 +31,9 @@ with lib;
       "projectile-switch-to-buffer"
       "projectile-vc"
     ];
-    config = mkDefault (singleton ''
+    config = mkDefault ''
       (projectile-global-mode)
-    '');
+    '';
     diminish = mkDefault "projectile-mode";
   };
 }

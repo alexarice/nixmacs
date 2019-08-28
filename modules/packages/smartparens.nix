@@ -29,7 +29,7 @@ in
       sp-highlight-wrap-overlay = mkDefault false;
       sp-highlight-wrap-tag-overlay = mkDefault false;
     };
-    config = mkDefault [ ''
+    config = mkDefault ''
       (require 'smartparens-config)
       (defun newline-indent (&rest _ignored)
         "Insert an extra newline after point, and reindent."
@@ -39,7 +39,7 @@ in
         (indent-according-to-mode))
       (sp-local-pair 'prog-mode "{" nil :post-handlers '((newline-indent "RET")))
       (sp-local-pair 'prog-mode "[" nil :post-handlers '((newline-indent "RET")))
-    '' ];
+    '';
     diminish = sp-mode;
     hook = "((prog-mode . ${sp-mode}) (prog-mode . show-smartparens-mode))";
   };

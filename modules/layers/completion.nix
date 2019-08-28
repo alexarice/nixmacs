@@ -86,7 +86,7 @@ in
 
       company = {
         enable = true;
-        config = singleton ''
+        config = ''
           (progn
           ${writeAllHooks (cfg.company-hooks)}
           (global-company-mode 1)

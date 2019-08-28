@@ -23,7 +23,7 @@ in
       tex = {
         enable = true;
         init = mkMerge (singleton config.latex-hooks ++ optional cfg.enable-folding "(add-hook 'LaTeX-mode-hook 'TeX-fold-mode)");
-        config = singleton "(auctex-latexmk-setup)";
+        config = "(auctex-latexmk-setup)";
       };
 
       auctex-latexmk.enable = true;

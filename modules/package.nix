@@ -60,8 +60,8 @@ let
       };
 
       config = mkOption {
-        type = with types; listOf str;
-        default = [];
+        type = types.lines;
+        default = "";
         description = ''
           String to be passed to :config keyword of use-package
         '';
@@ -229,7 +229,7 @@ let
     (use-package ${p.name}
     ${if p.defer then ":defer t" else ""}
     ${if p.init != "" then ":init\n${concatLines p.init}" else ""}
-    ${if p.config != [] then ":config\n${concatLines p.config}" else ""}
+    ${if p.config != "" then ":config\n${concatLines p.config}" else ""}
     ${if p.commands != [] then ":commands (${builtins.concatStringsSep " " p.commands})" else ""}
     ${if p.bind != {} then ":bind\n${printBinding (p.bind)}" else ""}
     ${if p.bind-keymap != {} then ":bind-keymap\n${printBinding (p.bind-keymap)}" else ""}

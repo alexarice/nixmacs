@@ -38,23 +38,23 @@ in{
     package = {
       adaptive-wrap = {
         inherit (cfg.adaptive-wrap) enable;
-        config = [
-          "(setq-default adaptive-wrap-extra-indent ${builtins.toString cfg.adaptive-wrap.indent})"
-          "(add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)"
-          "(global-visual-line-mode 1)"
-        ];
+        config = ''
+          (setq-default adaptive-wrap-extra-indent ${builtins.toString cfg.adaptive-wrap.indent})
+          (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
+          (global-visual-line-mode 1)
+        '';
         diminish = "visual-line-mode";
       };
 
       smooth-scrolling = {
         inherit (cfg.smooth-scrolling) enable;
-        config = [
-          "(smooth-scrolling-mode 1)"
-          "(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))"
-          "(setq mouse-wheel-progressive-speed nil)"
-          "(setq mouse-wheel-follow-mouse 't)"
-          "(setq scroll-step 1)"
-        ];
+        config = "(smooth-scrolling-mode 1)";
+        custom = {
+          mouse-wheel-scroll-amount = "'(1 ((shift) . 1))";
+          mouse-wheel-progressive-speed = false;
+          mouse-wheel-follow-mouse = true;
+          scroll-step = 1;
+        };
       };
     };
 
