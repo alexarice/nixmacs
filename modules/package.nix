@@ -204,16 +204,16 @@ let
       };
 
       diminish = mkOption {
-         type = types.str;
-         default = "";
+         type = with types; nullOr str;
+         default = null;
          description = ''
            :diminish keyword of use-package
          '';
       };
 
       delight = mkOption {
-         type = types.str;
-         default = "";
+         type = with types; nullOr str;
+         default = null;
          description = ''
            :delight keyword of use-package
          '';
@@ -247,8 +247,8 @@ let
     ${if p.after != "" then ":after\n${p.after}" else ""}
     ${if p.defines != "" then ":defines\n${p.defines}" else ""}
     ${if p.functions != "" then ":functions\n${p.functions}" else ""}
-    ${if p.diminish != "" then ":diminish\n${p.diminish}" else ""}
-    ${if p.delight != "" then ":delight\n${p.delight}" else ""}
+    ${if p.diminish != null then ":diminish\n${p.diminish}" else ""}
+    ${if p.delight != null then ":delight\n${p.delight}" else ""}
     )
   '';
 in
