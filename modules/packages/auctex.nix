@@ -1,4 +1,4 @@
-{ config, lib, epkgs,  ... }:
+{ config, lib, epkgs, ... }:
 
 with lib;
 

@@ -1,4 +1,4 @@
-{ lib , ... }:
+{ lib, ... }:
 
 with lib;
 
@@ -11,14 +11,27 @@ in
   bindType = with types; attrsOf (either str (attrsOf str));
 
   printBinding = b:
-  let
-    items = attrNames b;
-    sortedItems = sort (x: y: isString x && !(isString y)) items;
-  in wrapBrackets (concatStringsSep "\n" (flip map (sortedItems) (x:
-  let item = getAttr x b;
-  in if isString item
-  then "(\"${x}\" . ${item})"
-  else ":map ${x}\n${concatStringsSep "\n" (map (y: ''
-    ("${y}" . ${getAttr y item})
-  '') (attrNames item))}")));
+    let
+      items = attrNames b;
+      sortedItems = sort (x: y: isString x && !(isString y)) items;
+    in
+      wrapBrackets (
+        concatStringsSep "\n" (
+          flip map (sortedItems) (
+            x:
+              let
+                item = getAttr x b;
+              in
+                if isString item
+                then "(\"${x}\" . ${item})"
+                else ":map ${x}\n${concatStringsSep "\n" (
+                  map (
+                    y: ''
+                      ("${y}" . ${getAttr y item})
+                    ''
+                  ) (attrNames item)
+                )}"
+          )
+        )
+      );
 }

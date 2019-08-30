@@ -12,10 +12,10 @@ let
     (set (make-local-variable 'company-backends) '(${concatStringsSep " " (backends ++ default)}))))
   '';
   writeAllHooks = s:
-  let
-    hooks = attrNames s;
-  in
-  concatStringsSep "\n" (map (x: writeCompanyHook x (getAttr x s)) hooks);
+    let
+      hooks = attrNames s;
+    in
+      concatStringsSep "\n" (map (x: writeCompanyHook x (getAttr x s)) hooks);
 in
 {
 

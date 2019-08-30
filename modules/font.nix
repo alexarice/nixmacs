@@ -25,11 +25,15 @@ in
   };
 
   config.init-el.preamble = mkMerge [
-    (mkIf (cfg.font != null) ''
-      (set-frame-font "${cfg.font}" nil t)
-    '')
-    (mkIf (cfg.unicode-font != null) ''
-      (set-fontset-font t 'unicode "${cfg.unicode-font}" nil 'prepend)
-    '')
+    (
+      mkIf (cfg.font != null) ''
+        (set-frame-font "${cfg.font}" nil t)
+      ''
+    )
+    (
+      mkIf (cfg.unicode-font != null) ''
+        (set-fontset-font t 'unicode "${cfg.unicode-font}" nil 'prepend)
+      ''
+    )
   ];
 }

@@ -1,4 +1,4 @@
-{ emacsPackage , initEl, externalPackageList, writeText, makeWrapper, runCommand, substituteAll, lib, runtimeShell, docs }:
+{ emacsPackage, initEl, externalPackageList, writeText, makeWrapper, runCommand, substituteAll, lib, runtimeShell, docs }:
 
 let
   binpath = lib.makeBinPath externalPackageList;

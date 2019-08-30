@@ -1,7 +1,7 @@
 { ... }:
 
 rec {
-  baseModules = map (x: import x)[
+  baseModules = map (x: import x) [
     ./base.nix
     ./bootstrap.nix
     ./font.nix

@@ -4,7 +4,8 @@ with lib;
 
 let
   cfg = config.settings;
-in{
+in
+{
   options.settings = {
     adaptive-wrap = {
       enable = mkEnableOption "global adaptive-wrap";
@@ -63,37 +64,50 @@ in{
     };
 
     init-el.postSetup = mkMerge [
-      (mkIf cfg.line-numbers.enable ''
-        (when (version<= "26.0.50" emacs-version )
-          (global-display-line-numbers-mode))
-        '')
-      (mkIf cfg.debug.enable ''
-        (setq debug-on-error t)
-        (defun show-config ()
-          "Show init.el"
-          (interactive)
-          (find-file (getenv "INITEL")))
-        '')];
+      (
+        mkIf cfg.line-numbers.enable ''
+          (when (version<= "26.0.50" emacs-version )
+            (global-display-line-numbers-mode))
+        ''
+      )
+      (
+        mkIf cfg.debug.enable ''
+          (setq debug-on-error t)
+          (defun show-config ()
+            "Show init.el"
+            (interactive)
+            (find-file (getenv "INITEL")))
+        ''
+      )
+    ];
 
     init-el.preamble = mkMerge [
-      (mkIf cfg.delete-trailing-whitespace ''
-        (add-hook 'before-save-hook 'delete-trailing-whitespace)
-      '')
-      (mkIf cfg.electric-pair-mode ''
-        (add-hook 'prog-mode-hook 'electric-pair-mode)
-      '')
-      (mkIf cfg.global-hl-line ''
-        (global-hl-line-mode 1)
-      '')
-      (mkIf cfg.recent-files-mode ''
-        (defun save-recentf-no-output ()
-          "recentf-save-list without output"
-          (interactive)
-          (let ((inhibit-message t))
-            (recentf-save-list)))
-        (recentf-mode 1)
-        (run-at-time nil (* 2 60) 'save-recentf-no-output)
-      '')
+      (
+        mkIf cfg.delete-trailing-whitespace ''
+          (add-hook 'before-save-hook 'delete-trailing-whitespace)
+        ''
+      )
+      (
+        mkIf cfg.electric-pair-mode ''
+          (add-hook 'prog-mode-hook 'electric-pair-mode)
+        ''
+      )
+      (
+        mkIf cfg.global-hl-line ''
+          (global-hl-line-mode 1)
+        ''
+      )
+      (
+        mkIf cfg.recent-files-mode ''
+          (defun save-recentf-no-output ()
+            "recentf-save-list without output"
+            (interactive)
+            (let ((inhibit-message t))
+              (recentf-save-list)))
+          (recentf-mode 1)
+          (run-at-time nil (* 2 60) 'save-recentf-no-output)
+        ''
+      )
     ];
 
     package.ivy.use-package.custom.ivy-use-virtual-buffers = mkIf cfg.recent-files-mode true;
