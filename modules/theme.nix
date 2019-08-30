@@ -34,7 +34,7 @@ in
     package."${cfg.package.pname}" = {
       enable = true;
       inherit (cfg) package;
-      config = "(load-theme '${cfg.themeName} t)";
+      use-package.config = "(load-theme '${cfg.themeName} t)";
     };
   };
 }

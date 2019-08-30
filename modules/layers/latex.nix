@@ -22,8 +22,10 @@ in
     package = {
       tex = {
         enable = true;
-        init = mkMerge (singleton config.latex-hooks ++ optional cfg.enable-folding "(add-hook 'LaTeX-mode-hook 'TeX-fold-mode)");
-        config = "(auctex-latexmk-setup)";
+        use-package = {
+          init = mkMerge (singleton config.latex-hooks ++ optional cfg.enable-folding "(add-hook 'LaTeX-mode-hook 'TeX-fold-mode)");
+          config = "(auctex-latexmk-setup)";
+        };
       };
 
       auctex-latexmk.enable = true;

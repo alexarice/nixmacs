@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.package.company = {
+  config.package.company.use-package = {
     custom = {
       company-idle-delay = mkDefault 0.1;
       company-minimum-prefix-length = mkDefault 2;

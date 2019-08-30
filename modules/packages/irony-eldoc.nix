@@ -3,7 +3,5 @@
 with lib;
 
 {
-  config.package.irony-eldoc = {
-    hook = mkDefault "irony-mode";
-  };
+  config.package.irony-eldoc.use-package.hook = mkDefault "irony-mode";
 }

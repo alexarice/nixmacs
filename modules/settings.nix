@@ -38,22 +38,26 @@ in{
     package = {
       adaptive-wrap = {
         inherit (cfg.adaptive-wrap) enable;
-        config = ''
-          (setq-default adaptive-wrap-extra-indent ${builtins.toString cfg.adaptive-wrap.indent})
-          (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
-          (global-visual-line-mode 1)
-        '';
-        diminish = "visual-line-mode";
+        use-package = {
+          config = ''
+            (setq-default adaptive-wrap-extra-indent ${builtins.toString cfg.adaptive-wrap.indent})
+            (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
+            (global-visual-line-mode 1)
+          '';
+          diminish = "visual-line-mode";
+        };
       };
 
       smooth-scrolling = {
         inherit (cfg.smooth-scrolling) enable;
-        config = "(smooth-scrolling-mode 1)";
-        custom = {
-          mouse-wheel-scroll-amount = "'(1 ((shift) . 1))";
-          mouse-wheel-progressive-speed = false;
-          mouse-wheel-follow-mouse = true;
-          scroll-step = 1;
+        use-package = {
+          config = "(smooth-scrolling-mode 1)";
+          custom = {
+            mouse-wheel-scroll-amount = "'(1 ((shift) . 1))";
+            mouse-wheel-progressive-speed = false;
+            mouse-wheel-follow-mouse = true;
+            scroll-step = 1;
+          };
         };
       };
     };
@@ -92,8 +96,8 @@ in{
       '')
     ];
 
-    package.ivy.custom.ivy-use-virtual-buffers = mkIf cfg.recent-files-mode true;
+    package.ivy.use-package.custom.ivy-use-virtual-buffers = mkIf cfg.recent-files-mode true;
 
-    package.crux.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
+    package.crux.use-package.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
   };
 }

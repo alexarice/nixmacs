@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.package.counsel = {
+  config.package.counsel.use-package = {
     config = mkDefault  ''
       (counsel-mode 1)
     '';

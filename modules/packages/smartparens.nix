@@ -16,7 +16,7 @@ in
     };
   };
 
-  config.package.smartparens = let
+  config.package.smartparens.use-package = let
     sp-mode = "smartparens-${if cfg.strict then "strict-" else ""}mode";
   in {
     defer = mkDefault true;

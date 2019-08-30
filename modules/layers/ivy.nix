@@ -18,7 +18,7 @@ in
       counsel.enable = true;
       swiper.enable = true;
       counsel-projectile.enable = config.package.projectile.enable;
-      projectile.custom.projectile-completion-system = "'ivy";
+      projectile.use-package.custom.projectile-completion-system = "'ivy";
       smex.enable = true;
     };
   };

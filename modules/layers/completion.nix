@@ -70,23 +70,25 @@ in
     package = {
       yasnippet = {
         enable = true;
-        bind."yas-minor-mode-map" =
-          if cfg.yas-expand-key == "TAB" then {} else {
-            "TAB" = "nil";
-            "<tab>" = "nil";
-            "${cfg.yas-expand-key}" = "yas-expand";
-          };
-        custom.yas-snippet-dirs = "${cfg.yas-snippet-dirs}";
+        use-package = {
+          bind."yas-minor-mode-map" =
+            if cfg.yas-expand-key == "TAB" then {} else {
+              "TAB" = "nil";
+              "<tab>" = "nil";
+              "${cfg.yas-expand-key}" = "yas-expand";
+            };
+          custom.yas-snippet-dirs = "${cfg.yas-snippet-dirs}";
+        };
       };
 
       auto-yasnippet = {
         enable = true;
-        bind."${cfg.yas-expand-key}" = "aya-expand";
+        use-package.bind."${cfg.yas-expand-key}" = "aya-expand";
       };
 
       company = {
         enable = true;
-        config = ''
+        use-package.config = ''
           (progn
           ${writeAllHooks (cfg.company-hooks)}
           (global-company-mode 1)

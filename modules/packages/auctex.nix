@@ -18,15 +18,19 @@ with lib;
     '';
 
     package.tex = {
-      defer = mkDefault true;
-      mode = "(\"\\\\.tex\\\\'\" . TeX-latex-mode)";
       package = mkDefault epkgs.elpaPackages.auctex;
-      custom = {
-        TeX-auto-save = mkDefault true;
-        TeX-parse-self = mkDefault true;
-        TeX-syntactic-comment = mkDefault true;
-        TeX-source-cerrelate-start-server = mkDefault true;
-        LaTeX-fill-break-at-separators = mkDefault false;
+
+      use-package = {
+        defer = mkDefault true;
+        mode = "(\"\\\\.tex\\\\'\" . TeX-latex-mode)";
+
+        custom = {
+          TeX-auto-save = mkDefault true;
+          TeX-parse-self = mkDefault true;
+          TeX-syntactic-comment = mkDefault true;
+          TeX-source-cerrelate-start-server = mkDefault true;
+          LaTeX-fill-break-at-separators = mkDefault false;
+        };
       };
     };
   };

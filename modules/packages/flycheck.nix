@@ -3,5 +3,5 @@
 with lib;
 
 {
-  config.package.flycheck.config = mkDefault "(global-flycheck-mode)";
+  config.package.flycheck.use-package.config = mkDefault "(global-flycheck-mode)";
 }

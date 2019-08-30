@@ -4,8 +4,8 @@ with lib;
 {
   config = let
     packages = attrValues config.package;
-    useDiminish = any (x: x.diminish != null) packages;
-    useDelight = any (x: x.delight != null) packages;
+    useDiminish = any (x: x.use-package.diminish != null) packages;
+    useDelight = any (x: x.use-package.delight != null) packages;
   in {
     rawPackageList =
       singleton epkgs.use-package

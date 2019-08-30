@@ -16,7 +16,7 @@ in
     };
   };
 
-  config.package.neotree = {
+  config.package.neotree.use-package = {
     custom = {
       neo-smart-open = mkDefault true;
       neo-theme = "'${cfg.neo-theme}";

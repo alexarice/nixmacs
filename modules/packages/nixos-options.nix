@@ -3,5 +3,5 @@
 with lib;
 
 {
-  config.package.nixos-options.defer = mkDefault true;
+  config.package.nixos-options.use-package.defer = mkDefault true;
 }
