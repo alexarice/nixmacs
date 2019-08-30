@@ -19,8 +19,8 @@ rec {
   ];
 
   packageModules = map (x: import x) [
-    ./packages/auctex-latexmk.nix
     ./packages/auctex.nix
+    ./packages/auctex-latexmk.nix
     ./packages/company-irony.nix
     ./packages/company-nixos-options.nix
     ./packages/company.nix
@@ -32,7 +32,10 @@ rec {
     ./packages/irony.nix
     ./packages/ivy.nix
     ./packages/neotree.nix
+    ./packages/nix-drv-mode.nix
     ./packages/nix-mode.nix
+    ./packages/nix-repl.nix
+    ./packages/nix-shell.nix
     ./packages/nixos-options.nix
     ./packages/powerline.nix
     ./packages/projectile.nix

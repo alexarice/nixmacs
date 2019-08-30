@@ -16,14 +16,17 @@ in
         enable = config.package.company.enable;
       };
 
-      nix-mode = {
-        enable = true;
-      };
+      nix-repl.enable = true;
 
-      nixos-options = {
-        enable = true;
-      };
+      nix-drv-mode.enable = true;
+
+      nix-shell.enable = true;
+
+      nix-mode.enable = true;
+
+      nixos-options.enable = true;
     };
+
     layers.completion.company-hooks."nix-mode-hook" = [ "company-nixos-options" ];
   };
 }
