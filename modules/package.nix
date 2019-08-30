@@ -44,8 +44,8 @@ let
       };
 
       defer = mkOption {
-        type = with types; nullOr bool;
-        default = null;
+        type = types.bool;
+        default = false;
         description = ''
           Whether to defer package loading
         '';
@@ -227,7 +227,7 @@ let
 
   packageToConfig = p: removeNonEmptyLines ''
     (use-package ${p.name}
-    ${if p.defer != null then if p.defer then ":defer t" else ":defer nil" else ""}
+    ${if p.defer then  ":defer t" else ""}
     ${if p.init != "" then ":init\n${p.init}" else ""}
     ${if p.config != "" then ":config\n${p.config}" else ""}
     ${if p.commands != [] then ":commands (${builtins.concatStringsSep " " p.commands})" else ""}
