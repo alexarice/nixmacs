@@ -45,7 +45,7 @@ let
 
       defer = mkOption {
         type = with types; nullOr bool;
-        default = false;
+        default = null;
         description = ''
           Whether to defer package loading
         '';
