@@ -30,6 +30,6 @@ in
 
       auctex-latexmk.enable = true;
     };
-    layers.completion.company-hooks."LaTeX-mode" = [ "company-auctex" ];
+    layers.completion.company-hooks."LaTeX-mode" = [ "company-auctex" "company-files" "(company-ispell company-dabbrev)" ];
   };
 }

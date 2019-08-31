@@ -16,6 +16,6 @@ in
       irony-eldoc.enable = true;
     };
 
-    layers.completion.company-hooks.irony-mode-hook = [ "company-irony" ];
+    layers.completion.company-hooks.irony-mode-hook = [ "company-irony" "company-dabbrev-code" ];
   };
 }

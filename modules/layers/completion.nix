@@ -9,7 +9,7 @@ let
   writeCompanyHook = name: backends: ''
     (add-hook '${name}
     (lambda ()
-    (set (make-local-variable 'company-backends) '(${concatStringsSep " " (backends ++ default)}))))
+    (set (make-local-variable 'company-backends) '(${concatStringsSep " " backends}))))
   '';
   writeAllHooks = s:
     let
@@ -39,7 +39,7 @@ in
     };
 
     company-hooks = mkOption {
-      type = with types; attrsOf (listOf str);
+      type = with types; attrsOf (uniq (listOf str));
       default = {};
       description = ''
         company backends for major modes

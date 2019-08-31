@@ -27,6 +27,6 @@ in
       nixos-options.enable = true;
     };
 
-    layers.completion.company-hooks."nix-mode-hook" = [ "company-nixos-options" ];
+    layers.completion.company-hooks."nix-mode-hook" = [ "company-files" "(company-nixos-options company-capf company-dabbrev-code)" ];
   };
 }
