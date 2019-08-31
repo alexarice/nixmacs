@@ -7,13 +7,14 @@ rec {
     ./font.nix
     ./init-el.nix
     ./layers/c.nix
-    ./layers/completion.nix
     ./layers/git.nix
     ./layers/ivy.nix
     ./layers/latex.nix
     ./layers/nix.nix
     ./layers/nixmacs.nix
+    ./layers/org.nix
     ./settings.nix
+    ./layers/completion.nix
     ./theme.nix
     ./package.nix
   ];
@@ -37,6 +38,7 @@ rec {
     ./packages/nix-repl.nix
     ./packages/nix-shell.nix
     ./packages/nixos-options.nix
+    ./packages/org-bullets.nix
     ./packages/powerline.nix
     ./packages/projectile.nix
     ./packages/rainbow-delimiters.nix
