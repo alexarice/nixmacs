@@ -22,7 +22,7 @@ with lib;
 
       use-package = {
         defer = mkDefault true;
-        mode = "(\"\\\\.tex\\\\'\" . TeX-latex-mode)";
+        mode = ''("\\.tex\\'" . TeX-latex-mode)'';
 
         custom = {
           TeX-auto-save = mkDefault true;
