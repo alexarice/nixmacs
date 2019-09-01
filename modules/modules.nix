@@ -26,6 +26,7 @@ rec {
     ./packages/company-nixos-options.nix
     ./packages/company.nix
     ./packages/counsel.nix
+    ./packages/direnv.nix
     ./packages/flycheck-irony.nix
     ./packages/flycheck.nix
     ./packages/git-gutter.nix
