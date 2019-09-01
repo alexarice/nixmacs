@@ -7,21 +7,25 @@ rec {
     ./font.nix
     ./init-el.nix
     ./layers/c.nix
+    ./layers/completion.nix
     ./layers/git.nix
     ./layers/ivy.nix
     ./layers/latex.nix
     ./layers/nix.nix
     ./layers/nixmacs.nix
     ./layers/org.nix
-    ./settings.nix
-    ./layers/completion.nix
-    ./theme.nix
+    ./layers/python.nix
     ./package.nix
+    ./settings.nix
+    ./theme.nix
   ];
 
   packageModules = map (x: import x) [
-    ./packages/auctex.nix
+    ./packages/anaconda-eldoc-mode.nix
+    ./packages/anaconda-mode.nix
     ./packages/auctex-latexmk.nix
+    ./packages/auctex.nix
+    ./packages/company-anaconda.nix
     ./packages/company-irony.nix
     ./packages/company-nixos-options.nix
     ./packages/company.nix
