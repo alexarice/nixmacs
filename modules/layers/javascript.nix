@@ -6,11 +6,24 @@ let
   cfg = config.layers.javascript;
 in
 {
-  options.layers.javascript.enable = mkEnableOption "javascript layer";
+  options.layers.javascript = {
+    enable = mkEnableOption "javascript layer";
+
+    indent-level = mkOption {
+      type = types.ints.positive;
+      default = 2;
+      description = ''
+        Amount of indent in javascript modes
+      '';
+    };
+  };
 
   config = mkIf cfg.enable {
     package = {
-      js2-mode.enable = true;
+      js2-mode = {
+        enable = true;
+        use-package.custom.js-indent-level = cfg.indent-level;
+      };
       js2-refactor.enable = true;
       company-tern.enable = config.package.company.enable;
       flycheck = {
