@@ -10,6 +10,7 @@ rec {
     ./layers/completion.nix
     ./layers/git.nix
     ./layers/ivy.nix
+    ./layers/javascript.nix
     ./layers/latex.nix
     ./layers/nix.nix
     ./layers/nixmacs.nix
@@ -28,6 +29,7 @@ rec {
     ./packages/company-anaconda.nix
     ./packages/company-irony.nix
     ./packages/company-nixos-options.nix
+    ./packages/company-tern.nix
     ./packages/company.nix
     ./packages/counsel.nix
     ./packages/direnv.nix
@@ -37,6 +39,8 @@ rec {
     ./packages/irony-eldoc.nix
     ./packages/irony.nix
     ./packages/ivy.nix
+    ./packages/js2-mode.nix
+    ./packages/js2-refactor.nix
     ./packages/neotree.nix
     ./packages/nix-drv-mode.nix
     ./packages/nix-mode.nix
