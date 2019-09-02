@@ -14,13 +14,14 @@ runCommand "${pname}-${version}" {
 } ''
   mkdir -p $out/share/doc
   cp ${initElDrv} $out/init.el
+  ${emacsPackage}/bin/emacs -batch -f batch-byte-compile $out/init.el
   cp -r ${docs.json}/* $out/share/doc
   cp -r ${docs.html}/* $out
   cp -r ${docs.manPages}/* $out
   makeWrapper ${runtimeShell} $out/shell \
     --prefix PATH : ${binpath}
-  makeWrapper ${emacsPackage.outPath}/bin/emacs $out/bin/nixmacs \
-    --add-flags "-q -l $out/init.el" \
+  makeWrapper ${emacsPackage}/bin/emacs $out/bin/nixmacs \
+    --add-flags "-q -l $out/init.elc" \
     --set INITEL $out/init.el \
     --prefix PATH : ${binpath} \
     --set SHELL $out/shell
