@@ -18,6 +18,7 @@ with lib;
         ''
           (eval-when-compile
             (require 'use-package))
+          (package-initialize)
         ''
         (mkIf useDiminish "(require 'diminish)")
         (mkIf useDelight "(require 'delight)")
