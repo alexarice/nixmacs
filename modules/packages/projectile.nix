@@ -4,7 +4,7 @@ with lib;
 
 {
   config.package.projectile = {
-    package = with epkgs.melpaPackages; mkDefault [ projectile ag ];
+    package = with epkgs; mkDefault [ projectile ag ];
     external-packages = with pkgs; mkDefault [ gnugrep ack ripgrep ag fd ];
     use-package = {
       defer = mkDefault true;
@@ -33,7 +33,7 @@ with lib;
         "projectile-vc"
       ];
       config = mkDefault ''
-        (projectile-global-mode)
+        (projectile-mode)
       '';
       diminish = mkDefault "projectile-mode";
     };
