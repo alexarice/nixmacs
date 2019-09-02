@@ -1,0 +1,23 @@
+diff --git a/systemd.el b/systemd.el
+index 53f9a34..100b41c 100644
+--- a/systemd.el
++++ b/systemd.el
+@@ -388,10 +388,14 @@ See systemd.unit(5) for details on unit file syntax.")
+     ["Open systemd.directives(7)" systemd-doc-directives
+      :help "Index of configuration directives"]))
+ 
+-;;;###autoload (add-to-list 'auto-mode-alist '("\\.nspawn\\'" . systemd-mode))
+-;;;###autoload (add-to-list 'auto-mode-alist `(,systemd-autoload-regexp . systemd-mode))
+-;;;###autoload (add-to-list 'auto-mode-alist `(,systemd-tempfn-autoload-regexp . systemd-mode))
+-;;;###autoload (add-to-list 'auto-mode-alist `(,systemd-dropin-autoload-regexp . systemd-mode))
++;;;###autoload
++(add-to-list 'auto-mode-alist '("\\.nspawn\\'" . systemd-mode))
++;;;###autoload
++(add-to-list 'auto-mode-alist `(,systemd-autoload-regexp . systemd-mode))
++;;;###autoload
++(add-to-list 'auto-mode-alist `(,systemd-tempfn-autoload-regexp . systemd-mode))
++;;;###autoload
++(add-to-list 'auto-mode-alist `(,systemd-dropin-autoload-regexp . systemd-mode))
+ 
+ ;;;###autoload
+ (define-derived-mode systemd-mode conf-mode "Systemd"

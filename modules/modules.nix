@@ -16,6 +16,7 @@ rec {
     ./layers/nixmacs.nix
     ./layers/org.nix
     ./layers/python.nix
+    ./layers/systemd.nix
     ./package.nix
     ./settings.nix
     ./theme.nix
@@ -54,6 +55,7 @@ rec {
     ./packages/rainbow-mode.nix
     ./packages/smartparens.nix
     ./packages/swiper.nix
+    ./packages/systemd.nix
     ./packages/yasnippet.nix
   ];
 
