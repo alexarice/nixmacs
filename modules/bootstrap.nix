@@ -19,7 +19,7 @@ with lib;
           (eval-when-compile
             (require 'use-package))
           (package-initialize)
-          (use-package bind-key)
+          (require 'bind-key)
         ''
         (mkIf useDiminish "(require 'diminish)")
         (mkIf useDelight "(require 'delight)")
