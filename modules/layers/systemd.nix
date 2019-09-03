@@ -11,7 +11,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    package.systemd.enable = true;
-    layers.completion.company-hooks.systemd-mode-hook = [ "(company-files) (company-systemd-backend) (company-dabbrev-code company-capf)" ];
+    package = {
+      systemd.enable = true;
+      # Appears to be broken
+      flycheck.settings.disabled-checkers = [ "systemd-analyze" ];
+    };
+
+    layers.completion.company-hooks.systemd-mode-hook = [ "(company-files) (systemd-company-backend) (company-dabbrev-code company-capf)" ];
   };
 }
