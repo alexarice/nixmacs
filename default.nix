@@ -22,8 +22,12 @@ let
             config._module.args.epkgs = epkgs;
           };
 
+          checkModule = {
+            config._module.check = true;
+          };
+
           preEval = evalModules {
-            modules = [ pkgsModule ] ++ modules.packageModules;
+            modules = [ pkgsModule checkModule ] ++ modules.packageModules;
           };
 
           optionsModule = {
@@ -33,9 +37,8 @@ let
           cleansedModules = modules.baseModules ++ map cleanseOptions modules.packageModules;
 
           evaledModule = evalModules {
-            modules = [ configurationFile pkgsModule optionsModule ] ++ cleansedModules;
+            modules = [ configurationFile pkgsModule optionsModule checkModule ] ++ cleansedModules;
           };
-
         in
           {
             inherit (evaledModule.config) rawPackageList initEl externalPackageList;

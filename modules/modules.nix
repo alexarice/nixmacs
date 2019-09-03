@@ -1,7 +1,11 @@
 { ... }:
 
-rec {
-  baseModules = map (x: import x) [
+let
+  addFile = file: f: { config, lib, epkgs, pkgs, ... }@args:
+    f args // { _file = file; };
+in
+{
+  baseModules =  [
     ./base.nix
     ./bootstrap.nix
     ./font.nix
@@ -22,7 +26,7 @@ rec {
     ./theme.nix
   ];
 
-  packageModules = map (x: import x) [
+  packageModules = map (x: addFile (toString x) (import x)) [
     ./packages/anaconda-eldoc-mode.nix
     ./packages/anaconda-mode.nix
     ./packages/auctex-latexmk.nix
@@ -58,6 +62,4 @@ rec {
     ./packages/systemd.nix
     ./packages/yasnippet.nix
   ];
-
-  modules = baseModules ++ packageModules;
 }

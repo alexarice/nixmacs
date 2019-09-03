@@ -21,7 +21,7 @@ let
     moduleRootPaths = [ ./.. ];
     mkModuleUrl = path:
       "https://github.com/alexarice/nixmacs/blob/master/${path}#blob-path";
-    channelName = "whatGoesHere";
+    channelName = "nixmacs";
     docBook.id = "nixmacs-options";
   };
 
