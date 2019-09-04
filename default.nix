@@ -1,11 +1,12 @@
-{ pkgs, lib, configurationFile }:
+{ pkgs, package ? pkgs.emacs, lib, configurationFile }:
 
 with lib;
 
 let
   modules = import ./modules/modules.nix { inherit pkgs lib; };
+  emacsPackages = pkgs.emacsPackagesNgGen package;
   emacsPackage = (
-    pkgs.emacsWithPackages (
+    emacsPackages.emacsWithPackages (
       epkgs:
         let
           cleanseOptions = f: { config, lib, epkgs, pkgs, ... }@args:
