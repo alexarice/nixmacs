@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.package.ivy.use-package = {
+  package.ivy.use-package = {
     config = mkDefault ''
       (ivy-mode 1)
     '';

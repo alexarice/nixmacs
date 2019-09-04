@@ -3,5 +3,5 @@
 with lib;
 
 {
-  config.package.anaconda-mode.use-package.hook = mkDefault "python-mode";
+  package.anaconda-mode.use-package.hook = mkDefault "python-mode";
 }

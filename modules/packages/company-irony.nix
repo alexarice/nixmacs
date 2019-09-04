@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.package.company-irony = {
+  package.company-irony = {
     use-package.defer = mkDefault true;
     external-packages = mkDefault [ pkgs.clang ];
   };

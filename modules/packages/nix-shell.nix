@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.package.nix-shell = {
+  package.nix-shell = {
     package = mkDefault epkgs.nix-mode;
     use-package.commands = mkDefault [
       "nix-shell-unpack"

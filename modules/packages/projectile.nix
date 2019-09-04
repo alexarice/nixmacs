@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.package.projectile = {
+  package.projectile = {
     package = with epkgs; mkDefault [ projectile ag ];
     external-packages = with pkgs; mkDefault [ gnugrep ack ripgrep ag fd ];
     use-package = {

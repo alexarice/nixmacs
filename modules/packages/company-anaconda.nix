@@ -3,5 +3,5 @@
 with lib;
 
 {
-  config.package.company-anaconda.use-package.defer = mkDefault true;
+  package.company-anaconda.use-package.defer = mkDefault true;
 }

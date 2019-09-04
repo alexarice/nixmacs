@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config.package.irony = {
+  package.irony = {
     external-packages = mkDefault [ pkgs.irony-server ];
     use-package = {
       hook = mkDefault "((c++-mode c-mode) . irony-mode)";
