@@ -1,4 +1,4 @@
-{ pkgs, lib, modules, epkgs }:
+{ pkgs, lib, finalModules, packageModules, epkgs }:
 
 let
 
@@ -16,8 +16,16 @@ let
     config._module.args.epkgs = nmd.scrubDerivations "epkgs" epkgs;
   };
 
+  packageDocs = nmd.buildModulesDocs {
+    modules = [ packageModule ] ++ packageModules;
+    moduleRootPaths = [ ./.. ];
+    mkModuleUrl = path: "https://github.com/alexarice/nixmacs/blob/master/${path}#blob-path";
+    channelName = "nixmacs";
+    docBook.id = "nixmacs-package-options";
+  };
+
   moduleDocs = nmd.buildModulesDocs {
-    modules = [ packageModule ] ++ modules;
+    modules = finalModules;
     moduleRootPaths = [ ./.. ];
     mkModuleUrl = path:
       "https://github.com/alexarice/nixmacs/blob/master/${path}#blob-path";
@@ -27,7 +35,7 @@ let
 
   docs = nmd.buildDocBookDocs {
     pathName = "nixmacs";
-    modulesDocs = [ moduleDocs ];
+    modulesDocs = [ moduleDocs packageDocs ];
     documentsDirectory = ./.;
     chunkToc = ''
       <toc>

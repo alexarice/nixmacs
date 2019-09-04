@@ -18,7 +18,14 @@
     </refnamediv>
     <refsection>
       <title>Options</title>
-      <xi:include href="./nmd-result/nixmacs-options.xml" />
+      <refsection>
+	<title>Core options</title>
+	<xi:include href="./nmd-result/nixmacs-options.xml" />
+      </refsection>
+      <refsection>
+	<title>Package options</title>
+	<xi:include href="./nmd-result/nixmacs-package-options.xml" />
+      </refsection>
     </refsection>
   </refentry>
 </reference>

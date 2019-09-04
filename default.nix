@@ -46,7 +46,8 @@ let
             inherit (evaledModule.config) rawPackageList initEl externalPackageList;
             docs = import ./doc {
               inherit pkgs lib epkgs;
-              modules = [ optionsModule ] ++ cleansedModules;
+              inherit (modules) packageModules;
+              finalModules = [ optionsModule ] ++ cleansedModules;
             };
           }
     )
