@@ -3,19 +3,7 @@
 with lib;
 
 let
-  inherit (builtins) concatStringsSep attrNames getAttr;
   cfg = config.layers.completion;
-  default = cfg.default-backends;
-  writeCompanyHook = name: backends: ''
-    (add-hook '${name}
-    (lambda ()
-    (set (make-local-variable 'company-backends) '(${concatStringsSep " " backends}))))
-  '';
-  writeAllHooks = s:
-    let
-      hooks = attrNames s;
-    in
-      concatStringsSep "\n" (map (x: writeCompanyHook x (getAttr x s)) hooks);
 in
 {
 
@@ -35,14 +23,6 @@ in
       default = "(list (concat user-emacs-directory \"snippets/\"))";
       description = ''
         yasnippet snippet directory
-      '';
-    };
-
-    company-hooks = mkOption {
-      type = with types; attrsOf (uniq (listOf str));
-      default = {};
-      description = ''
-        company backends for major modes
       '';
     };
 
@@ -88,12 +68,7 @@ in
 
       company = {
         enable = true;
-        use-package.config = ''
-          (progn
-          ${writeAllHooks (cfg.company-hooks)}
-          (global-company-mode 1)
-          )
-        '';
+
       };
     };
   };

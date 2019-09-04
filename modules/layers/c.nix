@@ -12,10 +12,9 @@ in
     package = {
       irony.enable = true;
       company-irony.enable = true;
+      company.settings.company-hooks.irony-mode-hook = [ "company-irony" "company-dabbrev-code" ];
       flycheck-irony.enable = true;
       irony-eldoc.enable = true;
     };
-
-    layers.completion.company-hooks.irony-mode-hook = [ "company-irony" "company-dabbrev-code" ];
   };
 }

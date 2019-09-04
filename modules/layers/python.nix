@@ -13,8 +13,7 @@ in
       anaconda-mode.enable = true;
       anaconda-eldoc-mode.enable = true;
       company-anaconda.enable = config.package.company.enable;
+      company.settings.company-hooks.python-mode-hook = [ "company-anaconda" "company-dabbrev-code" ];
     };
-
-    layers.completion.company-hooks.python-mode-hook = [ "company-anaconda" "company-dabbrev-code" ];
   };
 }

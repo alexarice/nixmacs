@@ -27,9 +27,8 @@ in
           config = "(auctex-latexmk-setup)";
         };
       };
-
+      company.settings.company-hooks."LaTeX-mode" = [ "company-files" "company-auctex" "(company-ispell company-dabbrev)" ];
       auctex-latexmk.enable = true;
     };
-    layers.completion.company-hooks."LaTeX-mode" = [ "company-auctex" "company-files" "(company-ispell company-dabbrev)" ];
   };
 }

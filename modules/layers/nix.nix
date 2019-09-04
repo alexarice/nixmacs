@@ -16,6 +16,8 @@ in
         enable = config.package.company.enable;
       };
 
+      company.settings.company-hooks."nix-mode-hook" = [ "company-files" "(company-nixos-options company-capf company-dabbrev-code)" ];
+
       nix-repl.enable = true;
 
       nix-drv-mode.enable = true;
@@ -26,7 +28,5 @@ in
 
       nixos-options.enable = true;
     };
-
-    layers.completion.company-hooks."nix-mode-hook" = [ "company-files" "(company-nixos-options company-capf company-dabbrev-code)" ];
   };
 }

@@ -26,12 +26,11 @@ in
       };
       js2-refactor.enable = true;
       company-tern.enable = config.package.company.enable;
+      company.settings.company-hooks.js2-mode = [ "company-tern" "(company-dabbrev-code company-capf)" ];
       flycheck = {
         settings.disabled-checkers = [ "javascript-jshint" ];
         external-packages = [ pkgs.nodePackages.eslint ];
       };
     };
-
-    layers.completion.company-hooks.js2-mode = [ "company-tern" "(company-dabbrev-code company-capf)" ];
   };
 }
