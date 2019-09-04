@@ -6,7 +6,6 @@ let
   cfg = config.layers.completion;
 in
 {
-
   options.layers.completion = {
     enable = mkEnableOption "completion layer";
   };

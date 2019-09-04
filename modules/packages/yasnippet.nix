@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.yasnippet.settings;
+  cfg = config.package.yasnippet.settings;
 in
 {
-  options.yasnippet.settings = {
+  options.package.yasnippet.settings = {
     yas-snippet-dirs = mkOption {
       type = types.str;
       default = "(list (concat user-emacs-directory \"snippets/\"))";
