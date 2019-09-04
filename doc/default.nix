@@ -25,7 +25,7 @@ let
   };
 
   moduleDocs = nmd.buildModulesDocs {
-    modules = finalModules;
+    modules = [ packageModule ] ++ finalModules;
     moduleRootPaths = [ ./.. ];
     mkModuleUrl = path:
       "https://github.com/alexarice/nixmacs/blob/master/${path}#blob-path";

@@ -11,7 +11,7 @@ in
       type = types.str;
       default = "arrow";
       description = ''
-        neo-theme variable
+        Theme for neotree to be passed to <option>neo-theme</option>.
       '';
     };
   };

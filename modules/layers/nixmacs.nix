@@ -7,7 +7,7 @@ let
 in
 {
   options.layers.nixmacs = {
-    enable = (mkEnableOption "Nixmacs base layer") // { default = true; };
+    enable = (mkEnableOption "nixmacs base layer") // { default = true; };
   };
 
   config = mkIf cfg.enable {

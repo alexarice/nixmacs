@@ -13,7 +13,7 @@ in
         type = types.int;
         default = 2;
         description = ''
-          Adaptive wrap indent variable
+          Adaptive wrap indent variable.
         '';
       };
     };
@@ -24,15 +24,15 @@ in
 
     debug.enable = mkEnableOption "debug mode";
 
-    delete-trailing-whitespace = mkEnableOption "whitespace";
+    delete-trailing-whitespace = mkEnableOption "deleting trailing whitespace";
 
-    crux-C-a = mkEnableOption "Use Crux C-a";
+    crux-C-a = mkEnableOption "C-a from Crux";
 
-    global-hl-line = mkEnableOption "Highlight line mode";
+    global-hl-line = mkEnableOption "highlight line mode";
 
-    recent-files-mode = mkEnableOption "Enable recentf-mode";
+    recent-files-mode = mkEnableOption "recentf-mode";
 
-    electric-pair-mode = mkEnableOption "Enable electric-pair-mode";
+    electric-pair-mode = mkEnableOption "electric-pair-mode";
   };
 
   config = {

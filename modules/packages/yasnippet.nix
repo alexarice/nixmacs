@@ -11,7 +11,7 @@ in
       type = types.str;
       default = "(list (concat user-emacs-directory \"snippets/\"))";
       description = ''
-        yasnippet snippet directory
+        Yasnippet snippet directory.
       '';
     };
   };

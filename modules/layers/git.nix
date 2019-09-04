@@ -6,7 +6,7 @@ let
   cfg = config.layers.git;
 in
 {
-  options.layers.git.enable = mkEnableOption "Git layer";
+  options.layers.git.enable = mkEnableOption "git layer";
 
   config = mkIf cfg.enable {
     package = {

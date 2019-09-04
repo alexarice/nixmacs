@@ -8,7 +8,7 @@ with lib;
       type = types.separatedString "\n\n";
       default = "";
       description = ''
-        Items to be put at the top of init.el. Should not rely on any package.
+        Items to be put at the top of <filename>init.el</filename>. Should not rely on any package.
       '';
     };
 
@@ -16,16 +16,13 @@ with lib;
       type = types.str;
       visible = false;
       readOnly = true;
-      description = ''
-        init.el fragment for setting up packages using use-package
-      '';
     };
 
     postSetup = mkOption {
       type = types.separatedString "\n\n";
       default = "";
       description = ''
-        Items to be put after package initialisation
+        Text to be put after package initialisation in <filename>init.el</filename>.
       '';
     };
   };

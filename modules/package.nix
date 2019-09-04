@@ -16,15 +16,16 @@ let
           default = getAttr name epkgs;
           defaultText = literalExample "epkgs.${name}";
           description = ''
-            Nix package for the emacs package
+            Nix package to install that provides ${name}. Can also be a list of packages to be installed, for example to include an optional dependency.
           '';
         };
 
         external-packages = mkOption {
           type = with types; listOf package;
           default = [];
+          example = literalExample "[ pkgs.ag ]";
           description = ''
-            Any packages that should be added to emacs' exec-path
+            Packages that should be added to nixmacs' path.
           '';
         };
 
@@ -32,7 +33,7 @@ let
           mkOption {
             type = types.unspecified;
             description = ''
-              Package specific settings
+              Package specific settings. See <link linkend="package-options">Package Options</link> section for available options.
             '';
           }
         );
@@ -41,7 +42,7 @@ let
           type = types.str;
           default = name;
           description = ''
-            Package name to be used from init.el
+            Package name to be used within <filename>init.el</filename>.
           '';
         };
 
@@ -50,7 +51,7 @@ let
             type = types.bool;
             default = false;
             description = ''
-              Whether to defer package loading
+              Boolean to be passed to the <option>:defer</option> keyword of use-package.
             '';
           };
 
@@ -58,7 +59,7 @@ let
             type = types.lines;
             default = "";
             description = ''
-              String to be passed to :init keyword of use-package
+              String to be passed to the <option>:init</option> keyword of use-package.
             '';
           };
 
@@ -66,7 +67,7 @@ let
             type = types.lines;
             default = "";
             description = ''
-              String to be passed to :config keyword of use-package
+              String to be passed to the <option>:config</option> keyword of use-package.
             '';
           };
 
@@ -74,15 +75,16 @@ let
             type = with types; either (listOf str) str;
             default = [];
             description = ''
-              List of strings to be passed to :commands keyword of use-package
+              List of strings to be passed to <option>:commands</option> keyword of use-package.
             '';
           };
 
           bind = mkOption {
             type = bindType;
             default = {};
+            #TODO better description
             description = ''
-              List of bindings to be passed to :bind keyword of use-package
+              Attribute set of bindings to be passed to <option>:bind</option> keyword of use-package.
             '';
           };
 
@@ -90,7 +92,7 @@ let
             type = bindType;
             default = {};
             description = ''
-              List of bindings to be passed to :bind-keymap keyword of use-package
+              List of bindings to be passed to <option>:bind-keymap</option> keyword of use-package.
             '';
           };
 
@@ -98,7 +100,7 @@ let
             type = types.str;
             default = "";
             description = ''
-              :mode keyword of use-package
+              String to be passed to the <option>:mode</option> keyword of use-package.
             '';
           };
 
@@ -106,7 +108,7 @@ let
             type = types.str;
             default = "";
             description = ''
-              :interpreter keyword of use-package
+              String to be passed to the <option>:interpreter</option> keyword of use-package.
             '';
           };
 
@@ -114,7 +116,7 @@ let
             type = types.lines;
             default = "";
             description = ''
-              :magic keyword of use-package
+              String to be passed to the <option>:magic</option> keyword of use-package.
             '';
           };
 
@@ -122,7 +124,7 @@ let
             type = types.lines;
             default = "";
             description = ''
-              :magic-fallback keyword of use-package
+              String to be passed to the <option>:magic-fallback</option> keyword of use-package.
             '';
           };
 
@@ -130,7 +132,7 @@ let
             type = types.str;
             default = "";
             description = ''
-              :hook keyword of use-package
+              String to be passed to the <option>:hook</option> keyword of use-package.
             '';
           };
 
@@ -138,7 +140,7 @@ let
             type = customType;
             default = {};
             description = ''
-              :custom keyword of use-package
+              Attribute set to be passed to the <option>:custom</option> keyword of use-package.
             '';
           };
 
@@ -146,7 +148,7 @@ let
             type = customType;
             default = {};
             description = ''
-              :custom-face keyword of use-package
+              Attribute set to be passed to the <option>:custom-face</option> keyword of use-package.
             '';
           };
 
@@ -154,7 +156,7 @@ let
             type = types.bool;
             default = false;
             description = ''
-              :demand keyword of use-package
+              Boolean to be passed to the <option>:demand</option> keyword of use-package.
             '';
           };
 
@@ -162,7 +164,7 @@ let
             type = types.lines;
             default = "";
             description = ''
-              :if keyword of use-package
+              String to be passed to the <option>:if</option> keyword of use-package.
             '';
           };
 
@@ -170,7 +172,7 @@ let
             type = types.lines;
             default = "";
             description = ''
-              :when keyword of use-package
+              String to be passed to the <option>:when</option> keyword of use-package.
             '';
           };
 
@@ -178,7 +180,7 @@ let
             type = types.lines;
             default = "";
             description = ''
-              :unless keyword of use-package
+              String to be passed to the <option>:unless</option> keyword of use-package.
             '';
           };
 
@@ -186,7 +188,7 @@ let
             type = types.lines;
             default = "";
             description = ''
-              :after keyword of use-package
+              String to be passed to the <option>:after</option> keyword of use-package.
             '';
           };
 
@@ -194,7 +196,7 @@ let
             type = types.lines;
             default = "";
             description = ''
-              :defines keyword of use-package
+              String to be passed to the <option>:defines</option> keyword of use-package.
             '';
           };
 
@@ -202,7 +204,7 @@ let
             type = types.lines;
             default = "";
             description = ''
-              :functions keyword of use-package
+              String to be passed to the <option>:functions</option> keyword of use-package.
             '';
           };
 
@@ -210,7 +212,7 @@ let
             type = with types; nullOr str;
             default = null;
             description = ''
-              :diminish keyword of use-package
+              String to be passed to the <option>:diminish</option> keyword of use-package.
             '';
           };
 
@@ -218,7 +220,7 @@ let
             type = with types; nullOr str;
             default = null;
             description = ''
-              :delight keyword of use-package
+              String to be passed to the <option>:delight</option> keyword of use-package.
             '';
           };
         };
@@ -265,7 +267,7 @@ in
       default = {};
       type = with types; attrsOf (submodule packageOpts);
       description = ''
-        Package setup organised by package name
+        Package setup organised by package name.
       '';
     };
 

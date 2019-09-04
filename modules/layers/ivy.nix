@@ -8,7 +8,7 @@ in
 {
   options.layers = {
     ivy = {
-      enable = mkEnableOption "Ivy layer";
+      enable = mkEnableOption "ivy layer";
     };
   };
 

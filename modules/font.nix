@@ -10,16 +10,18 @@ in
     font = mkOption {
       type = with types; nullOr str;
       default = null;
+      example = "Source Code Pro 9";
       description = ''
-        Font string or null to not set
+        Font string to use or null to not set font.
       '';
     };
 
     unicode-font = mkOption {
       type = with types; nullOr str;
       default = null;
+      example = "STIXGeneral";
       description = ''
-        Unicode font string or null to not set
+        Unicode font string to use or null to not set unicode font.
       '';
     };
   };

@@ -7,13 +7,13 @@ let
 in
 {
   options.layers.latex = {
-    enable = mkEnableOption "Latex layer";
+    enable = mkEnableOption "LaTeX layer";
 
     enable-folding = mkOption {
       type = types.bool;
       default = false;
       description = ''
-        Enable fold mode in latex mode
+        Enable fold mode for latex mode.
       '';
     };
   };

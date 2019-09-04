@@ -3,18 +3,33 @@
       xmlns:xi="http://www.w3.org/2001/XInclude"
       version="5.0"
       xml:id="book-nixmacs-manual">
-  <info>
-    <title>Nixmacs Manual</title>
-  </info>
-  <appendix xml:id="ch-options">
+
+  <title>Nixmacs Manual</title>
+
+  <chapter xml:id="ch-options">
     <title>Configuration Options</title>
+    <para>
+      This section lists the configuration options for <filename>nixmacs</filename>. These are split into two sections:
+      <itemizedlist>
+	<listitem>
+	  <para>
+	    Core Options contains all options central to nixmacs.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Package Options contains any package specific options.
+	  </para>
+	</listitem>
+      </itemizedlist>
+    </para>
     <section>
       <title>Core options</title>
       <xi:include href="./nmd-result/nixmacs-options.xml" />
     </section>
-    <section>
+    <section xml:id="package-options">
       <title>Package options</title>
       <xi:include href="./nmd-result/nixmacs-package-options.xml" />
     </section>
-  </appendix>
+  </chapter>
 </book>

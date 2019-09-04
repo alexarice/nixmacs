@@ -11,7 +11,7 @@ in
       type = types.bool;
       default = false;
       description = ''
-        Use smartparens-strict-mode
+        Whether to use smartparens-strict-mode.
       '';
     };
   };

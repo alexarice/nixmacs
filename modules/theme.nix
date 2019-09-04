@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, epkgs, ... }:
 
 with lib;
 
@@ -9,12 +9,13 @@ in
   options = {
     appearance = {
       theme = {
-        enable = mkEnableOption "Theme";
+        enable = mkEnableOption "theme";
 
         package = mkOption {
           type = types.package;
+          example = literalExample "${epkgs.dracula-theme}";
           description = ''
-            emacs package for theme
+            Emacs package for theme.
           '';
         };
 
@@ -22,8 +23,9 @@ in
           type = types.str;
           default = cfg.package.pname;
           defaultText = literalExample "config.appearance.theme.package.pname";
+          example = "dracula";
           description = ''
-            theme name to be put in init-el
+            Theme name to load in init-el.
           '';
         };
       };

@@ -13,7 +13,7 @@ in
       type = types.ints.positive;
       default = 2;
       description = ''
-        Amount of indent in javascript modes
+        Amount of indent in javascript modes.
       '';
     };
   };

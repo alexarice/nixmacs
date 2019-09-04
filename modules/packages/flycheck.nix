@@ -11,7 +11,7 @@ in
       type = with types; listOf str;
       default = [];
       description = ''
-        Checkers to be added to flycheck-disabled-checkers
+        Checkers to be added to flycheck-disabled-checkers.
       '';
     };
   };
