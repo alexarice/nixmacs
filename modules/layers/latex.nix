@@ -23,12 +23,18 @@ in
       tex = {
         enable = mkDefault true;
         use-package = {
-          init = mkMerge (singleton (mkDefault config.latex-hooks)
-          ++ optional cfg.enable-folding (mkDefault "(add-hook 'LaTeX-mode-hook 'TeX-fold-mode)"));
+          init = mkMerge (
+            singleton (mkDefault config.latex-hooks)
+            ++ optional cfg.enable-folding (mkDefault "(add-hook 'LaTeX-mode-hook 'TeX-fold-mode)")
+          );
           config = mkDefault "(auctex-latexmk-setup)";
         };
       };
-      company.settings.company-hooks."LaTeX-mode" = mkDefault [ "company-files" "company-auctex" "(company-ispell company-dabbrev)" ];
+      company.settings.company-hooks."LaTeX-mode" = mkDefault [
+        "company-files"
+        "company-auctex"
+        "(company-ispell company-dabbrev)"
+      ];
       auctex-latexmk.enable = mkDefault true;
     };
   };

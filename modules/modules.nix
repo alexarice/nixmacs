@@ -5,7 +5,7 @@ let
     f args // { _file = file; };
 in
 {
-  baseModules =  [
+  baseModules = [
     ./base.nix
     ./bootstrap.nix
     ./font.nix

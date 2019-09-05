@@ -12,7 +12,10 @@ in
     package = {
       irony.enable = mkDefault true;
       company-irony.enable = mkDefault true;
-      company.settings.company-hooks.irony-mode-hook = mkDefault [ "company-irony" "company-dabbrev-code" ];
+      company.settings.company-hooks.irony-mode-hook = mkDefault [
+        "company-irony"
+        "company-dabbrev-code"
+      ];
       flycheck-irony.enable = mkDefault true;
       irony-eldoc.enable = mkDefault true;
     };

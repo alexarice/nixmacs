@@ -13,11 +13,11 @@ let
             let
               oldModule = f args;
             in
-            if oldModule ? config then
-              {
-                inherit (oldModule) config;
-                options = removeAttrs (oldModule.options or {}) [ "package" ];
-              } else oldModule;
+              if oldModule ? config then
+                {
+                  inherit (oldModule) config;
+                  options = removeAttrs (oldModule.options or {}) [ "package" ];
+                } else oldModule;
 
           pkgsModule = {
             config._module.args.pkgs = pkgs;

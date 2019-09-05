@@ -15,7 +15,11 @@ in
       systemd.enable = mkDefault true;
       # Appears to be broken
       flycheck.settings.disabled-checkers = mkDefault [ "systemd-analyze" ];
-      company.settings.company-hooks.systemd-mode-hook = mkDefault [ "(company-files) (systemd-company-backend) (company-dabbrev-code company-capf)" ];
+      company.settings.company-hooks.systemd-mode-hook = mkDefault [
+        "(company-files)"
+        "(systemd-company-backend)"
+        "(company-dabbrev-code company-capf)"
+      ];
     };
   };
 }
