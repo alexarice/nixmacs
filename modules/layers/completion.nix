@@ -10,7 +10,7 @@ in
     enable = mkEnableOption "completion layer";
   };
 
-  config = {
+  config = mkIf cfg.enable {
     package = {
       yasnippet = {
         enable = true;
