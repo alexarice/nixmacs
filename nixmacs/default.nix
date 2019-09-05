@@ -20,10 +20,10 @@ runCommand "${pname}-${version}" {
   cp -r ${docs.html}/* $out
   cp -r ${docs.manPages}/* $out
   makeWrapper ${runtimeShell} $out/shell \
-    --prefix PATH : ${binpath}
+    ${if binpath != "" then "--prefix PATH : ${binpath}" else ""}
   makeWrapper ${emacsExecutable} $out/bin/nixmacs \
     --add-flags "-q -l $out/init.elc" \
     --set INITEL $out/init.el \
-    --prefix PATH : ${binpath} \
+    ${if binpath != "" then "--prefix PATH : ${binpath}" else ""} \
     --set SHELL $out/shell
 ''
