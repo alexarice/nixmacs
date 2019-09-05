@@ -10,6 +10,7 @@ in
     ./bootstrap.nix
     ./font.nix
     ./init-el.nix
+    ./keybindings/xah-fly-keys.nix
     ./layers/c.nix
     ./layers/completion.nix
     ./layers/git.nix
@@ -60,6 +61,7 @@ in
     ./packages/smartparens.nix
     ./packages/swiper.nix
     ./packages/systemd.nix
+    ./packages/xah-fly-keys.nix
     ./packages/yasnippet.nix
   ];
 }
