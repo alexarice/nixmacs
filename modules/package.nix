@@ -29,6 +29,15 @@ let
           '';
         };
 
+        priority = mkOption {
+          type = types.int;
+          default = 1000;
+          example = 500;
+          description = ''
+            How early in the <filename>init.el</filename> the use-package declaration should appear.
+          '';
+        };
+
         settings = packageOptions.${name}.settings or (
           mkOption {
             type = types.unspecified;
@@ -223,9 +232,18 @@ let
               String to be passed to the <option>:delight</option> keyword of use-package.
             '';
           };
+
+          chords = mkOption {
+            type = bindType;
+            default = {};
+            description = ''
+              Attribute set to be passed to the <option>:chords</option> keyword of use-package.
+            '';
+          };
         };
       };
     };
+
 
   removeNonEmptyLines = s: builtins.concatStringsSep "\n" (builtins.filter (l: l != "") (splitString "\n" s));
 
@@ -258,8 +276,11 @@ let
       ${if up.functions != "" then ":functions\n${up.functions}" else ""}
       ${if up.diminish != null then ":diminish\n${up.diminish}" else ""}
       ${if up.delight != null then ":delight\n${up.delight}" else ""}
+      ${if up.chords != {} then ":chords\n${printBinding up.chords}" else ""}
       )
     '';
+
+  comparator = fst: snd: fst.priority < snd.priority || (fst.priority == snd.priority && fst.name < snd.name);
 in
 {
   options = {
@@ -287,6 +308,6 @@ in
 
     externalPackageList = builtins.concatMap (p: p.external-packages) (filter (p: p.enable) (builtins.attrValues (config.package)));
 
-    init-el.packageSetup = builtins.concatStringsSep "\n\n" (map packageToConfig (filter (p: p.enable) (builtins.attrValues (config.package))));
+    init-el.packageSetup = builtins.concatStringsSep "\n\n" (map packageToConfig (filter (p: p.enable) (builtins.sort comparator (builtins.attrValues (config.package)))));
   };
 }

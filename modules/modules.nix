@@ -61,6 +61,7 @@ in
     ./packages/smartparens.nix
     ./packages/swiper.nix
     ./packages/systemd.nix
+    ./packages/use-package-chords.nix
     ./packages/which-key.nix
     ./packages/xah-fly-keys.nix
     ./packages/yasnippet.nix

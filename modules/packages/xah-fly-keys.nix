@@ -30,6 +30,7 @@ in
 
   config.package.xah-fly-keys = {
     use-package = {
+      demand = mkDefault true;
       config = mkDefault ''
         (xah-fly-keys-set-layout "${cfg.keyboard-layout}")
         (xah-fly-keys 1)
