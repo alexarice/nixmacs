@@ -12,21 +12,19 @@ in
 
   config = mkIf cfg.enable {
     package = {
-      company-nixos-options = {
-        enable = config.package.company.enable;
-      };
+      company-nixos-options.enable = mkDefault config.package.company.enable;
 
-      company.settings.company-hooks."nix-mode-hook" = [ "company-files" "(company-nixos-options company-capf company-dabbrev-code)" ];
+      company.settings.company-hooks."nix-mode-hook" = mkDefault [ "company-files" "(company-nixos-options company-capf company-dabbrev-code)" ];
 
-      nix-repl.enable = true;
+      nix-repl.enable = mkDefault true;
 
-      nix-drv-mode.enable = true;
+      nix-drv-mode.enable = mkDefault true;
 
-      nix-shell.enable = true;
+      nix-shell.enable = mkDefault true;
 
-      nix-mode.enable = true;
+      nix-mode.enable = mkDefault true;
 
-      nixos-options.enable = true;
+      nixos-options.enable = mkDefault true;
     };
   };
 }

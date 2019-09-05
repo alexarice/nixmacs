@@ -10,10 +10,10 @@ in
 
   config = mkIf cfg.enable {
     package = {
-      anaconda-mode.enable = true;
-      anaconda-eldoc-mode.enable = true;
-      company-anaconda.enable = config.package.company.enable;
-      company.settings.company-hooks.python-mode-hook = [ "company-anaconda" "company-dabbrev-code" ];
+      anaconda-mode.enable = mkDefault true;
+      anaconda-eldoc-mode.enable = mkDefault true;
+      company-anaconda.enable = mkDefault config.package.company.enable;
+      company.settings.company-hooks.python-mode-hook = mkDefault [ "company-anaconda" "company-dabbrev-code" ];
     };
   };
 }

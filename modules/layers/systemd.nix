@@ -12,10 +12,10 @@ in
 
   config = mkIf cfg.enable {
     package = {
-      systemd.enable = true;
+      systemd.enable = mkDefault true;
       # Appears to be broken
-      flycheck.settings.disabled-checkers = [ "systemd-analyze" ];
-      company.settings.company-hooks.systemd-mode-hook = [ "(company-files) (systemd-company-backend) (company-dabbrev-code company-capf)" ];
+      flycheck.settings.disabled-checkers = mkDefault [ "systemd-analyze" ];
+      company.settings.company-hooks.systemd-mode-hook = mkDefault [ "(company-files) (systemd-company-backend) (company-dabbrev-code company-capf)" ];
     };
   };
 }

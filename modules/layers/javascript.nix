@@ -21,15 +21,15 @@ in
   config = mkIf cfg.enable {
     package = {
       js2-mode = {
-        enable = true;
-        use-package.custom.js-indent-level = cfg.indent-level;
+        enable = mkDefault true;
+        use-package.custom.js-indent-level = mkDefault cfg.indent-level;
       };
-      js2-refactor.enable = true;
-      company-tern.enable = config.package.company.enable;
-      company.settings.company-hooks.js2-mode = [ "company-tern" "(company-dabbrev-code company-capf)" ];
+      js2-refactor.enable = mkDefault true;
+      company-tern.enable = mkDefault config.package.company.enable;
+      company.settings.company-hooks.js2-mode = mkDefault [ "company-tern" "(company-dabbrev-code company-capf)" ];
       flycheck = {
-        settings.disabled-checkers = [ "javascript-jshint" ];
-        external-packages = [ pkgs.nodePackages.eslint ];
+        settings.disabled-checkers = mkDefault [ "javascript-jshint" ];
+        external-packages = mkDefault [ pkgs.nodePackages.eslint ];
       };
     };
   };

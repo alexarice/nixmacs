@@ -21,14 +21,15 @@ in
   config = mkIf cfg.enable {
     package = {
       tex = {
-        enable = true;
+        enable = mkDefault true;
         use-package = {
-          init = mkMerge (singleton config.latex-hooks ++ optional cfg.enable-folding "(add-hook 'LaTeX-mode-hook 'TeX-fold-mode)");
-          config = "(auctex-latexmk-setup)";
+          init = mkMerge (singleton (mkDefault config.latex-hooks)
+          ++ optional cfg.enable-folding (mkDefault "(add-hook 'LaTeX-mode-hook 'TeX-fold-mode)"));
+          config = mkDefault "(auctex-latexmk-setup)";
         };
       };
-      company.settings.company-hooks."LaTeX-mode" = [ "company-files" "company-auctex" "(company-ispell company-dabbrev)" ];
-      auctex-latexmk.enable = true;
+      company.settings.company-hooks."LaTeX-mode" = mkDefault [ "company-files" "company-auctex" "(company-ispell company-dabbrev)" ];
+      auctex-latexmk.enable = mkDefault true;
     };
   };
 }

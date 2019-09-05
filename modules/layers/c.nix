@@ -10,11 +10,11 @@ in
 
   config = mkIf cfg.enable {
     package = {
-      irony.enable = true;
-      company-irony.enable = true;
-      company.settings.company-hooks.irony-mode-hook = [ "company-irony" "company-dabbrev-code" ];
-      flycheck-irony.enable = true;
-      irony-eldoc.enable = true;
+      irony.enable = mkDefault true;
+      company-irony.enable = mkDefault true;
+      company.settings.company-hooks.irony-mode-hook = mkDefault [ "company-irony" "company-dabbrev-code" ];
+      flycheck-irony.enable = mkDefault true;
+      irony-eldoc.enable = mkDefault true;
     };
   };
 }

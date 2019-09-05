@@ -12,17 +12,11 @@ in
 
   config = mkIf cfg.enable {
     package = {
-      yasnippet = {
-        enable = true;
-      };
+      yasnippet.enable = mkDefault true;
 
-      auto-yasnippet = {
-        enable = true;
-      };
+      auto-yasnippet.enable = mkDefault true;
 
-      company = {
-        enable = true;
-      };
+      company.enable = true;
     };
   };
 }

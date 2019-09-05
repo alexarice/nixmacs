@@ -9,6 +9,6 @@ in
   options.layers.org.enable = mkEnableOption "org layer";
 
   config = mkIf cfg {
-    package.org-bullets.enable = true;
+    package.org-bullets.enable = mkDefault true;
   };
 }

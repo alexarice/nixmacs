@@ -10,17 +10,11 @@ in
 
   config = mkIf cfg.enable {
     package = {
-      magit = {
-        enable = true;
-      };
+      magit.enable = mkDefault true;
 
-      git-gutter = {
-        enable = true;
-      };
+      git-gutter.enable = mkDefault true;
 
-      git-timemachine = {
-        enable = true;
-      };
+      git-timemachine.enable = mkDefault true;
     };
   };
 }
