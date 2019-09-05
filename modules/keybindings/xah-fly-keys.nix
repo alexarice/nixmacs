@@ -15,7 +15,7 @@ in
   config = mkIf cfg.enable {
     package.xah-fly-keys = {
       enable = true;
-
+      use-package.bind.xah-fly-key-map."a" = mkIf config.package.counsel.enable "counsel-M-x";
       settings.keyboard-layout = cfg.keyboard-layout;
     };
   };
