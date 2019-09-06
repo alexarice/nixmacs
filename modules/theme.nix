@@ -28,6 +28,14 @@ in
             Theme name to load in init-el.
           '';
         };
+
+        extraConfig = mkOption {
+          type = types.lines;
+          default = "";
+          description = ''
+            Extra config to be added to the theme package.
+          '';
+        };
       };
     };
   };
@@ -36,7 +44,10 @@ in
     package."${cfg.package.pname}" = {
       enable = true;
       inherit (cfg) package;
-      use-package.config = "(load-theme '${cfg.themeName} t)";
+      use-package.config = ''
+        (load-theme '${cfg.themeName} t)
+        ${cfg.extraConfig}
+      '';
     };
   };
 }
