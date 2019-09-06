@@ -86,6 +86,8 @@ in
       )
     ];
 
+    settings.global-variables.recentf-max-saved-items = mkIf cfg.recent-files-mode (mkDefault 250);
+
     package.ivy.use-package.custom.ivy-use-virtual-buffers = mkIf cfg.recent-files-mode true;
 
     package.crux.use-package.bind."C-a" = mkIf cfg.crux-C-a "crux-move-beginning-of-line";
