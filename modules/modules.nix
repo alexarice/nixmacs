@@ -10,6 +10,7 @@ in
     ./bootstrap.nix
     ./font.nix
     ./init-el.nix
+    ./layers/better-defaults.nix
     ./layers/c.nix
     ./layers/completion.nix
     ./layers/git.nix
@@ -27,6 +28,7 @@ in
   ];
 
   packageModules = map (x: addFile (toString x) (import x)) [
+    ./packages/adaptive-wrap.nix
     ./packages/anaconda-eldoc-mode.nix
     ./packages/anaconda-mode.nix
     ./packages/auctex-latexmk.nix
@@ -59,6 +61,7 @@ in
     ./packages/rainbow-delimiters.nix
     ./packages/rainbow-mode.nix
     ./packages/smartparens.nix
+    ./packages/smooth-scrolling.nix
     ./packages/swiper.nix
     ./packages/systemd.nix
     ./packages/unicode-fonts.nix

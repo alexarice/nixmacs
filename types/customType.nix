@@ -10,8 +10,8 @@ in
   customType = with types; attrsOf lispVarType;
 
   printCustom = c:
-    let
-      items = attrNames c;
-    in
-      concatStringsSep "\n" (map (item: "(${item} ${printLispVar (getAttr item c)})") items);
+  concatStringsSep "\n" (mapAttrsToList (name: value: "(${name} ${printLispVar value})") c);
+
+  printVariables = c:
+    concatStringsSep "\n" (mapAttrsToList (name: value: "(setq ${name} ${printLispVar value})") c);
 }

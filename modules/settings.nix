@@ -4,18 +4,16 @@ with lib;
 
 let
   cfg = config.settings;
+  inherit (import ../types/customType.nix { inherit lib; }) customType printVariables;
 in
 {
   options.settings = {
-    adaptive-wrap = {
-      enable = mkEnableOption "global adaptive-wrap";
-      indent = mkOption {
-        type = types.int;
-        default = 2;
-        description = ''
-          Adaptive wrap indent variable.
-        '';
-      };
+    global-variables = mkOption {
+      type = customType;
+      default = {};
+      description = ''
+        Variables to be set in <filename>init.el</filename>.
+      '';
     };
 
     smooth-scrolling.enable = mkEnableOption "smooth scrolling";
@@ -36,33 +34,6 @@ in
   };
 
   config = {
-    package = {
-      adaptive-wrap = {
-        inherit (cfg.adaptive-wrap) enable;
-        use-package = {
-          config = ''
-            (setq-default adaptive-wrap-extra-indent ${builtins.toString cfg.adaptive-wrap.indent})
-            (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
-            (global-visual-line-mode 1)
-          '';
-          diminish = "visual-line-mode";
-        };
-      };
-
-      smooth-scrolling = {
-        inherit (cfg.smooth-scrolling) enable;
-        use-package = {
-          config = "(smooth-scrolling-mode 1)";
-          custom = {
-            mouse-wheel-scroll-amount = "'(1 ((shift) . 1))";
-            mouse-wheel-progressive-speed = false;
-            mouse-wheel-follow-mouse = true;
-            scroll-step = 1;
-          };
-        };
-      };
-    };
-
     init-el.postSetup = mkMerge [
       (
         mkIf cfg.line-numbers.enable ''
@@ -106,6 +77,11 @@ in
               (recentf-save-list)))
           (recentf-mode 1)
           (run-at-time nil (* 2 60) 'save-recentf-no-output)
+        ''
+      )
+      (
+        mkAfter ''
+          ${printVariables cfg.global-variables}
         ''
       )
     ];
