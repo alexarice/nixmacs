@@ -38,6 +38,7 @@ in
     ./packages/company.nix
     ./packages/counsel.nix
     ./packages/direnv.nix
+    ./packages/doom-modeline.nix
     ./packages/flycheck-irony.nix
     ./packages/flycheck.nix
     ./packages/git-gutter.nix
