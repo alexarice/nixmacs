@@ -22,6 +22,7 @@ in
     ./layers/org.nix
     ./layers/python.nix
     ./layers/systemd.nix
+    ./layers/yaml.nix
     ./package.nix
     ./settings.nix
     ./theme.nix
@@ -68,6 +69,7 @@ in
     ./packages/use-package-chords.nix
     ./packages/which-key.nix
     ./packages/xah-fly-keys.nix
+    ./packages/yaml-mode.nix
     ./packages/yasnippet.nix
   ];
 }
