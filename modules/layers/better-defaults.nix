@@ -22,7 +22,7 @@ in
       coding-system-for-write = mkDefault "'utf-8";
       sentence-end-double-space = mkDefault false;
       default-fill-column = mkDefault 80;
-      initial-scratch-mesage = mkDefault "nil";
+      initial-scratch-message = mkDefault "nil";
     };
 
     init-el.preamble = mkAfter ''
