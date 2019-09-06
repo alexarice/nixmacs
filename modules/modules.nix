@@ -10,7 +10,6 @@ in
     ./bootstrap.nix
     ./font.nix
     ./init-el.nix
-    ./keybindings/xah-fly-keys.nix
     ./layers/c.nix
     ./layers/completion.nix
     ./layers/git.nix
