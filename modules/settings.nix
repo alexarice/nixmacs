@@ -4,12 +4,11 @@ with lib;
 
 let
   cfg = config.settings;
-  inherit (import ../types/customType.nix { inherit lib; }) customType printVariables;
 in
 {
   options.settings = {
     global-variables = mkOption {
-      type = customType;
+      type = types.varBindType;
       default = {};
       description = ''
         Variables to be set in <filename>init.el</filename>.
@@ -86,7 +85,7 @@ in
       )
     ];
 
-    settings.global-variables.recentf-max-saved-items = mkIf cfg.recent-files-mode (mkDefault 250);
+    settings.global-variables.recentf-max-saved-items = mkIf cfg.recent-files-mode (mkDefault 100);
 
     package.ivy.use-package.custom.ivy-use-virtual-buffers = mkIf cfg.recent-files-mode true;
 

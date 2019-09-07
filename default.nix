@@ -1,9 +1,12 @@
 { pkgs, package ? pkgs.emacs, lib, configurationFile }:
 
-with lib;
 
 let
-  modules = import ./modules/modules.nix { inherit pkgs lib; };
+  newLib = import ./lib { inherit lib; };
+in
+with newLib;
+let
+  modules = import ./modules/modules.nix { };
   emacsPackages = pkgs.emacsPackagesNgGen package;
   emacsPackage = (
     emacsPackages.emacsWithPackages (
@@ -22,14 +25,11 @@ let
           pkgsModule = {
             config._module.args.pkgs = pkgs;
             config._module.args.epkgs = epkgs;
-          };
-
-          checkModule = {
             config._module.check = true;
           };
 
           preEval = evalModules {
-            modules = [ pkgsModule checkModule ] ++ modules.packageModules;
+            modules = modules.packageModules ++ [ pkgsModule ];
           };
 
           optionsModule = {
@@ -39,13 +39,13 @@ let
           cleansedModules = modules.baseModules ++ map cleanseOptions modules.packageModules;
 
           evaledModule = evalModules {
-            modules = [ configurationFile pkgsModule optionsModule checkModule ] ++ cleansedModules;
+            modules = [ configurationFile ] ++ cleansedModules ++ [ optionsModule pkgsModule ];
           };
         in
           {
             inherit (evaledModule.config) rawPackageList initEl externalPackageList;
             docs = import ./doc {
-              inherit pkgs lib epkgs;
+              inherit epkgs pkgs lib newLib;
               inherit (modules) packageModules;
               finalModules = [ optionsModule ] ++ cleansedModules;
             };

@@ -1,4 +1,4 @@
-{ pkgs, lib, finalModules, packageModules, epkgs }:
+{ pkgs, lib, finalModules, packageModules, epkgs, newLib }:
 
 let
 
@@ -9,7 +9,7 @@ let
     sha256 = "0rbx10n8kk0bvp1nl5c8q79lz1w0p1b8103asbvwps3gmqd070hi";
   };
 
-  nmd = import nmdSrc { inherit pkgs; };
+  nmd = import nmdSrc { pkgs = pkgs // { lib = newLib; }; };
 
   packageModule = {
     config._module.args.pkgs = nmd.scrubDerivations "pkgs" pkgs;

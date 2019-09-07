@@ -3,9 +3,6 @@
 with lib;
 
 let
-  inherit (import ../types/bindType.nix { inherit lib; }) bindType printBinding;
-  inherit (import ../types/customType.nix { inherit lib; }) customType printCustom;
-  inherit (builtins) hasAttr getAttr;
   packageOpts = { name, config, ... }:
     {
       options = {
@@ -89,7 +86,7 @@ let
           };
 
           bind = mkOption {
-            type = bindType;
+            type = types.bindType;
             default = {};
             #TODO better description
             description = ''
@@ -98,7 +95,7 @@ let
           };
 
           bind-keymap = mkOption {
-            type = bindType;
+            type = types.bindType;
             default = {};
             description = ''
               List of bindings to be passed to <option>:bind-keymap</option> keyword of use-package.
@@ -146,7 +143,7 @@ let
           };
 
           custom = mkOption {
-            type = customType;
+            type = types.varBindType;
             default = {};
             description = ''
               Attribute set to be passed to the <option>:custom</option> keyword of use-package.
@@ -154,7 +151,7 @@ let
           };
 
           custom-face = mkOption {
-            type = customType;
+            type = types.varBindType;
             default = {};
             description = ''
               Attribute set to be passed to the <option>:custom-face</option> keyword of use-package.
@@ -234,7 +231,7 @@ let
           };
 
           chords = mkOption {
-            type = bindType;
+            type = types.bindType;
             default = {};
             description = ''
               Attribute set to be passed to the <option>:chords</option> keyword of use-package.
