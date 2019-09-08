@@ -15,7 +15,6 @@ runCommand "${pname}-${version}" {
   nativeBuildInputs = [ makeWrapper ];
 } ''
   install -D ${initElDrv} $out/init.el
-  cat -n $out/init.el
   ${emacsExecutable} -batch -f batch-byte-compile $out/init.el
   install -D ${docs.json}/* -t $out/share/doc
   cp -r ${docs.html}/* $out
