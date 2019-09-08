@@ -1,10 +1,10 @@
-{ pkgs, package ? pkgs.emacs, lib, configurationFile }:
+{ pkgs, package ? pkgs.emacs, configurationFile }:
 
 
 let
-  newLib = import ./lib { inherit lib; };
+  lib = import ./lib { lib = pkgs.lib; };
 in
-with newLib;
+with lib;
 let
   modules = import ./modules/modules.nix { };
   emacsPackages = pkgs.emacsPackagesNgGen package;
@@ -45,7 +45,7 @@ let
           {
             inherit (evaledModule.config) rawPackageList initEl externalPackageList;
             docs = import ./doc {
-              inherit epkgs pkgs lib newLib;
+              inherit epkgs pkgs lib;
               inherit (modules) packageModules;
               finalModules = [ optionsModule ] ++ cleansedModules;
             };
