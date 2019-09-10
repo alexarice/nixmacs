@@ -40,6 +40,8 @@ in
     ./packages/company-tern.nix
     ./packages/company.nix
     ./packages/counsel.nix
+    ./packages/delight.nix
+    ./packages/diminish.nix
     ./packages/direnv.nix
     ./packages/doom-modeline.nix
     ./packages/flycheck-irony.nix

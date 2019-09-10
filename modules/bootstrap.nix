@@ -9,22 +9,19 @@ with lib;
     useChords = any (x: x.use-package.chords != {}) packages;
   in
     {
-      rawPackageList =
-        singleton epkgs.use-package
-        ++ optional useDiminish epkgs.diminish
-        ++ optional useDelight epkgs.delight;
+      rawPackageList = singleton epkgs.use-package;
 
-      package.use-package-chords.enable = mkIf useChords true;
+      package = {
+        use-package-chords.enable = mkIf useChords true;
+        diminish.enable = mkIf useDiminish true;
+        delight.enable = mkIf useDelight true;
+      };
 
-      init-el.preamble = mkMerge [
-        ''
-          (eval-when-compile
-            (require 'use-package))
-          (package-initialize)
-          (require 'bind-key)
-        ''
-        (mkIf useDiminish "(require 'diminish)")
-        (mkIf useDelight "(require 'delight)")
-      ];
+      init-el.preamble = mkBefore ''
+        (eval-when-compile
+          (require 'use-package))
+        (package-initialize)
+        (require 'bind-key)
+      '';
     };
 }
