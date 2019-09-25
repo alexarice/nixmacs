@@ -2,7 +2,7 @@
 
 
 let
-  lib = import ./lib { lib = pkgs.lib; };
+  lib = pkgs.callPackage ./lib {};
 in
 with lib;
 let

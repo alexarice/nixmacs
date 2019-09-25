@@ -30,6 +30,7 @@ in
         ${if cfg.setup != null then setup-string cfg.setup else ""}
         (which-key-mode)
       '';
+      custom.which-key-show-transient-maps = mkDefault true;
     };
   };
 }

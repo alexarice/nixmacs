@@ -18,4 +18,28 @@ rec {
       int, float, bool, string, or null to represent a value in elisp
     '';
   };
+
+  nameValue = with yants; struct "nameValue" {
+    _name = string;
+    _value = string;
+  };
+
+  nameBinds = with yants; struct "nameBinds" {
+    _name = option string;
+    _ = generalYantsType;
+  };
+
+  generalYantsType = with yants; eitherN [
+    string
+    nameValue
+    nameBinds
+  ] // { name = "general"; };
+
+  generalBindType = with types; attrsOf (either generalBindType str) //
+  {
+    description = ''
+      nested attribute set
+    '';
+    check = (attrs generalYantsType).check;
+  };
 }

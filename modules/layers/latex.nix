@@ -37,5 +37,9 @@ in
       ];
       auctex-latexmk.enable = mkDefault true;
     };
+
+    keybindings.major-mode.TeX-latex-mode = {
+      b = "TeX-command-master";
+    };
   };
 }

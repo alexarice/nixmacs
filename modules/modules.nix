@@ -10,6 +10,7 @@ in
     ./bootstrap.nix
     ./font.nix
     ./init-el.nix
+    ./keybindings/major-modes.nix
     ./layers/better-defaults.nix
     ./layers/c.nix
     ./layers/completion.nix
@@ -46,6 +47,7 @@ in
     ./packages/doom-modeline.nix
     ./packages/flycheck-irony.nix
     ./packages/flycheck.nix
+    ./packages/general.nix
     ./packages/git-gutter.nix
     ./packages/irony-eldoc.nix
     ./packages/irony.nix

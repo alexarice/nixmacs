@@ -29,5 +29,9 @@ in
 
       nixos-options.enable = mkDefault true;
     };
+
+    keybindings.major-mode.nix-mode = {
+      r = "nix-repl";
+    };
   };
 }
