@@ -5,6 +5,7 @@ with lib;
 let
   cfg = config.package.xah-fly-keys.settings;
   printXahBinds = c: concatStringsSep "\n  " (mapAttrsToList (name: value: "(define-key xah-fly-key-map (kbd ${name}) '${value})") c);
+  printInsertBinds = c: concatStringsSep "\n  " (mapAttrsToList (name: value: "(define-key xah-fly-key-map (kbd ${name}) nil)") c);
   modes = attrNames config.keybindings.major-mode;
 in
 {
@@ -59,7 +60,13 @@ in
               (interactive)
               ${printXahBinds cfg.command-mode-bindings})
 
+            (defun my-bindkey-xfk-insert-mode ()
+              "Reset bindings for insert mode"
+              (interactive)
+              ${printInsertBinds cfg.command-mode-bindings})
+
             (add-hook 'xah-fly-command-mode-activate-hook 'my-bindkey-xfk-command-mode)
+            (add-hook 'xah-fly-insert-mode-activate-hook 'my-bindkey-xfk-insert-mode)
             (xah-fly-keys 1)
           '')
           (mkIf (cfg.major-mode-bind-key != null) (mkDefault ''
