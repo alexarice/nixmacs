@@ -27,5 +27,12 @@ in
     '' else ''
       "${toString cfg.agenda-files}"
     '';
+
+    keybindings.major-mode.org-mode = mkDefault {
+      "a" = "org-agenda-list";
+      "t" = "org-todo";
+      "c" = if config.layers.ivy.enable then "counsel-org-capture" else "org-capture";
+      "s" = "org-sort";
+    };
   };
 }
