@@ -3,5 +3,5 @@
 with lib;
 
 {
-  package.yaml-mode.use-package.hook = mkDefault ''"\\.ya?ml\\'"'';
+  package.yaml-mode.use-package.mode = mkDefault ''"\\.ya?ml\\'"'';
 }
