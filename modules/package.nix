@@ -53,6 +53,13 @@ let
         };
 
         use-package = {
+          text = mkOption {
+            type = types.str;
+            description = ''
+              Package initialisation text.
+            '';
+          };
+
           defer = mkOption {
             type = types.bool;
             default = false;
@@ -239,6 +246,9 @@ let
           };
         };
       };
+      config = {
+        use-package.text = mkDefault (packageToConfig config);
+      };
     };
 
 
@@ -305,6 +315,6 @@ in
 
     externalPackageList = builtins.concatMap (p: p.external-packages) (filter (p: p.enable) (builtins.attrValues (config.package)));
 
-    init-el.packageSetup = builtins.concatStringsSep "\n\n" (map packageToConfig (filter (p: p.enable) (builtins.sort comparator (builtins.attrValues (config.package)))));
+    init-el.packageSetup = builtins.concatStringsSep "\n\n" (map (x: x.use-package.text) (filter (p: p.enable) (builtins.sort comparator (builtins.attrValues (config.package)))));
   };
 }
