@@ -14,7 +14,7 @@ in
     package = {
       company-nixos-options.enable = mkDefault config.package.company.enable;
 
-      company.settings.company-hooks."nix-mode-hook" = mkDefault [
+      company.settings.company-hooks.nix-mode = mkDefault [
         "company-files"
         "(company-nixos-options company-capf company-dabbrev-code)"
       ];

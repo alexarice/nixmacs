@@ -30,7 +30,7 @@ in
           config = mkDefault "(auctex-latexmk-setup)";
         };
       };
-      company.settings.company-hooks."LaTeX-mode" = mkDefault [
+      company.settings.company-hooks.LaTeX-mode = mkDefault [
         "company-files"
         "company-auctex"
         "(company-ispell company-dabbrev)"

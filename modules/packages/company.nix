@@ -5,7 +5,7 @@ with lib;
 let
   cfg = config.package.company.settings;
   writeCompanyHook = name: backends: ''
-    (add-hook '${name}
+    (add-hook '${name}-hook
     (lambda ()
     (set (make-local-variable 'company-backends) '(${concatStringsSep " " backends}))))
   '';
