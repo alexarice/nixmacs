@@ -15,6 +15,7 @@ in
     ./layers/c.nix
     ./layers/completion.nix
     ./layers/git.nix
+    ./layers/haskell.nix
     ./layers/ivy.nix
     ./layers/javascript.nix
     ./layers/latex.nix
@@ -42,6 +43,8 @@ in
     ./packages/company-nixos-options.nix
     ./packages/company-tern.nix
     ./packages/company.nix
+    ./packages/counsel.nix
+    ./packages/dante.nix
     ./packages/delight.nix
     ./packages/diminish.nix
     ./packages/direnv.nix
@@ -50,13 +53,15 @@ in
     ./packages/flycheck.nix
     ./packages/general.nix
     ./packages/git-gutter.nix
+    ./packages/haskell-mode.nix
+    ./packages/hlint-refactor.nix
     ./packages/irony-eldoc.nix
     ./packages/irony.nix
     ./packages/ivy.nix
     ./packages/js2-mode.nix
     ./packages/js2-refactor.nix
-    ./packages/mu4e.nix
     ./packages/mu4e-overview.nix
+    ./packages/mu4e.nix
     ./packages/neotree.nix
     ./packages/nix-drv-mode.nix
     ./packages/nix-mode.nix
@@ -66,7 +71,6 @@ in
     ./packages/org-bullets.nix
     ./packages/powerline.nix
     ./packages/projectile.nix
-    ./packages/counsel.nix
     ./packages/rainbow-delimiters.nix
     ./packages/rainbow-mode.nix
     ./packages/smartparens.nix
