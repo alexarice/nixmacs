@@ -1,3 +1,4 @@
+
 { config, lib, pkgs, ... }:
 
 with lib;
@@ -20,7 +21,7 @@ in
 
   config = mkIf cfg.enable {
     package = {
-      js2-mode = {
+      rjsx-mode = {
         enable = mkDefault true;
         use-package.custom.js-indent-level = mkDefault cfg.indent-level;
       };
@@ -30,10 +31,6 @@ in
         "company-tern"
         "(company-dabbrev-code company-capf)"
       ];
-      flycheck = {
-        settings.disabled-checkers = mkDefault [ "javascript-jshint" ];
-        external-packages = mkDefault [ pkgs.nodePackages.eslint ];
-      };
     };
   };
 }
