@@ -8,6 +8,7 @@ in
   baseModules = [
     ./base.nix
     ./bootstrap.nix
+    ./custom.nix
     ./font.nix
     ./init-el.nix
     ./keybindings/major-modes.nix
