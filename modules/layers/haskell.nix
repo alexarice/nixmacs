@@ -16,8 +16,7 @@ in
       hlint-refactor.enable = true;
       dante.enable = true;
       company.settings.company-hooks.haskell-mode = mkDefault [
-         "dante-company"
-         "company-ddabrev-code"
+        "(dante-company company-dabbrev-code)"
       ];
     };
   };
