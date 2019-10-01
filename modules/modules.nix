@@ -70,6 +70,7 @@ in
     ./packages/nix-shell.nix
     ./packages/nixos-options.nix
     ./packages/org-bullets.nix
+    ./packages/org.nix
     ./packages/powerline.nix
     ./packages/projectile.nix
     ./packages/rainbow-delimiters.nix

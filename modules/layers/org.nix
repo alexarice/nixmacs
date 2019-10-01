@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
@@ -20,19 +20,29 @@ in
   };
 
   config = mkIf cfg.enable {
-    package.org-bullets.enable = mkDefault true;
+    package = {
+      org-bullets.enable = true;
+      org = {
+        enable = true;
+        external-packages = [ pkgs.imagemagick ];
+      };
+    };
 
-    settings.global-variables.org-agenda-files = if isList cfg.agenda-files then ''
-      '(${concatStringsSep " " (map (x: ''"${toString x}"'') cfg.agenda-files)})
-    '' else ''
-      "${toString cfg.agenda-files}"
-    '';
+    settings.global-variables = {
+      org-preview-latex-default-process = "'imagemagick";
+      org-agenda-files = if isList cfg.agenda-files then ''
+        '(${concatStringsSep " " (map (x: ''"${toString x}"'') cfg.agenda-files)})
+      '' else ''
+        "${toString cfg.agenda-files}"
+      '';
+    };
 
     keybindings.major-mode.org-mode = mkDefault {
       "a" = "org-agenda-list";
       "t" = "org-todo";
       "c" = if config.layers.ivy.enable then "counsel-org-capture" else "org-capture";
       "s" = "org-sort";
+      "p" = "org-toggle-latex-fragment";
     };
   };
 }
