@@ -12,6 +12,7 @@ in
     ./font.nix
     ./init-el.nix
     ./keybindings/major-modes.nix
+    ./layers/agda.nix
     ./layers/better-defaults.nix
     ./layers/c.nix
     ./layers/completion.nix
@@ -35,6 +36,7 @@ in
 
   packageModules = map (x: addFile (toString x) (import x)) [
     ./packages/adaptive-wrap.nix
+    ./packages/agda2-mode.nix
     ./packages/anaconda-eldoc-mode.nix
     ./packages/anaconda-mode.nix
     ./packages/auctex-latexmk.nix
