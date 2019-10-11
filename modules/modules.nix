@@ -79,6 +79,7 @@ in
     ./packages/projectile.nix
     ./packages/rainbow-delimiters.nix
     ./packages/rainbow-mode.nix
+    ./packages/rjsx-mode.nix
     ./packages/smartparens.nix
     ./packages/smooth-scrolling.nix
     ./packages/swiper.nix
