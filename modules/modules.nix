@@ -16,6 +16,7 @@ in
     ./layers/better-defaults.nix
     ./layers/c.nix
     ./layers/completion.nix
+    ./layers/fish.nix
     ./layers/git.nix
     ./layers/haskell.nix
     ./layers/ivy.nix
@@ -52,6 +53,7 @@ in
     ./packages/diminish.nix
     ./packages/direnv.nix
     ./packages/doom-modeline.nix
+    ./packages/fish-mode.nix
     ./packages/flycheck-irony.nix
     ./packages/flycheck.nix
     ./packages/general.nix
