@@ -28,6 +28,7 @@ in
     ./layers/notmuch.nix
     ./layers/org.nix
     ./layers/python.nix
+    ./layers/rust.nix
     ./layers/systemd.nix
     ./layers/yaml.nix
     ./package.nix
@@ -42,6 +43,7 @@ in
     ./packages/anaconda-mode.nix
     ./packages/auctex-latexmk.nix
     ./packages/auctex.nix
+    ./packages/cargo.nix
     ./packages/company-anaconda.nix
     ./packages/company-irony.nix
     ./packages/company-nixos-options.nix
@@ -55,6 +57,7 @@ in
     ./packages/doom-modeline.nix
     ./packages/fish-mode.nix
     ./packages/flycheck-irony.nix
+    ./packages/flycheck-rust.nix
     ./packages/flycheck.nix
     ./packages/general.nix
     ./packages/git-gutter.nix
@@ -77,13 +80,16 @@ in
     ./packages/org.nix
     ./packages/powerline.nix
     ./packages/projectile.nix
+    ./packages/racer.nix
     ./packages/rainbow-delimiters.nix
     ./packages/rainbow-mode.nix
     ./packages/rjsx-mode.nix
+    ./packages/rust-mode.nix
     ./packages/smartparens.nix
     ./packages/smooth-scrolling.nix
     ./packages/swiper.nix
     ./packages/systemd.nix
+    ./packages/toml-mode.nix
     ./packages/unicode-fonts.nix
     ./packages/use-package-chords.nix
     ./packages/which-key.nix
