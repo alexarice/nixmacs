@@ -78,6 +78,7 @@ in
     ./packages/nixos-options.nix
     ./packages/org-bullets.nix
     ./packages/org.nix
+    ./packages/ox-publish.nix
     ./packages/powerline.nix
     ./packages/projectile.nix
     ./packages/racer.nix

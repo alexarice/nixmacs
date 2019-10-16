@@ -22,6 +22,7 @@ in
   config = mkIf cfg.enable {
     package = {
       org-bullets.enable = true;
+      ox-publish.enable = true;
       org = {
         enable = true;
         external-packages = [ pkgs.imagemagick ];
