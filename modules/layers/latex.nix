@@ -26,7 +26,6 @@ in
           init = mkMerge (
             singleton (mkDefault config.latex-hooks)
             ++ optional cfg.enable-folding (mkDefault "(add-hook 'LaTeX-mode-hook 'TeX-fold-mode)")
-            ++ optional config.package.smartparens.enable (mkDefault "(add-hook 'LaTeX-mode-hook '${config.package.smartparens.settings.sp-mode})")
           );
           config = mkDefault "(auctex-latexmk-setup)";
         };
@@ -37,6 +36,7 @@ in
         "(company-ispell company-dabbrev)"
       ];
       auctex-latexmk.enable = mkDefault true;
+      smartparens.settings.smartparens-modes = [ "LaTeX-mode" ];
     };
 
     keybindings.major-mode.TeX-latex-mode = {

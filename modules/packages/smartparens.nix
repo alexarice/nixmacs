@@ -15,17 +15,19 @@ in
       '';
     };
 
-    sp-mode = mkOption {
-      type = types.str;
-      readOnly = true;
+    smartparens-modes = mkOption {
+      type = with types; listOf str;
       description = ''
-        String for smartparens-mode
+        Modes to start smartparens on
       '';
     };
   };
 
-  config.package.smartparens = {
-    settings.sp-mode = "smartparens-${if cfg.strict then "strict-" else ""}mode";
+  config.package.smartparens = let
+    sp-mode = "smartparens-${if cfg.strict then "strict-" else ""}mode";
+    start-modes = "(${concatStringsSep " " cfg.smartparens-modes})";
+  in {
+    settings.smartparens-modes = [ "prog-mode" ];
     use-package = {
       defer = mkDefault true;
       commands = mkDefault [ "sp-split-sexp" "sp-newline" "sp-up-sexp" ];
@@ -48,8 +50,8 @@ in
         (sp-local-pair 'prog-mode "{" nil :post-handlers '((newline-indent "RET")))
         (sp-local-pair 'prog-mode "[" nil :post-handlers '((newline-indent "RET")))
       '';
-      diminish = cfg.sp-mode;
-      hook = "((prog-mode . ${cfg.sp-mode}) (prog-mode . show-smartparens-mode))";
+      diminish = sp-mode;
+      hook = "((${start-modes} . ${sp-mode}) (${start-modes} . show-smartparens-mode))";
     };
   };
 }
