@@ -14,12 +14,19 @@ in
         Whether to use smartparens-strict-mode.
       '';
     };
+
+    sp-mode = mkOption {
+      type = types.str;
+      readOnly = true;
+      description = ''
+        String for smartparens-mode
+      '';
+    };
   };
 
-  config.package.smartparens.use-package = let
-    sp-mode = "smartparens-${if cfg.strict then "strict-" else ""}mode";
-  in
-    {
+  config.package.smartparens = {
+    settings.sp-mode = "smartparens-${if cfg.strict then "strict-" else ""}mode";
+    use-package = {
       defer = mkDefault true;
       commands = mkDefault [ "sp-split-sexp" "sp-newline" "sp-up-sexp" ];
       custom = {
@@ -41,7 +48,8 @@ in
         (sp-local-pair 'prog-mode "{" nil :post-handlers '((newline-indent "RET")))
         (sp-local-pair 'prog-mode "[" nil :post-handlers '((newline-indent "RET")))
       '';
-      diminish = sp-mode;
-      hook = "((prog-mode . ${sp-mode}) (prog-mode . show-smartparens-mode))";
+      diminish = cfg.sp-mode;
+      hook = "((prog-mode . ${cfg.sp-mode}) (prog-mode . show-smartparens-mode))";
     };
+  };
 }
