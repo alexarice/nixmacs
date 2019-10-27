@@ -39,7 +39,7 @@ in
       smartparens.settings.smartparens-modes = [ "LaTeX-mode" ];
     };
 
-    keybindings.major-mode.TeX-latex-mode = {
+    keybindings.major-mode."latex-mode" = {
       b = "TeX-command-master";
     };
   };
