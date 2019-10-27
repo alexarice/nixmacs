@@ -20,6 +20,12 @@ in
     };
     keybindings.major-mode.agda2-mode = {
       "l" = "agda2-load";
+      "n" = "agda2-next-goal";
+      "b" = "agda2-previous-goal";
+      "r" = "agda2-refine";
+      "g" = "agda2-give";
+      "c" = "agda2-make-case";
+      "," = "agda2-goal-and-context";
     };
   };
 }
