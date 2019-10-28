@@ -38,7 +38,7 @@ in
       '';
     };
 
-    keybindings.major-mode.org-mode = mkDefault {
+    keybindings.major-mode.org-mode.binds = mkDefault {
       "a" = "org-agenda-list";
       "t" = "org-todo";
       "c" = if config.layers.ivy.enable then "counsel-org-capture" else "org-capture";

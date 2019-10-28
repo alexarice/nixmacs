@@ -18,7 +18,7 @@ in
         "company-dabbrev-code"
       ];
     };
-    keybindings.major-mode.agda2-mode = {
+    keybindings.major-mode.agda2-mode.binds = {
       "l" = "agda2-load";
       "f" = "agda2-next-goal";
       "b" = "agda2-previous-goal";

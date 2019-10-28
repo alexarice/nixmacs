@@ -6,7 +6,7 @@ let
   cfg = config.package.xah-fly-keys.settings;
   printXahBinds = c: concatStringsSep "\n  " (mapAttrsToList (name: value: "(define-key xah-fly-key-map (kbd ${name}) '${value})") c);
   printInsertBinds = c: concatStringsSep "\n  " (mapAttrsToList (name: value: "(define-key xah-fly-key-map (kbd ${name}) nil)") c);
-  modes = attrNames config.keybindings.major-mode;
+  bindings = attrValues config.keybindings.major-mode;
 in
 {
   options.package.xah-fly-keys.settings = {
@@ -70,15 +70,16 @@ in
             (xah-fly-keys 1)
           '')
           (mkIf (cfg.major-mode-bind-key != null) (mkDefault ''
-            ${concatStringsSep "\n" (map (x: "(define-prefix-command 'leader-${x}-map)") modes)}
-
-            ${concatStringsSep "\n" (mapAttrsToList (name: value: printGeneral {
-              keymaps = "leader-${name}-map";
-              binds = value;
-            }) (config.keybindings.major-mode))}
+            ${concatStringsSep "\n" (map (x: ''
+              (define-prefix-command 'leader-${x.name}-map)
+              ${printGeneral {
+                keymaps = "leader-${x.name}-map";
+                binds = x.binds;
+              }}
+            '') (filter (x: x.binds != null) bindings))}
 
             (defun major-mode-bindings-hook ()
-            (cond ${concatStringsSep " " (map (x: "((string-equal major-mode \"${x}\") (define-key xah-fly-leader-key-map (kbd \"${cfg.major-mode-bind-key}\") leader-${x}-map))") modes)} (t nil)))
+            (cond ${concatStringsSep " " (map (x: "((string-equal major-mode \"${x.name}\") (define-key xah-fly-leader-key-map (kbd \"${cfg.major-mode-bind-key}\") ${x.command}))") bindings)} (t nil)))
             (add-hook 'after-change-major-mode-hook 'major-mode-bindings-hook)
             (major-mode-bindings-hook)
           ''))
