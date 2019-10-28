@@ -48,11 +48,13 @@ in
   };
 
   config.package = {
+    bind-map.enable = true;
     xah-fly-keys = {
       use-package = {
         demand = mkDefault true;
-        config = mkMerge ([
-          (mkDefault ''
+        init=
+          config = mkMerge [ 
+            (mkDefault ''
             (xah-fly-keys-set-layout "${cfg.keyboard-layout}")
 
             (defun my-bindkey-xfk-command-mode ()
@@ -60,9 +62,8 @@ in
               (interactive)
               ${printXahBinds cfg.command-mode-bindings})
 
-            (defun my-bindkey-xfk-insert-mode ()
-              "Reset bindings for insert mode"
-              (interactive)
+            (defun my-bindkey-xfk-insert-mode () "Reset bindings for
+              insert mode" (interactive)
               ${printInsertBinds cfg.command-mode-bindings})
 
             (add-hook 'xah-fly-command-mode-activate-hook 'my-bindkey-xfk-command-mode)
@@ -70,20 +71,18 @@ in
             (xah-fly-keys 1)
           '')
           (mkIf (cfg.major-mode-bind-key != null) (mkDefault ''
-            ${concatStringsSep "\n" (map (x: "(define-prefix-command 'leader-${x}-map)") modes)}
+            ${concatStringsSep "\n" (map (x: ''
+              (bind-map leader-${x}-map
+                :keys ("SPC .")
+                :major-modes (${x}))
+            '') modes)}
 
             ${concatStringsSep "\n" (mapAttrsToList (name: value: printGeneral {
               keymaps = "leader-${name}-map";
               binds = value;
             }) (config.keybindings.major-mode))}
 
-            (defun major-mode-bindings ()
-              (interactive)
-              (cond ${concatStringsSep " " (map (x: "((string-equal major-mode \"${x}\") (set-transient-map leader-${x}-map))") modes)} (t nil)))
-
-            (define-key xah-fly-leader-key-map (kbd "${cfg.major-mode-bind-key}") 'major-mode-bindings)
-          ''))
-        ]);
+          '')
       };
       settings.command-mode-bindings = {
         # TODO: Make these eval in nix
