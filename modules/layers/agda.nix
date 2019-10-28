@@ -50,9 +50,11 @@ in
           command = "agda2-goal-and-context";
           name = "get context";
         };
+        "a" = "agda2-auto-maybe-all";
         "q" = {
           command = "nil";
           name = "cancel";
+          colour = "blue";
         };
       };
     };
