@@ -50,6 +50,10 @@ in
           command = "agda2-goal-and-context";
           name = "get context";
         };
+        "q" = {
+          command = "nil";
+          name = "cancel";
+        };
       };
     };
   };
