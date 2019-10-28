@@ -15,6 +15,15 @@ let
         '';
       };
 
+      hint = mkOption {
+        type = with types; nullOr str;
+        default = null;
+        example = "nil";
+        description = ''
+          head-hint for the hydra.
+        '';
+      };
+
       docText = mkOption {
         type = with types; nullOr str;
         default = null;
@@ -72,7 +81,7 @@ let
 
     config = {
       hydra-text = ''
-        (defhydra ${config.name} (${config.bind} ${if config.colour != null then ":color ${config.colour}" else ""})
+        (defhydra ${config.name} (${config.bind} ${if config.colour != null then ":color ${config.colour}" else ""} ${if config.hint != null then ":hint ${config.hint}" else ""})
         "${config.docText}"
         ${concatStringsSep "\n" (map (x: x.command-text) (attrValues config.bindings))}
         )
