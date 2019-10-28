@@ -43,7 +43,7 @@ let
       };
 
       bindings = mkOption {
-        type = with types; attrsOf (submodule hydraBind);
+        type = with types; attrsOf (either str (submodule hydraBind));
         default = {};
         example = {
           "g" = {
@@ -55,6 +55,9 @@ let
             name = "out";
           };
         };
+        apply = mapAttrs (name: value: if isString value then {
+          command-text = ''("${name}" ${value})'';
+        } else value);
         description = ''
           Bindings for this hydra.
         '';
@@ -95,7 +98,8 @@ let
       };
 
       name = mkOption {
-        type = types.str;
+        type = with types; nullOr str;
+        default = null;
         description = ''
           Name to display for the command.
         '';
@@ -118,7 +122,7 @@ let
 
     config = {
       command-text = ''
-        ("${config.keybind}" ${config.command} "${config.name}" ${if config.colour != null then ":color ${config.colour}" else ""})
+        ("${config.keybind}" ${config.command} ${if config.name != null then "\"${config.name}\"" else ""} ${if config.colour != null then ":color ${config.colour}" else ""})
       '';
     };
   };
