@@ -11,6 +11,7 @@ in
     ./custom.nix
     ./font.nix
     ./init-el.nix
+    ./keybindings/hydra.nix
     ./keybindings/major-modes.nix
     ./layers/agda.nix
     ./layers/better-defaults.nix
