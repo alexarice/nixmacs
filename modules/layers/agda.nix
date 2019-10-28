@@ -20,36 +20,20 @@ in
     };
     keybindings.major-mode.agda2-mode.command = "'hydra-agda/body";
     keybindings.hydra.hydra-agda = {
-      docText = "agda";
+      hint = "nil";
+      docText = ''
+
+        _l_: Load         _f_: Next goal      _r_: Refine  _g_: Give
+        _,_: Get context  _b_: Previous goal  _a_: Auto    _c_: Case split
+      '';
       bindings = {
-        "l" = {
-          command = "agda2-load";
-          name = "load";
-        };
-        "f" = {
-          command = "agda2-next-goal";
-          name = "next goal";
-        };
-        "b" = {
-          command = "agda2-previous-goal";
-          name = "previous goal";
-        };
-        "r" = {
-          command = "agda2-refine";
-          name = "refine";
-        };
-        "g" = {
-          command = "agda2-give";
-          name = "give";
-        };
-        "c" = {
-          command = "agda2-make-case";
-          name = "case split";
-        };
-        "," = {
-          command = "agda2-goal-and-context";
-          name = "get context";
-        };
+        "l" = "agda2-load";
+        "f" = "agda2-next-goal";
+        "b" = "agda2-previous-goal";
+        "r" = "agda2-refine";
+        "g" = "agda2-give";
+        "c" = "agda2-make-case";
+        "," = "agda2-goal-and-context";
         "a" = "agda2-auto-maybe-all";
         "q" = {
           command = "nil";
