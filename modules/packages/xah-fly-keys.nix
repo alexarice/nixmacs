@@ -77,11 +77,10 @@ in
               binds = value;
             }) (config.keybindings.major-mode))}
 
-            (defun major-mode-bindings ()
-              (interactive)
-              (cond ${concatStringsSep " " (map (x: "((string-equal major-mode \"${x}\") (set-transient-map leader-${x}-map))") modes)} (t nil)))
-
-            (define-key xah-fly-leader-key-map (kbd "${cfg.major-mode-bind-key}") 'major-mode-bindings)
+            (defun major-mode-bindings-hook ()
+            (cond ${concatStringsSep " " (map (x: "((string-equal major-mode \"${x}\") (define-key xah-fly-leader-key-map (kbd \"${cfg.major-mode-bind-key}\") leader-${x}-map))") modes)} (t nil)))
+            (add-hook 'after-change-major-mode-hook 'major-mode-bindings-hook)
+            (major-mode-bindings-hook)
           ''))
         ]);
       };
