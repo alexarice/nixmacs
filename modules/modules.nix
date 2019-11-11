@@ -39,6 +39,7 @@ in
 
   packageModules = map (x: addFile (toString x) (import x)) [
     ./packages/adaptive-wrap.nix
+    ./packages/agda-input.nix
     ./packages/agda2-mode.nix
     ./packages/anaconda-eldoc-mode.nix
     ./packages/anaconda-mode.nix

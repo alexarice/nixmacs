@@ -34,7 +34,7 @@ in
     )
     (
       mkIf (cfg.unicode-font != null) ''
-        (set-fontset-font t 'unicode "${cfg.unicode-font}" nil 'prepend)
+        (set-fontset-font "fontset-default" nil (font-spec :name "${cfg.unicode-font}"))
       ''
     )
   ];
