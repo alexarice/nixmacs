@@ -30,6 +30,8 @@ in
     recent-files-mode = mkEnableOption "recentf-mode";
 
     electric-pair-mode = mkEnableOption "electric-pair-mode";
+
+    cancel-minibuffer-with-mouse = mkEnableOption "Cancel minibuffer on mouse click";
   };
 
   config = {
@@ -47,6 +49,16 @@ in
             "Show init.el"
             (interactive)
             (find-file (getenv "INITEL")))
+        ''
+      )
+      (
+        mkIf cfg.cancel-minibuffer-with-mouse ''
+          (defun stop-using-minibuffer ()
+            "kill the minibuffer"
+            (when (and (>= (recursion-depth) 1) (active-minibuffer-window))
+            (abort-recursive-edit)))
+
+          (add-hook 'mouse-leave-buffer-hook 'stop-using-minibuffer)
         ''
       )
     ];
