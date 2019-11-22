@@ -23,7 +23,7 @@ in
       hint = "nil";
       docText = ''
 
-        _l_: Load         _f_: Next goal      _r_: Refine  _g_: Give
+        _l_: Load         _f_: Next goal      _r_: Refine  _g_: Give       _s_: Solve
         _,_: Get context  _b_: Previous goal  _a_: Auto    _c_: Case split
       '';
       bindings = {
@@ -35,6 +35,7 @@ in
         "c" = "agda2-make-case";
         "," = "agda2-goal-and-context";
         "a" = "agda2-auto-maybe-all";
+        "s" = "agda2-solve-maybe-all";
         "q" = {
           command = "nil";
           name = "cancel";
