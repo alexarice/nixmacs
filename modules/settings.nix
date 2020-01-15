@@ -21,6 +21,8 @@ in
 
     debug.enable = mkEnableOption "debug mode";
 
+    config-command.enable = mkEnableOption "show-config command";
+
     delete-trailing-whitespace = mkEnableOption "deleting trailing whitespace";
 
     crux-C-a = mkEnableOption "C-a from Crux";
@@ -45,6 +47,10 @@ in
       (
         mkIf cfg.debug.enable ''
           (setq debug-on-error t)
+        ''
+      )
+      (
+        mkIf cfg.config-command.enable ''
           (defun show-config ()
             "Show init.el"
             (interactive)
