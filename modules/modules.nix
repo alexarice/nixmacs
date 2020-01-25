@@ -23,6 +23,7 @@ in
     ./layers/ivy.nix
     ./layers/javascript.nix
     ./layers/latex.nix
+    ./layers/markdown.nix
     ./layers/mu4e.nix
     ./layers/nix.nix
     ./layers/nixmacs.nix
@@ -70,6 +71,7 @@ in
     ./packages/ivy.nix
     ./packages/js2-mode.nix
     ./packages/js2-refactor.nix
+    ./packages/markdown-mode.nix
     ./packages/mu4e-overview.nix
     ./packages/mu4e.nix
     ./packages/neotree.nix
