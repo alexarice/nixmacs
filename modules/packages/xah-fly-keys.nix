@@ -54,15 +54,17 @@ in
         config = mkMerge ([
           (mkDefault ''
             (xah-fly-keys-set-layout "${cfg.keyboard-layout}")
-
+            (defvar command-mode t)
             (defun my-bindkey-xfk-command-mode ()
               "Define keys for `xah-fly-command-mode-activate-hook'"
               (interactive)
+              (setq command-mode t)
               ${printXahBinds cfg.command-mode-bindings})
 
             (defun my-bindkey-xfk-insert-mode ()
               "Reset bindings for insert mode"
               (interactive)
+              (setq command-mode nil)
               ${printInsertBinds cfg.command-mode-bindings})
 
             (add-hook 'xah-fly-command-mode-activate-hook 'my-bindkey-xfk-command-mode)
@@ -71,17 +73,19 @@ in
           '')
           (mkIf (cfg.major-mode-bind-key != null) (mkDefault ''
             ${concatStringsSep "\n" (map (x: ''
-              (define-prefix-command 'leader-${x.name}-map)
+              (define-prefix-command 'leader-${x.name}-sub-map)
               ${printGeneral {
-                keymaps = "leader-${x.name}-map";
-                binds = x.binds;
+                  keymaps = "leader-${x.name}-sub-map";
+                  binds = x.binds;
               }}
+              (setq leader-${x.name}-map (let ((map (make-sparse-keymap)))
+                (set-keymap-parent map xah-fly-leader-key-map)
+                (define-key map (kbd "${cfg.major-mode-bind-key}") ${x.command})
+                (let ((map-main (make-sparse-keymap)))
+                  (define-key map-main (kbd "SPC") map)
+                  map-main)))
+              (add-hook '${x.name}-hook (lambda () (add-to-list 'minor-mode-overriding-map-alist (cons 'command-mode leader-${x.name}-map))))
             '') (filter (x: x.binds != null) bindings))}
-
-            (defun major-mode-bindings-hook ()
-            (cond ${concatStringsSep " " (map (x: "((string-equal major-mode \"${x.name}\") (define-key xah-fly-leader-key-map (kbd \"${cfg.major-mode-bind-key}\") ${x.command}))") bindings)} (t nil)))
-            (add-hook 'after-change-major-mode-hook 'major-mode-bindings-hook)
-            (major-mode-bindings-hook)
           ''))
         ]);
       };

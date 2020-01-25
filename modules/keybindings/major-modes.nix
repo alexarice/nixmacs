@@ -27,9 +27,9 @@ let
 
       command = mkOption {
         type = types.str;
-        default = "leader-${name}-map";
+        default = "leader-${name}-sub-map";
         description = ''
-          Command to run for the major mode key. Default activates <code>leader-${name}-map</code>.
+          Command to run for the major mode key. Default activates <code>leader-${name}-sub-map</code>.
         '';
       };
     };
