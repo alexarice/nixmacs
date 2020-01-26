@@ -23,6 +23,7 @@ in
     ./layers/ivy.nix
     ./layers/javascript.nix
     ./layers/latex.nix
+    ./layers/lsp.nix
     ./layers/markdown.nix
     ./layers/mu4e.nix
     ./layers/nix.nix
@@ -49,6 +50,7 @@ in
     ./packages/cargo.nix
     ./packages/company-anaconda.nix
     ./packages/company-irony.nix
+    ./packages/company-lsp.nix
     ./packages/company-nixos-options.nix
     ./packages/company-tern.nix
     ./packages/company.nix
@@ -71,6 +73,8 @@ in
     ./packages/ivy.nix
     ./packages/js2-mode.nix
     ./packages/js2-refactor.nix
+    ./packages/lsp-mode.nix
+    ./packages/lsp-ui.nix
     ./packages/markdown-mode.nix
     ./packages/mu4e-overview.nix
     ./packages/mu4e.nix
