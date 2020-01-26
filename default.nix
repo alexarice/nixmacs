@@ -7,7 +7,10 @@ in
 with lib;
 let
   modules = import ./modules/modules.nix { };
-  emacsPackages = pkgs.emacsPackagesNgGen package;
+  overrides = import ./epkgs/overrides.nix { inherit pkgs; };
+  emacsPackages = let
+    epkgs = pkgs.emacsPackagesNgGen package;
+  in epkgs.overrideScope' overrides;
   emacsPackage = (
     emacsPackages.emacsWithPackages (
       epkgs:

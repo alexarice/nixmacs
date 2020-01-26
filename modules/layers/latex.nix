@@ -1,9 +1,10 @@
-{ config, epkgs, lib, ... }:
+{ config, epkgs, lib, pkgs, ... }:
 
 with lib;
 
 let
   cfg = config.layers.latex;
+  cfg-lsp = config.package.lsp-mode.enable;
 in
 {
   options.layers.latex = {
@@ -22,6 +23,7 @@ in
     package = {
       tex = {
         enable = mkDefault true;
+        external-packages = mkIf cfg-lsp [ pkgs.texlab ];
         use-package = {
           init = mkMerge (
             singleton (mkDefault config.latex-hooks)
@@ -30,8 +32,12 @@ in
           config = mkDefault "(auctex-latexmk-setup)";
         };
       };
+      lsp-mode.settings.lsp-hooks = mkIf cfg-lsp [ "LaTeX-mode" ];
+      company-lsp.enable = mkIf cfg-lsp true;
+      lsp-latex.enable = mkIf cfg-lsp true;
       company.settings.company-hooks.LaTeX-mode = mkDefault [
         "company-files"
+        "company-lsp"
         "company-auctex"
         "(company-ispell company-dabbrev)"
       ];
