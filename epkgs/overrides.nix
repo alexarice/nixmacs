@@ -1,4 +1,4 @@
 { pkgs }:
 self: super: {
-  lsp-latex = pkgs.callPackage ./lsp-latex.nix { };
+  lsp-latex = self.callPackage ./lsp-latex.nix { };
 }

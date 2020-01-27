@@ -1,6 +1,6 @@
-{ stdenv, fetchFromGitHub }:
+{ trivialBuild, lib, fetchFromGitHub, lsp-mode }:
 
-stdenv.mkDerivation rec {
+trivialBuild rec {
   pname = "lsp-latex";
   version = "support-texlab-v1.0";
 
@@ -13,8 +13,11 @@ stdenv.mkDerivation rec {
 
   dontBuild = true;
 
-  installPhase = ''
-    mkdir -p $out/share/emacs/site-lisp
-    cp *.el *.elc $out/share/emacs/site-lisp/
-  '';
+  packageRequires = [ lsp-mode ];
+
+  meta = with lib; {
+    description = "Language server protocol plugin for texlab";
+    license = licenses.gpl3;
+    maintainers = with maintainers; [ alexarice ];
+  };
 }
