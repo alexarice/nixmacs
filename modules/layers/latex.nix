@@ -45,7 +45,7 @@ in
       smartparens.settings.smartparens-modes = [ "LaTeX-mode" ];
     };
 
-    keybindings.major-mode."latex-mode".binds = {
+    keybindings.major-mode."LaTeX-mode".binds = {
       b = "TeX-command-master";
     };
   };
