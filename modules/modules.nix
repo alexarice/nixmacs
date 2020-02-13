@@ -29,6 +29,7 @@ in
     ./layers/nix.nix
     ./layers/nixmacs.nix
     ./layers/notmuch.nix
+    ./layers/ocaml.nix
     ./layers/org.nix
     ./layers/python.nix
     ./layers/rust.nix
@@ -76,6 +77,7 @@ in
     ./packages/lsp-mode.nix
     ./packages/lsp-ui.nix
     ./packages/markdown-mode.nix
+    ./packages/merlin.nix
     ./packages/mu4e-overview.nix
     ./packages/mu4e.nix
     ./packages/neotree.nix
@@ -99,6 +101,7 @@ in
     ./packages/swiper.nix
     ./packages/systemd.nix
     ./packages/toml-mode.nix
+    ./packages/tuareg.nix
     ./packages/unicode-fonts.nix
     ./packages/use-package-chords.nix
     ./packages/which-key.nix
