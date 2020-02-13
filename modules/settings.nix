@@ -33,7 +33,9 @@ in
 
     electric-pair-mode = mkEnableOption "electric-pair-mode";
 
-    cancel-minibuffer-with-mouse = mkEnableOption "Cancel minibuffer on mouse click";
+    cancel-minibuffer-with-mouse = mkEnableOption "cancel minibuffer on mouse click";
+
+    minibuffer-inherit-input-mode = mkEnableOption "let minibuffer inherit parent buffer's input mode";
   };
 
   config = {
@@ -65,6 +67,18 @@ in
             (abort-recursive-edit)))
 
           (add-hook 'mouse-leave-buffer-hook 'stop-using-minibuffer)
+        ''
+      )
+      (
+        mkIf cfg.minibuffer-inherit-input-mode ''
+          (defun my-inherit-input-method ()
+            "Inherit input method from `minibuffer-selected-window'."
+            (let* ((win (minibuffer-selected-window))
+                  (buf (and win (window-buffer win))))
+               (when buf
+                 (activate-input-method (buffer-local-value 'current-input-method buf)))))
+
+          (add-hook 'minibuffer-setup-hook #'my-inherit-input-method)
         ''
       )
     ];
