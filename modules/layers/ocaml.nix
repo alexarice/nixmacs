@@ -13,6 +13,7 @@ in
       tuareg.enable = mkDefault true;
       merlin.enable = mkDefault true;
       company.settings.company-hooks.caml-mode = mkDefault [
+        "(merlin-company-backend)"
         "(company-capf company-dabbrev-code)"
       ];
     };
