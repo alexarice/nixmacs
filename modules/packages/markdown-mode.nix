@@ -10,6 +10,5 @@ with lib;
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
     '';
-    custom.markdown-command = "multimarkdown";
   };
 }
