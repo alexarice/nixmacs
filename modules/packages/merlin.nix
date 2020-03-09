@@ -8,7 +8,7 @@ with lib;
 
     use-package = {
       hook = mkDefault "((tuareg-mode caml-mode) . merlin-mode)";
-      custom.merlin-command = "${pkgs.ocamlPackages.merlin}/bin/ocamlmerlin";
+      custom.merlin-command = "\"${pkgs.ocamlPackages.merlin}/bin/ocamlmerlin\"";
     };
   };
 }
