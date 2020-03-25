@@ -18,7 +18,9 @@
 
 (define-polymode org-agda-mode
   :hostmode 'poly-org-agda-hostmode
-  :innermodes '(poly-org-agda-innermode))
+  :innermodes '(poly-org-agda-innermode)
+
+  (set-input-method "Agda"))
 
 (assq-delete-all 'background agda2-highlight-faces)
 
