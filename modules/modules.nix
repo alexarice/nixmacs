@@ -69,6 +69,7 @@ in
     ./packages/git-gutter.nix
     ./packages/haskell-mode.nix
     ./packages/hlint-refactor.nix
+    ./packages/htmlize.nix
     ./packages/irony-eldoc.nix
     ./packages/irony.nix
     ./packages/ivy.nix

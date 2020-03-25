@@ -21,6 +21,7 @@ in
 
   config = mkIf cfg.enable {
     package = {
+      htmlize.enable = true;
       org-bullets.enable = true;
       ox-publish.enable = true;
       org = {
