@@ -87,6 +87,7 @@ in
     ./packages/nix-repl.nix
     ./packages/nix-shell.nix
     ./packages/nixos-options.nix
+    ./packages/org-agda-mode.nix
     ./packages/org-bullets.nix
     ./packages/org.nix
     ./packages/ox-publish.nix
