@@ -13,8 +13,7 @@ in
   config = mkIf cfg.enable {
     package = {
       agda2-mode.enable = true;
-      polymode.enable = true;
-      org-agda-mode.enable = true;
+      org-agda-mode.enable = mkIf config.layers.org.enable true;
       company.settings.company-hooks."agda2-mode" = [
         "company-capf"
         "company-dabbrev-code"
