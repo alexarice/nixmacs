@@ -4,7 +4,12 @@ trivialBuild rec {
   pname = "org-agda-mode";
   version = "master";
 
-  src = ./org-agda-mode;
+  src = fetchFromGitHub {
+    owner = "alexarice";
+    repo = "org-agda-mode";
+    rev = "fe0a1561cf34e3273b58bd1b742f66f1268434b4";
+    sha256 = "0c3cbm5djr5g733zgvf6pnkvvadsmg8dcy4b6gh458khgag9r82w";
+  };
 
   packageRequires = [ polymode agda2-mode ];
 
