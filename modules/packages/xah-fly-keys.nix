@@ -60,7 +60,6 @@ in
               (interactive)
               (setq command-mode t)
               ${printXahBinds cfg.command-mode-bindings})
-
             (defun my-bindkey-xfk-insert-mode ()
               "Reset bindings for insert mode"
               (interactive)
@@ -72,12 +71,16 @@ in
             (xah-fly-keys 1)
           '')
           (mkIf (cfg.major-mode-bind-key != null) (mkDefault ''
+            (define-key
+              xah-fly-leader-key-map
+              (kbd "${cfg.major-mode-bind-key}") nil)
             ${concatStringsSep "\n" (map (x: ''
               (define-prefix-command 'leader-${x.name}-sub-map)
               ${printGeneral {
                   keymaps = "leader-${x.name}-sub-map";
                   binds = x.binds;
               }}
+
               (setq leader-${x.name}-map (let ((map (make-sparse-keymap)))
                 (set-keymap-parent map xah-fly-leader-key-map)
                 (define-key map (kbd "${cfg.major-mode-bind-key}") ${x.command})
