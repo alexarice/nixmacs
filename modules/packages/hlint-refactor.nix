@@ -4,7 +4,7 @@ with lib;
 
 {
   package.hlint-refactor = {
-    external-packages = with pkgs.haskellPackages; mkDefault [ hlint apply-refact ];
+    external-packages = with pkgs.haskellPackages; mkDefault [ hlint ];
     use-package = {
       init = mkIf config.package.dante.enable (mkDefault ''
         (add-hook 'dante-mode-hook
