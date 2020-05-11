@@ -26,9 +26,9 @@ in
         use-package.custom.js-indent-level = mkDefault cfg.indent-level;
       };
       js2-refactor.enable = mkDefault true;
-      company-tern.enable = mkDefault config.package.company.enable;
+      # company-tern.enable = mkDefault config.package.company.enable;
       company.settings.company-hooks.js2-mode = mkDefault [
-        "company-tern"
+        # "company-tern"
         "(company-dabbrev-code company-capf)"
       ];
     };
