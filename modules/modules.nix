@@ -77,6 +77,7 @@ in
     ./packages/js2-refactor.nix
     ./packages/lsp-mode.nix
     ./packages/lsp-ui.nix
+    ./packages/markdown-agda-mode.nix
     ./packages/markdown-mode.nix
     ./packages/merlin.nix
     ./packages/mu4e-overview.nix

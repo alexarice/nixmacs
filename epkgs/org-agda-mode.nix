@@ -5,10 +5,10 @@ trivialBuild rec {
   version = "master";
 
   src = fetchFromGitHub {
-    owner = "alexarice";
+    owner = "alhassy";
     repo = "org-agda-mode";
-    rev = "fe0a1561cf34e3273b58bd1b742f66f1268434b4";
-    sha256 = "0c3cbm5djr5g733zgvf6pnkvvadsmg8dcy4b6gh458khgag9r82w";
+    rev = "9422f79e4ecdb10118f7c73b86b8f01e7aa0df14";
+    sha256 = "18alpbilgjglib2pvn2cykw44c2bzgbj1zx63rn6kdszmx3hz56s";
   };
 
   packageRequires = [ polymode agda2-mode ];
