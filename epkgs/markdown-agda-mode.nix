@@ -7,8 +7,8 @@ trivialBuild rec {
   src = fetchFromGitHub {
     owner = "alexarice";
     repo = "markdown-agda-mode";
-    rev = "94fc15678ba54b867e85c82df02c16f5be6e59c3";
-    sha256 = "0rky4rjj92xcsypfrd3winv7flkzm4x15bsp6bmrm7xm6gyqzdxr";
+    rev = "522bfd0055f959b3dad21cc8b652e3851149852c";
+    sha256 = "1fw1cp22ii1iqvls71gs4rq9f91hd46xi67vn022qfs9mwqsvv1r";
   };
 
   packageRequires = [ polymode agda2-mode markdown-mode ];
