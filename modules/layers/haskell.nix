@@ -9,14 +9,6 @@ in
 {
   options.layers.haskell = {
     enable = mkEnableOption "haskell layer";
-
-    hies = mkOption {
-      type = with types; nullOr package;
-      default = null;
-      description = ''
-        Haskell-ide-engine package to install.
-      '';
-    };
   };
 
   config = mkIf cfg.enable {
@@ -25,7 +17,6 @@ in
       hlint-refactor.enable = true;
       lsp-haskell = {
         enable = mkIf cfg-lsp true;
-        external-packages = mkIf (cfg.hies != null) [ cfg.hies ];
       };
       company-lsp.enable = mkIf cfg-lsp (mkDefault true);
       lsp-mode.settings.lsp-hooks = mkIf cfg-lsp [ "haskell-mode" ];

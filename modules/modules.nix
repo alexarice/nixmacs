@@ -75,6 +75,7 @@ in
     ./packages/ivy.nix
     ./packages/js2-mode.nix
     ./packages/js2-refactor.nix
+    ./packages/lsp-haskell.nix
     ./packages/lsp-mode.nix
     ./packages/lsp-ui.nix
     ./packages/markdown-agda-mode.nix
