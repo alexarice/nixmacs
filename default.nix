@@ -25,14 +25,24 @@ let
                   options = removeAttrs (oldModule.options or {}) [ "package" ];
                 } else oldModule;
 
+          cleanseConfig = f: { config, lib, epkgs, pkgs, ... }@args:
+            let
+              oldModule = f args;
+            in if oldModule ? options then
+            {
+              inherit (oldModule) options;
+            } else {};
+
           pkgsModule = {
             config._module.args.pkgs = pkgs;
             config._module.args.epkgs = epkgs;
             config._module.check = true;
           };
 
+          cleansedPackageModules = map cleanseConfig modules.packageModules;
+
           preEval = evalModules {
-            modules = modules.packageModules ++ [ pkgsModule ];
+            modules = cleansedPackageModules ++ [ pkgsModule ];
           };
 
           optionsModule = {
@@ -49,7 +59,7 @@ let
             inherit (evaledModule.config) rawPackageList initEl externalPackageList;
             docs = import ./doc {
               inherit epkgs pkgs lib;
-              inherit (modules) packageModules;
+              packageModules = cleansedPackageModules;
               finalModules = [ optionsModule ] ++ cleansedModules;
             };
           }
