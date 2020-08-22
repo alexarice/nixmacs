@@ -15,23 +15,23 @@ let
     emacsPackages.emacsWithPackages (
       epkgs:
         let
-          cleanseOptions = f: { config, lib, epkgs, pkgs, ... }@args:
-            let
-              oldModule = f args;
-            in
-              if oldModule ? config then
-                {
-                  inherit (oldModule) config;
-                  options = removeAttrs (oldModule.options or {}) [ "package" ];
-                } else oldModule;
+          # cleanseOptions = f: { config, lib, epkgs, pkgs, ... }@args:
+          #   let
+          #     oldModule = f args;
+          #   in
+          #     if oldModule ? config then
+          #       {
+          #         inherit (oldModule) config;
+          #         options = removeAttrs (oldModule.options or {}) [ "package" ];
+          #       } else oldModule;
 
-          cleanseConfig = f: { config, lib, epkgs, pkgs, ... }@args:
-            let
-              oldModule = f args;
-            in if oldModule ? options then
-            {
-              inherit (oldModule) options;
-            } else {};
+          # cleanseConfig = f: { config, lib, epkgs, pkgs, ... }@args:
+          #   let
+          #     oldModule = f args;
+          #   in if oldModule ? options then
+          #   {
+          #     inherit (oldModule) options;
+          #   } else {};
 
           pkgsModule = {
             config._module.args.pkgs = pkgs;
@@ -39,29 +39,29 @@ let
             config._module.check = true;
           };
 
-          cleansedPackageModules = map cleanseConfig modules.packageModules;
+          # cleansedPackageModules = map cleanseConfig modules.packageModules;
 
-          preEval = evalModules {
-            modules = cleansedPackageModules ++ [ pkgsModule ];
-          };
+          # preEval = evalModules {
+          #   modules = cleansedPackageModules ++ [ pkgsModule ];
+          # };
 
-          optionsModule = {
-            config._module.args.packageOptions = preEval.options.package;
-          };
+          # optionsModule = {
+          #   config._module.args.packageOptions = preEval.options.package;
+          # };
 
-          cleansedModules = modules.baseModules ++ map cleanseOptions modules.packageModules;
+          # cleansedModules = modules.baseModules ++ map cleanseOptions modules.packageModules;
 
           evaledModule = evalModules {
-            modules = [ configurationFile ] ++ cleansedModules ++ [ optionsModule pkgsModule ];
+            modules = [ configurationFile ] ++ modules.baseModules ++ modules.packageModules;
           };
         in
           {
             inherit (evaledModule.config) rawPackageList initEl externalPackageList;
-            docs = import ./doc {
-              inherit epkgs pkgs lib;
-              packageModules = cleansedPackageModules;
-              finalModules = [ optionsModule ] ++ cleansedModules;
-            };
+            docs = null; # import ./doc {
+            #   inherit epkgs pkgs lib;
+            #   packageModules = cleansedPackageModules;
+            #   finalModules = [ optionsModule ] ++ cleansedModules;
+            # };
           }
     )
   ).overrideAttrs (

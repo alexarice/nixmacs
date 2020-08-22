@@ -6,7 +6,7 @@ let
   cfg = config.package.smartparens.settings;
 in
 {
-  options.package.smartparens.settings = {
+  options.package = add-settings "smartparens" {
     strict = mkOption {
       type = types.bool;
       default = false;

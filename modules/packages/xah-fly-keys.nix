@@ -8,7 +8,7 @@ let
   bindings = attrValues config.keybindings.major-mode;
 in
 {
-  options.package.xah-fly-keys.settings = {
+  options.package = add-settings "xah-fly-keys" {
     keyboard-layout = mkOption {
       type = types.enum [
         "azerty"

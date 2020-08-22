@@ -19,5 +19,7 @@ rec {
   printers = callLib ./printers.nix;
   types = oldLib.types // (callLib ./types.nix);
   yants = (callLib "${yantsSrc}/default.nix") // (callLib ./yants.nix);
+  options = oldLib.options // (callLib ./options.nix);
   inherit (printers) printLispVar printCustom printVariables printBinding printGeneral;
+  inherit (options) add-settings;
 })

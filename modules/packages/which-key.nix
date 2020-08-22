@@ -8,7 +8,7 @@ let
   location = i: if i == "minibuffer" then i else "side-window-${i}";
 in
 {
-  options.package.which-key.settings = {
+  options.package = add-settings "which-key" {
     setup = mkOption {
       type = with types; nullOr (enum [
         "bottom"

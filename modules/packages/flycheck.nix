@@ -6,7 +6,7 @@ let
   cfg = config.package.flycheck.settings;
 in
 {
-  options.package.flycheck.settings = {
+  options.package = add-settings "flycheck" {
     disabled-checkers = mkOption {
       type = with types; listOf str;
       default = [];

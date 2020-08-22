@@ -6,7 +6,7 @@ let
   cfg = config.package.neotree.settings;
 in
 {
-  options.package.neotree.settings = {
+  options.package = add-settings "neotree" {
     neo-theme = mkOption {
       type = types.str;
       default = "arrow";

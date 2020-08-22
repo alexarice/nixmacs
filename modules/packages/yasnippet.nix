@@ -6,7 +6,7 @@ let
   cfg = config.package.yasnippet.settings;
 in
 {
-  options.package.yasnippet.settings = {
+  options.package = add-settings "yasnippet" {
     yas-snippet-dirs = mkOption {
       type = types.str;
       default = "(list (concat user-emacs-directory \"snippets/\"))";

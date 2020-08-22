@@ -1,4 +1,4 @@
-{ lib, epkgs, config, packageOptions, ... }:
+{ lib, epkgs, config, ... }:
 
 with lib;
 
@@ -34,15 +34,6 @@ let
             How early in the <filename>init.el</filename> the use-package declaration should appear.
           '';
         };
-
-        settings = packageOptions.${name}.settings or (
-          mkOption {
-            type = types.unspecified;
-            description = ''
-              Package specific settings. See <link linkend="package-options">Package Options</link> section for available options.
-            '';
-          }
-        );
 
         name = mkOption {
           type = types.str;
@@ -293,7 +284,9 @@ in
   options = {
     package = mkOption {
       default = {};
-      type = with types; attrsOf (submodule packageOpts);
+      type = with types; submodule {
+        freeformType = submodule packageOpts;
+      };
       description = ''
         Package setup organised by package name.
       '';

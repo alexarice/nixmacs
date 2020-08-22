@@ -6,7 +6,7 @@ let
   cfg = config.package.lsp-mode.settings;
 in
 {
-  options.package.lsp-mode.settings = {
+  options.package = add-settings "lsp-mode" {
     deferred = mkOption {
       type = types.bool;
       default = false;

@@ -6,7 +6,7 @@ let
   cfg = config.package.adaptive-wrap.settings;
 in
 {
-  options.package.adaptive-wrap.settings = {
+  options.package = add-settings "adaptive-wrap" {
     indent = mkOption {
       type = types.int;
       default = 2;

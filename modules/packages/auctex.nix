@@ -12,15 +12,17 @@ in
       readOnly = true;
       visible = false;
     };
-    package.tex.settings.TeX-view-program-selection = mkOption {
-      type = with types; attrsOf str;
-      default = {};
-      example = {
-        output-pdf = "zathura";
+    package = add-settings "tex" {
+      TeX-view-program-selection = mkOption {
+        type = with types; attrsOf str;
+        default = {};
+        example = {
+          output-pdf = "zathura";
+        };
+        description = ''
+          Builds the TeX-view-program-selection variable.
+        '';
       };
-      description = ''
-        Builds the TeX-view-program-selection variable.
-      '';
     };
   };
 

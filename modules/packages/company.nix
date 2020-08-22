@@ -16,12 +16,14 @@ let
       concatStringsSep "\n" (map (x: writeCompanyHook x (getAttr x s)) hooks);
 in
 {
-  options.package.company.settings.company-hooks = mkOption {
-    type = with types; attrsOf (uniq (listOf str));
-    default = {};
-    description = ''
-      Company backends for major modes.
-    '';
+  options.package = add-settings "company" {
+    company-hooks = mkOption {
+      type = with types; attrsOf (uniq (listOf str));
+      default = {};
+      description = ''
+        Company backends for major modes.
+      '';
+    };
   };
 
   config.package.company.use-package = {
