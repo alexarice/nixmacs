@@ -19,28 +19,9 @@
     <refsection>
       <title>Configuration Options</title>
       <para>
-	This section lists the configuration options for <filename>nixmacs</filename>. These are split into two sections:
-	<itemizedlist>
-	  <listitem>
-	    <para>
-	      Core Options contains all options central to nixmacs.
-	    </para>
-	  </listitem>
-	  <listitem>
-	    <para>
-	      Package Options contains any package specific options.
-	    </para>
-	  </listitem>
-	</itemizedlist>
+	This section lists the configuration options for <filename>nixmacs</filename>.
       </para>
-      <refsection>
-	<title>Core Options</title>
-	<xi:include href="./nmd-result/nixmacs-options.xml" />
-      </refsection>
-      <refsection xml:id="package-options">
-	<title>Package Options</title>
-	<xi:include href="./nmd-result/nixmacs-package-options.xml" />
-      </refsection>
+      <xi:include href="./nmd-result/nixmacs-options.xml" />
     </refsection>
   </refentry>
 </reference>

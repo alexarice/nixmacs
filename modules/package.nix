@@ -285,7 +285,7 @@ in
     package = mkOption {
       default = {};
       type = with types; submodule {
-        freeformType = submodule packageOpts;
+        freeformType = attrsOf (submodule packageOpts);
       };
       description = ''
         Package setup organised by package name.
