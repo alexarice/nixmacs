@@ -85,6 +85,7 @@
   ./packages/ox-publish.nix
   ./packages/powerline.nix
   ./packages/projectile.nix
+  ./packages/proof-general.nix
   ./packages/racer.nix
   ./packages/rainbow-delimiters.nix
   ./packages/rainbow-mode.nix
