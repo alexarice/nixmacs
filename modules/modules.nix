@@ -12,6 +12,7 @@
   ./layers/better-defaults.nix
   ./layers/c.nix
   ./layers/completion.nix
+  ./layers/coq.nix
   ./layers/fish.nix
   ./layers/git.nix
   ./layers/haskell.nix
@@ -40,6 +41,7 @@
   ./packages/auctex.nix
   ./packages/cargo.nix
   ./packages/company-anaconda.nix
+  ./packages/company-coq.nix
   ./packages/company-irony.nix
   ./packages/company-lsp.nix
   ./packages/company-nixos-options.nix
