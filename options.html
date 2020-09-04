@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 1. Configuration Options</title><link rel="stylesheet" type="text/css" href="style.css" /><link rel="stylesheet" type="text/css" href="overrides.css" /><link rel="stylesheet" type="text/css" href="highlightjs/mono-blue.css" /><script src="./highlightjs/highlight.pack.js" type="text/javascript"></script><script src="./highlightjs/loader.js" type="text/javascript"></script><meta name="generator" content="DocBook XSL Stylesheets V1.79.2" /><link rel="home" href="index.html" title="Nixmacs Manual" /><link rel="up" href="index.html" title="Nixmacs Manual" /><link rel="prev" href="index.html" title="Nixmacs Manual" /></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 1. Configuration Options</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="index.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> </td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="ch-options"></a>Chapter 1. Configuration Options</h1></div></div></div><p>
+      This section lists the configuration options for <code class="filename">nixmacs</code>.
+    </p><div class="variablelist"><a id="nixmacs-options"></a><dl class="variablelist"><dt><span class="term"><a id="opt-package"></a><a class="term" href="options.html#opt-package"><code class="option">package</code></a></span></dt><dd><p>Package setup organised by package name.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of submodules</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        
+        {
+        
+        }
+    
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/yasnippet.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/yasnippet.nix&gt;
+                </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/xah-fly-keys.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/xah-fly-keys.nix&gt;
+                </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/which-key.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/which-key.nix&gt;
+                </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/smartparens.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/smartparens.nix&gt;
+                </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/neotree.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/neotree.nix&gt;
+                </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/lsp-mode.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/lsp-mode.nix&gt;
+                </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/flycheck.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/flycheck.nix&gt;
+                </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/company.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/company.nix&gt;
+                </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/auctex.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/auctex.nix&gt;
+                </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/adaptive-wrap.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/adaptive-wrap.nix&gt;
+                </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/package.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/package.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.adaptive-wrap.settings.indent"></a><a class="term" href="options.html#opt-package.adaptive-wrap.settings.indent"><code class="option">package.adaptive-wrap.settings.indent</code></a></span></dt><dd><p>Adaptive wrap indent variable.
+</p><p><span class="emphasis"><em>Type:</em></span> signed integer</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        2
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/adaptive-wrap.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/adaptive-wrap.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.company.settings.company-hooks"></a><a class="term" href="options.html#opt-package.company.settings.company-hooks"><code class="option">package.company.settings.company-hooks</code></a></span></dt><dd><p>Company backends for major modes.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of list of stringss</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        
+        {
+        
+        }
+    
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/company.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/company.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.flycheck.settings.disabled-checkers"></a><a class="term" href="options.html#opt-package.flycheck.settings.disabled-checkers"><code class="option">package.flycheck.settings.disabled-checkers</code></a></span></dt><dd><p>Checkers to be added to flycheck-disabled-checkers.
+</p><p><span class="emphasis"><em>Type:</em></span> list of strings</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        
+        [
+        
+        ]
+    
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/flycheck.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/flycheck.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.lsp-mode.settings.deferred"></a><a class="term" href="options.html#opt-package.lsp-mode.settings.deferred"><code class="option">package.lsp-mode.settings.deferred</code></a></span></dt><dd><p>Whether to use lsp-deferred.
+</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/lsp-mode.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/lsp-mode.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.lsp-mode.settings.lsp-hooks"></a><a class="term" href="options.html#opt-package.lsp-mode.settings.lsp-hooks"><code class="option">package.lsp-mode.settings.lsp-hooks</code></a></span></dt><dd><p>Modes to activate lsp in.
+</p><p><span class="emphasis"><em>Type:</em></span> list of strings</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        
+        [
+        
+        ]
+    
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/lsp-mode.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/lsp-mode.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.neotree.settings.neo-theme"></a><a class="term" href="options.html#opt-package.neotree.settings.neo-theme"><code class="option">package.neotree.settings.neo-theme</code></a></span></dt><dd><p>Theme for neotree to be passed to <code class="option">neo-theme</code>.
+</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        "arrow"
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/neotree.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/neotree.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.smartparens.settings.smartparens-modes"></a><a class="term" href="options.html#opt-package.smartparens.settings.smartparens-modes"><code class="option">package.smartparens.settings.smartparens-modes</code></a></span></dt><dd><p>Modes to start smartparens on
+</p><p><span class="emphasis"><em>Type:</em></span> list of strings</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/smartparens.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/smartparens.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.smartparens.settings.strict"></a><a class="term" href="options.html#opt-package.smartparens.settings.strict"><code class="option">package.smartparens.settings.strict</code></a></span></dt><dd><p>Whether to use smartparens-strict-mode.
+</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/smartparens.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/smartparens.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.tex.settings.TeX-view-program-selection"></a><a class="term" href="options.html#opt-package.tex.settings.TeX-view-program-selection"><code class="option">package.tex.settings.TeX-view-program-selection</code></a></span></dt><dd><p>Builds the TeX-view-program-selection variable.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of strings</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        
+        {
+        
+        }
+    
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        
+        {
+        output-pdf = "zathura"; 
+        }
+    
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/auctex.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/auctex.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.which-key.settings.setup"></a><a class="term" href="options.html#opt-package.which-key.settings.setup"><code class="option">package.which-key.settings.setup</code></a></span></dt><dd><p>Activate which-key default config.
+</p><p><span class="emphasis"><em>Type:</em></span> null or one of "bottom", "right", "right-bottom", "minibuffer"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        "bottom"
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        null
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/which-key.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/which-key.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.xah-fly-keys.settings.command-mode-bindings"></a><a class="term" href="options.html#opt-package.xah-fly-keys.settings.command-mode-bindings"><code class="option">package.xah-fly-keys.settings.command-mode-bindings</code></a></span></dt><dd><p>Extra keybindings for command mode.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of strings</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        
+        {
+        
+        }
+    
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/xah-fly-keys.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/xah-fly-keys.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.xah-fly-keys.settings.keyboard-layout"></a><a class="term" href="options.html#opt-package.xah-fly-keys.settings.keyboard-layout"><code class="option">package.xah-fly-keys.settings.keyboard-layout</code></a></span></dt><dd><p>Keyboard layout to be passed to xah-fly-keys.
+</p><p><span class="emphasis"><em>Type:</em></span> one of "azerty", "azerty-be", "colemak", "colemak-mod-dh", "dvorak", "programer-dvorak", "qwerty", "qwerty-abnt", "qwertz", "workman"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        "qwerty"
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        "dvorak"
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/xah-fly-keys.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/xah-fly-keys.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.xah-fly-keys.settings.major-mode-bind-key"></a><a class="term" href="options.html#opt-package.xah-fly-keys.settings.major-mode-bind-key"><code class="option">package.xah-fly-keys.settings.major-mode-bind-key</code></a></span></dt><dd><p>Key to bind major mode bindings to.
+</p><p><span class="emphasis"><em>Type:</em></span> null or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        null
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/xah-fly-keys.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/xah-fly-keys.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.yasnippet.settings.yas-snippet-dirs"></a><a class="term" href="options.html#opt-package.yasnippet.settings.yas-snippet-dirs"><code class="option">package.yasnippet.settings.yas-snippet-dirs</code></a></span></dt><dd><p>Yasnippet snippet directory.
+</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        ''(list (concat user-emacs-directory "snippets/"))''
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/yasnippet.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/packages/yasnippet.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-appearance.fonts.font"></a><a class="term" href="options.html#opt-appearance.fonts.font"><code class="option">appearance.fonts.font</code></a></span></dt><dd><p>Font string to use or null to not set font.
+</p><p><span class="emphasis"><em>Type:</em></span> null or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        null
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        "Source Code Pro 9"
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/font.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/font.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-appearance.fonts.unicode-font"></a><a class="term" href="options.html#opt-appearance.fonts.unicode-font"><code class="option">appearance.fonts.unicode-font</code></a></span></dt><dd><p>Unicode font string to use or null to not set unicode font.
+</p><p><span class="emphasis"><em>Type:</em></span> null or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        null
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        "STIXGeneral"
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/font.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/font.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-appearance.theme.enable"></a><a class="term" href="options.html#opt-appearance.theme.enable"><code class="option">appearance.theme.enable</code></a></span></dt><dd><p>Whether to enable theme.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/theme.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/theme.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-appearance.theme.package"></a><a class="term" href="options.html#opt-appearance.theme.package"><code class="option">appearance.theme.package</code></a></span></dt><dd><p>Emacs package for theme.
+</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">${epkgs.dracula-theme}</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/theme.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/theme.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-appearance.theme.extraConfig"></a><a class="term" href="options.html#opt-appearance.theme.extraConfig"><code class="option">appearance.theme.extraConfig</code></a></span></dt><dd><p>Extra config to be added to the theme package.
+</p><p><span class="emphasis"><em>Type:</em></span> strings concatenated with "\n"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        ""
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/theme.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/theme.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-appearance.theme.themeName"></a><a class="term" href="options.html#opt-appearance.theme.themeName"><code class="option">appearance.theme.themeName</code></a></span></dt><dd><p>Theme name to load in init-el.
+</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        config.appearance.theme.package.pname
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        "dracula"
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/theme.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/theme.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-custom.enable"></a><a class="term" href="options.html#opt-custom.enable"><code class="option">custom.enable</code></a></span></dt><dd><p>Whether to enable emacs customisation.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/custom.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/custom.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-custom.file"></a><a class="term" href="options.html#opt-custom.file"><code class="option">custom.file</code></a></span></dt><dd><p>File to save emacs customisations in.
+</p><p><span class="emphasis"><em>Type:</em></span> string or path</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        "~/.emacs.d/custom.el"
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/custom.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/custom.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-init-el.postSetup"></a><a class="term" href="options.html#opt-init-el.postSetup"><code class="option">init-el.postSetup</code></a></span></dt><dd><p>Text to be put after package initialisation in <code class="filename">init.el</code>.
+</p><p><span class="emphasis"><em>Type:</em></span> strings concatenated with "\n\n"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        ""
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/init-el.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/init-el.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-init-el.preamble"></a><a class="term" href="options.html#opt-init-el.preamble"><code class="option">init-el.preamble</code></a></span></dt><dd><p>Items to be put at the top of <code class="filename">init.el</code>. Should not rely on any package.
+</p><p><span class="emphasis"><em>Type:</em></span> strings concatenated with "\n\n"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        ""
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/init-el.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/init-el.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.hydra"></a><a class="term" href="options.html#opt-keybindings.hydra"><code class="option">keybindings.hydra</code></a></span></dt><dd><p>Attribute set defining hydras.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of submodules</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        
+        {
+        
+        }
+    
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/hydra.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/keybindings/hydra.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.hydra._name_.bind"></a><a class="term" href="options.html#opt-keybindings.hydra._name_.bind"><code class="option">keybindings.hydra.&lt;name&gt;.bind</code></a></span></dt><dd><p>Binding to run hydra on.
+</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        ""
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        ''"global-map \"&lt;f2&gt;\""''
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/hydra.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/keybindings/hydra.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.hydra._name_.bindings"></a><a class="term" href="options.html#opt-keybindings.hydra._name_.bindings"><code class="option">keybindings.hydra.&lt;name&gt;.bindings</code></a></span></dt><dd><p>Bindings for this hydra.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of string or submodules</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        
+        {
+        
+        }
+    
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        
+        {
+        g = 
+        {
+        command = "text-scale-increase"; name = "in"; 
+        }
+    ; l = 
+        {
+        command = "text-scale-decrease"; name = "out"; 
+        }
+    ; 
+        }
+    
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/hydra.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/keybindings/hydra.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.hydra._name_.colour"></a><a class="term" href="options.html#opt-keybindings.hydra._name_.colour"><code class="option">keybindings.hydra.&lt;name&gt;.colour</code></a></span></dt><dd><p>Hydra body colour.
+</p><p><span class="emphasis"><em>Type:</em></span> null or one of "amaranth", "teal", "pink", "red", "blue"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        null
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        "amaranth"
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/hydra.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/keybindings/hydra.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.hydra._name_.docText"></a><a class="term" href="options.html#opt-keybindings.hydra._name_.docText"><code class="option">keybindings.hydra.&lt;name&gt;.docText</code></a></span></dt><dd><p>Description for the hydra.
+</p><p><span class="emphasis"><em>Type:</em></span> null or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        null
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        "zoom"
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/hydra.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/keybindings/hydra.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.hydra._name_.hint"></a><a class="term" href="options.html#opt-keybindings.hydra._name_.hint"><code class="option">keybindings.hydra.&lt;name&gt;.hint</code></a></span></dt><dd><p>head-hint for the hydra.
+</p><p><span class="emphasis"><em>Type:</em></span> null or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        null
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        "nil"
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/hydra.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/keybindings/hydra.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.hydra._name_.name"></a><a class="term" href="options.html#opt-keybindings.hydra._name_.name"><code class="option">keybindings.hydra.&lt;name&gt;.name</code></a></span></dt><dd><p>Name of the hydra.
+</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        "‹name›"
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        "hydra-zoom"
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/hydra.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/keybindings/hydra.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.major-mode"></a><a class="term" href="options.html#opt-keybindings.major-mode"><code class="option">keybindings.major-mode</code></a></span></dt><dd><p>Key bindings for major modes.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of submodules</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/major-modes.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/keybindings/major-modes.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.major-mode._name_.binds"></a><a class="term" href="options.html#opt-keybindings.major-mode._name_.binds"><code class="option">keybindings.major-mode.&lt;name&gt;.binds</code></a></span></dt><dd><p>Key bindings to be set for given major mode. Implementation is up to keybinding system.
+</p><p><span class="emphasis"><em>Type:</em></span> null or attribute set of strings</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        
+        {
+        
+        }
+    
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        
+        {
+        r = "nix-repl"; 
+        }
+    
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/major-modes.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/keybindings/major-modes.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.major-mode._name_.command"></a><a class="term" href="options.html#opt-keybindings.major-mode._name_.command"><code class="option">keybindings.major-mode.&lt;name&gt;.command</code></a></span></dt><dd><p>Command to run for the major mode key. Default activates <code class="code">leader-‹name›-sub-map</code>.
+</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        "leader-‹name›-sub-map"
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/major-modes.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/keybindings/major-modes.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.major-mode._name_.name"></a><a class="term" href="options.html#opt-keybindings.major-mode._name_.name"><code class="option">keybindings.major-mode.&lt;name&gt;.name</code></a></span></dt><dd><p>Key for this keybinding.
+</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        "‹name›"
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/major-modes.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/keybindings/major-modes.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.agda.enable"></a><a class="term" href="options.html#opt-layers.agda.enable"><code class="option">layers.agda.enable</code></a></span></dt><dd><p>Whether to enable agda layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/agda.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/agda.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.better-defaults.enable"></a><a class="term" href="options.html#opt-layers.better-defaults.enable"><code class="option">layers.better-defaults.enable</code></a></span></dt><dd><p>Whether to enable better defaults.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/better-defaults.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/better-defaults.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.c.enable"></a><a class="term" href="options.html#opt-layers.c.enable"><code class="option">layers.c.enable</code></a></span></dt><dd><p>Whether to enable C/C++ layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/c.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/c.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.completion.enable"></a><a class="term" href="options.html#opt-layers.completion.enable"><code class="option">layers.completion.enable</code></a></span></dt><dd><p>Whether to enable completion layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/completion.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/completion.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.coq.enable"></a><a class="term" href="options.html#opt-layers.coq.enable"><code class="option">layers.coq.enable</code></a></span></dt><dd><p>Whether to enable coq layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/coq.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/coq.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.fish.enable"></a><a class="term" href="options.html#opt-layers.fish.enable"><code class="option">layers.fish.enable</code></a></span></dt><dd><p>Whether to enable fish layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/fish.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/fish.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.git.enable"></a><a class="term" href="options.html#opt-layers.git.enable"><code class="option">layers.git.enable</code></a></span></dt><dd><p>Whether to enable git layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/git.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/git.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.haskell.enable"></a><a class="term" href="options.html#opt-layers.haskell.enable"><code class="option">layers.haskell.enable</code></a></span></dt><dd><p>Whether to enable haskell layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/haskell.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/haskell.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.ivy.enable"></a><a class="term" href="options.html#opt-layers.ivy.enable"><code class="option">layers.ivy.enable</code></a></span></dt><dd><p>Whether to enable ivy layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/ivy.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/ivy.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.javascript.enable"></a><a class="term" href="options.html#opt-layers.javascript.enable"><code class="option">layers.javascript.enable</code></a></span></dt><dd><p>Whether to enable javascript layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/javascript.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/javascript.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.javascript.indent-level"></a><a class="term" href="options.html#opt-layers.javascript.indent-level"><code class="option">layers.javascript.indent-level</code></a></span></dt><dd><p>Amount of indent in javascript modes.
+</p><p><span class="emphasis"><em>Type:</em></span> positive integer, meaning &gt;0</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        2
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/javascript.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/javascript.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.latex.enable"></a><a class="term" href="options.html#opt-layers.latex.enable"><code class="option">layers.latex.enable</code></a></span></dt><dd><p>Whether to enable LaTeX layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/latex.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/latex.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.latex.enable-folding"></a><a class="term" href="options.html#opt-layers.latex.enable-folding"><code class="option">layers.latex.enable-folding</code></a></span></dt><dd><p>Enable fold mode for latex mode.
+</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/latex.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/latex.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.lsp.enable"></a><a class="term" href="options.html#opt-layers.lsp.enable"><code class="option">layers.lsp.enable</code></a></span></dt><dd><p>Whether to enable Language Server Protocal Layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/lsp.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/lsp.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.lsp.ui"></a><a class="term" href="options.html#opt-layers.lsp.ui"><code class="option">layers.lsp.ui</code></a></span></dt><dd><p>Whether to enable lsp-ui mode.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/lsp.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/lsp.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.markdown.enable"></a><a class="term" href="options.html#opt-layers.markdown.enable"><code class="option">layers.markdown.enable</code></a></span></dt><dd><p>Whether to enable Markdown Layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/markdown.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/markdown.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.mu4e.enable"></a><a class="term" href="options.html#opt-layers.mu4e.enable"><code class="option">layers.mu4e.enable</code></a></span></dt><dd><p>Whether to enable mu4e email client.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/mu4e.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/mu4e.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.nix.enable"></a><a class="term" href="options.html#opt-layers.nix.enable"><code class="option">layers.nix.enable</code></a></span></dt><dd><p>Whether to enable Nix Layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/nix.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/nix.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.nixmacs.enable"></a><a class="term" href="options.html#opt-layers.nixmacs.enable"><code class="option">layers.nixmacs.enable</code></a></span></dt><dd><p>Whether to enable nixmacs base layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/nixmacs.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/nixmacs.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.notmuch.enable"></a><a class="term" href="options.html#opt-layers.notmuch.enable"><code class="option">layers.notmuch.enable</code></a></span></dt><dd><p>Whether to enable notmuch email interface.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/notmuch.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/notmuch.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.ocaml.enable"></a><a class="term" href="options.html#opt-layers.ocaml.enable"><code class="option">layers.ocaml.enable</code></a></span></dt><dd><p>Whether to enable ocaml layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/ocaml.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/ocaml.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.org.enable"></a><a class="term" href="options.html#opt-layers.org.enable"><code class="option">layers.org.enable</code></a></span></dt><dd><p>Whether to enable org layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/org.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/org.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.org.agenda-files"></a><a class="term" href="options.html#opt-layers.org.agenda-files"><code class="option">layers.org.agenda-files</code></a></span></dt><dd><p>List of paths to add to org-agenda-files or a file containing
+a list of files within it.
+</p><p><span class="emphasis"><em>Type:</em></span> path or list of paths</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        
+        [
+        
+        ]
+    
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/org.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/org.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.python.enable"></a><a class="term" href="options.html#opt-layers.python.enable"><code class="option">layers.python.enable</code></a></span></dt><dd><p>Whether to enable python layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/python.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/python.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.rust.enable"></a><a class="term" href="options.html#opt-layers.rust.enable"><code class="option">layers.rust.enable</code></a></span></dt><dd><p>Whether to enable rust layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/rust.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/rust.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.systemd.enable"></a><a class="term" href="options.html#opt-layers.systemd.enable"><code class="option">layers.systemd.enable</code></a></span></dt><dd><p>Whether to enable systemd layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/systemd.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/systemd.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.yaml.enable"></a><a class="term" href="options.html#opt-layers.yaml.enable"><code class="option">layers.yaml.enable</code></a></span></dt><dd><p>Whether to enable yaml layer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/layers/yaml.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/layers/yaml.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.cancel-minibuffer-with-mouse"></a><a class="term" href="options.html#opt-settings.cancel-minibuffer-with-mouse"><code class="option">settings.cancel-minibuffer-with-mouse</code></a></span></dt><dd><p>Whether to enable cancel minibuffer on mouse click.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/settings.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/settings.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.config-command.enable"></a><a class="term" href="options.html#opt-settings.config-command.enable"><code class="option">settings.config-command.enable</code></a></span></dt><dd><p>Whether to enable show-config command.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/settings.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/settings.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.crux-C-a"></a><a class="term" href="options.html#opt-settings.crux-C-a"><code class="option">settings.crux-C-a</code></a></span></dt><dd><p>Whether to enable C-a from Crux.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/settings.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/settings.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.debug.enable"></a><a class="term" href="options.html#opt-settings.debug.enable"><code class="option">settings.debug.enable</code></a></span></dt><dd><p>Whether to enable debug mode.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/settings.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/settings.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.delete-trailing-whitespace"></a><a class="term" href="options.html#opt-settings.delete-trailing-whitespace"><code class="option">settings.delete-trailing-whitespace</code></a></span></dt><dd><p>Whether to enable deleting trailing whitespace.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/settings.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/settings.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.electric-pair-mode"></a><a class="term" href="options.html#opt-settings.electric-pair-mode"><code class="option">settings.electric-pair-mode</code></a></span></dt><dd><p>Whether to enable electric-pair-mode.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/settings.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/settings.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.global-hl-line"></a><a class="term" href="options.html#opt-settings.global-hl-line"><code class="option">settings.global-hl-line</code></a></span></dt><dd><p>Whether to enable highlight line mode.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/settings.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/settings.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.global-variables"></a><a class="term" href="options.html#opt-settings.global-variables"><code class="option">settings.global-variables</code></a></span></dt><dd><p>Variables to be set in <code class="filename">init.el</code>.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of int, float, bool, string, or null to represent a value in elisp
+s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        
+        {
+        
+        }
+    
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/settings.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/settings.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.line-numbers.enable"></a><a class="term" href="options.html#opt-settings.line-numbers.enable"><code class="option">settings.line-numbers.enable</code></a></span></dt><dd><p>Whether to enable line numbers.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/settings.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/settings.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.minibuffer-inherit-input-mode"></a><a class="term" href="options.html#opt-settings.minibuffer-inherit-input-mode"><code class="option">settings.minibuffer-inherit-input-mode</code></a></span></dt><dd><p>Whether to enable let minibuffer inherit parent buffer's input mode.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/settings.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/settings.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.recent-files-mode"></a><a class="term" href="options.html#opt-settings.recent-files-mode"><code class="option">settings.recent-files-mode</code></a></span></dt><dd><p>Whether to enable recentf-mode.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/settings.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/settings.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.smooth-scrolling.enable"></a><a class="term" href="options.html#opt-settings.smooth-scrolling.enable"><code class="option">settings.smooth-scrolling.enable</code></a></span></dt><dd><p>Whether to enable smooth scrolling.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        false
+      </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        true
+      </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/settings.nix#blob-path" target="_top">
+                    &lt;nixmacs/modules/settings.nix&gt;
+                </a></code></td></tr></table></dd></dl></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="index.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> </td></tr><tr><td width="40%" align="left" valign="top">Nixmacs Manual </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>
