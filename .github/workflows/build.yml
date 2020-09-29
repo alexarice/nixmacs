@@ -19,7 +19,7 @@ jobs:
             experimental-features = nix-command flakes
       - name: Build
         run: |
-          nix build
+          nix build ./.#minimal
           nix build ./.#docs.html
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
