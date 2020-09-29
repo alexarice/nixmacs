@@ -1,54 +1,19 @@
-{ pkgs, package ? pkgs.emacs, configurationFile }:
-
+{ pkgs, configurationFile, package ? pkgs.emacs }:
 
 let
-  lib = pkgs.callPackage ./lib {};
-in
-with lib;
-let
+  lib = pkgs.callPackage ./lib { };
   modules = import ./modules/modules.nix { };
   overrides = import ./epkgs/overrides.nix { inherit pkgs; };
-  emacsPackages = let
-    epkgs = pkgs.emacsPackagesNgGen package;
-  in epkgs.overrideScope' overrides;
-  emacsPackage = (
-    emacsPackages.emacsWithPackages (
-      epkgs:
-        let
-          pkgsModule = {
-            config._module.args.pkgs = pkgs;
-            config._module.args.epkgs = epkgs;
-            config._module.check = true;
-          };
+  nmdSrc = pkgs.fetchFromGitLab {
+    owner = "rycee";
+    repo = "nmd";
+    rev = "b437898c2b137c39d9c5f9a1cf62ec630f14d9fc";
+    sha256 = "18j1nh53cfpjpdiwn99x9kqpvr0s7hwngyc0a93xf4sg88ww93lq";
+  };
+  docs = pkgs.callPackage ./doc {
+    inherit lib modules nmdSrc;
+  };
 
-          evaledModule = evalModules {
-            modules = [ configurationFile pkgsModule ] ++ modules;
-          };
-        in
-          {
-            inherit (evaledModule.config) rawPackageList initEl externalPackageList;
-            docs = import ./doc {
-              inherit epkgs pkgs lib;
-              finalModules = modules;
-            };
-          }
-    )
-  ).overrideAttrs (
-    oldAttrs:
-      let
-        oldReqs = oldAttrs.explicitRequires;
-        explicitRequires = oldReqs.rawPackageList;
-      in
-        {
-          inherit explicitRequires;
-          passthru = {
-            inherit (oldReqs) initEl externalPackageList docs;
-          };
-          deps = oldAttrs.deps.overrideAttrs (o: { inherit explicitRequires; });
-        }
-  );
-in
-pkgs.callPackage ./nixmacs {
-  inherit emacsPackage;
-  inherit (emacsPackage.passthru) initEl externalPackageList docs;
+in import ./nixmacs.nix {
+  inherit pkgs configurationFile modules overrides package lib docs;
 }
