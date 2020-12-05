@@ -12,11 +12,11 @@ in
 
   config = mkIf cfg.enable {
     package = {
-      flycheck-rust.enable = true;
-      rust-mode.enable = true;
-      racer.enable = true;
-      toml-mode.enable = true;
-      cargo.enable = true;
+      flycheck-rust.enable = mkDefault true;
+      rust-mode.enable = mkDefault true;
+      racer.enable = mkDefault false;
+      toml-mode.enable = mkDefault true;
+      cargo.enable = mkDefault true;
 
       company.settings.company-hooks.rust-mode = [
         "company-capf"
