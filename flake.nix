@@ -1,25 +1,32 @@
 {
   description = "Nixmacs: a nix based emacs distribution";
 
-  inputs.nmd = {
-    url = gitlab:rycee/nmd;
-    flake = false;
+  inputs = {
+    nmd = {
+      url = gitlab:rycee/nmd;
+      flake = false;
+    };
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
-  outputs = { self, nixpkgs, nmd }:
-  let pkgs = import nixpkgs { system = "x86_64-linux"; };
-      lib = pkgs.callPackage ./lib { };
-      modules = import ./modules/modules.nix { };
-      overrides = import ./epkgs/overrides.nix { inherit pkgs; };
+  outputs = { self, nixpkgs, nmd, emacs-overlay }:
+  let pkgs = import nixpkgs {
+    system = "x86_64-linux";
+    config = { allowUnfree = true; };
+    overlays = [ emacs-overlay.overlay ];
+  };
+  lib = pkgs.callPackage ./lib { };
+  modules = import ./modules/modules.nix { };
+  overrides = import ./epkgs/overrides.nix { inherit pkgs; };
   in {
     docs = pkgs.callPackage ./doc {
       inherit lib modules;
       nmdSrc = nmd;
     };
 
-    nixmacs = { configurationFile, package }:
+    nixmacs = { configurationFile, package, extraOverrides ? (self: super: {}) }:
       pkgs.callPackage ./nixmacs.nix {
-        inherit configurationFile package lib modules overrides;
+        inherit configurationFile package lib modules overrides extraOverrides;
         inherit (self) docs;
       };
 

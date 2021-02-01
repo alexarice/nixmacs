@@ -1,10 +1,10 @@
-{ pkgs, lib, package, modules, overrides, configurationFile, docs }:
+{ pkgs, lib, package, modules, overrides, configurationFile, docs, extraOverrides }:
 
 with lib;
 let
   emacsPackages = let
     epkgs = pkgs.emacsPackagesNgGen package;
-  in epkgs.overrideScope' overrides;
+  in (epkgs.overrideScope' overrides).overrideScope' extraOverrides;
   emacsPackage = (
     emacsPackages.emacsWithPackages (
       epkgs:
