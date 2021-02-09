@@ -20,8 +20,7 @@ with lib;
       init-el.preamble = mkBefore ''
         (setq user-init-file (or load-file-name (buffer-file-name)))
 
-        (eval-when-compile
-          (require 'use-package))
+        (require 'use-package)
         (package-initialize)
         (require 'bind-key)
       '';
