@@ -1,4 +1,4 @@
-{ pkgs, configurationFile, package ? pkgs.emacs }:
+{ pkgs, configurationFile, package ? pkgs.emacs, extraOverrides ? (self: super: { }) }:
 
 let
   lib = pkgs.callPackage ./lib { };
@@ -15,5 +15,5 @@ let
   };
 
 in import ./nixmacs.nix {
-  inherit pkgs configurationFile modules overrides package lib docs;
+  inherit pkgs configurationFile modules overrides package lib docs extraOverrides;
 }
