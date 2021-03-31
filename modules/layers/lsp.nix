@@ -17,6 +17,8 @@ in
       lsp-mode.enable = mkDefault true;
 
       lsp-ui.enable = mkDefault cfg.ui;
+
+      lsp-ivy.enable = mkDefault config.layers.ivy.enable;
     };
   };
 }
