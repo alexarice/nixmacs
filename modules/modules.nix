@@ -83,6 +83,7 @@
   ./packages/nixos-options.nix
   ./packages/org-agda-mode.nix
   ./packages/org-bullets.nix
+  ./packages/org-roam.nix
   ./packages/org.nix
   ./packages/ox-publish.nix
   ./packages/powerline.nix
