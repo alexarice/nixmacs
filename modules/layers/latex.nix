@@ -33,7 +33,6 @@ in
         };
       };
       lsp-mode.settings.lsp-hooks = mkIf cfg-lsp [ "LaTeX-mode" ];
-      company-lsp.enable = mkIf cfg-lsp true;
       lsp-latex.enable = mkIf cfg-lsp true;
       company.settings.company-hooks.LaTeX-mode = mkDefault [
         "company-files"

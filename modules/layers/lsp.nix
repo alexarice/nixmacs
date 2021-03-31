@@ -17,8 +17,6 @@ in
       lsp-mode.enable = mkDefault true;
 
       lsp-ui.enable = mkDefault cfg.ui;
-
-      company-lsp.enable = mkDefault config.package.company.enable;
     };
   };
 }

@@ -17,8 +17,6 @@ in
         a list of files within it.
       '';
     };
-
-    roam = mkEnableOption "org roam";
   };
 
   config = mkIf cfg.enable {
@@ -30,7 +28,6 @@ in
         enable = true;
         external-packages = [ pkgs.imagemagick ];
       };
-      org-roam.enable = mkIf cfg.roam true;
     };
 
     settings.global-variables = {

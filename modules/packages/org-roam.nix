@@ -6,8 +6,8 @@ let
 in
 {
   options.package = add-settings "org-roam" {
-    org-roam-directory = mkOption {
-      type = types.path;
+    directory = mkOption {
+      type = types.str;
       description = ''
         Directory for org roam
       '';
@@ -18,7 +18,7 @@ in
     external-packages = [ pkgs.sqlite ];
     use-package = {
       hook = mkDefault "(after-init . org-roam-mode)";
-      custom.org-roam-directory = mkDefault cfg.org-roam-directory;
+      custom.org-roam-directory = mkDefault ''"${cfg.directory}"'';
     };
   };
 }

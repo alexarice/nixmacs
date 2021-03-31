@@ -18,7 +18,6 @@ in
       lsp-haskell = {
         enable = mkIf cfg-lsp true;
       };
-      company-lsp.enable = mkIf cfg-lsp (mkDefault true);
       lsp-mode.settings.lsp-hooks = mkIf cfg-lsp [ "haskell-mode" ];
       company.settings.company-hooks.haskell-mode = mkDefault (
         optional cfg-lsp "company-lsp" ++ [
