@@ -83,6 +83,8 @@
   ./packages/nixos-options.nix
   ./packages/org-agda-mode.nix
   ./packages/org-bullets.nix
+  ./packages/org-ref.nix
+  ./packages/org-roam-bibtex.nix
   ./packages/org-roam.nix
   ./packages/org.nix
   ./packages/ox-publish.nix
