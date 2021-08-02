@@ -23,7 +23,7 @@ in
     package = {
       tex = {
         enable = mkDefault true;
-        # external-packages = mkIf cfg-lsp [ pkgs.texlab ];
+        external-packages = mkIf cfg-lsp [ pkgs.texlab ];
         use-package = {
           init = mkMerge (
             singleton (mkDefault config.latex-hooks)
