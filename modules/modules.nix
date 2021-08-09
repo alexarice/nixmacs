@@ -96,6 +96,7 @@
   ./packages/rainbow-mode.nix
   ./packages/rjsx-mode.nix
   ./packages/rust-mode.nix
+  ./packages/rustic.nix
   ./packages/smartparens.nix
   ./packages/smooth-scrolling.nix
   ./packages/swiper.nix
