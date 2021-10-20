@@ -23,6 +23,8 @@ in
       sentence-end-double-space = mkDefault false;
       default-fill-column = mkDefault 80;
       initial-scratch-message = mkDefault "nil";
+      gc-cons-threshold = mkDefault 100000000;
+      read-process-output-max = mkDefault (1024 * 1024);
     };
 
     init-el.preamble = mkAfter ''
