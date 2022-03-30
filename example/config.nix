@@ -20,6 +20,7 @@
       smartparens.enable = true;
       direnv.enable = true;
       nix-update.enable = true;
+      xah-fly-keys.enable = true;
     };
 
     appearance = {

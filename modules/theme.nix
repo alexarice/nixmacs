@@ -13,7 +13,7 @@ in
 
         package = mkOption {
           type = types.package;
-          example = literalExample "${epkgs.dracula-theme}";
+          example = literalExpression "${epkgs.dracula-theme}";
           description = ''
             Emacs package for theme.
           '';
@@ -22,7 +22,7 @@ in
         themeName = mkOption {
           type = types.str;
           default = cfg.package.pname;
-          defaultText = literalExample "config.appearance.theme.package.pname";
+          defaultText = literalExpression "config.appearance.theme.package.pname";
           example = "dracula";
           description = ''
             Theme name to load in init-el.

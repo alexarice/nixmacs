@@ -5,7 +5,7 @@ with lib;
 {
   package.projectile = {
     package = with epkgs; mkDefault [ projectile ag ];
-    external-packages = with pkgs; mkDefault [ gnugrep ack ripgrep ag fd ];
+    external-packages = with pkgs; mkDefault [ gnugrep ack ripgrep silver-searcher fd ];
     use-package = {
       defer = mkDefault true;
       commands = mkDefault [

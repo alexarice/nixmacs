@@ -11,7 +11,7 @@ let
         package = mkOption {
           type = with types; either package (listOf package);
           default = getAttr name epkgs;
-          defaultText = literalExample "epkgs.${name}";
+          defaultText = literalExpression "epkgs.${name}";
           description = ''
             Nix package to install that provides ${name}. Can also be a list of packages to be installed, for example to include an optional dependency.
           '';
@@ -20,7 +20,7 @@ let
         external-packages = mkOption {
           type = with types; listOf package;
           default = [];
-          example = literalExample "[ pkgs.ag ]";
+          example = literalExpression "[ pkgs.silver-searcher ]";
           description = ''
             Packages that should be added to nixmacs' path.
           '';
