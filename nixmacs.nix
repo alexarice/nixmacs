@@ -3,7 +3,7 @@
 with lib;
 let
   emacsPackages = let
-    epkgs = pkgs.emacsPackagesNgGen package;
+    epkgs = pkgs.emacsPackagesFor package;
   in (epkgs.overrideScope' overrides).overrideScope' extraOverrides;
   emacsPackage = (
     emacsPackages.emacsWithPackages (
