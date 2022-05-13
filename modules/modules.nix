@@ -67,6 +67,7 @@
   ./packages/ivy.nix
   ./packages/js2-mode.nix
   ./packages/js2-refactor.nix
+  ./packages/literate-agda-mode.nix
   ./packages/lsp-haskell.nix
   ./packages/lsp-mode.nix
   ./packages/lsp-ui.nix
