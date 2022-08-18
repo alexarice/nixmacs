@@ -1,3 +1,4 @@
+
 { config, lib, ... }:
 
 with lib;
@@ -43,7 +44,8 @@ in
       (
         mkIf cfg.line-numbers.enable ''
           (when (version<= "26.0.50" emacs-version )
-            (global-display-line-numbers-mode))
+            (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+            (add-hook 'text-mode-hook 'display-line-numbers-mode))
         ''
       )
       (

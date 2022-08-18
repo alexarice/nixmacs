@@ -189,8 +189,8 @@ let
           };
 
           after = mkOption {
-            type = types.lines;
-            default = "";
+            type = with types; either (listOf str) str;
+            default = [];
             description = ''
               String to be passed to the <option>:after</option> keyword of use-package.
             '';
@@ -269,7 +269,7 @@ let
       ${if up.if-keyword != "" then ":if\n${up.if-keyword}" else ""}
       ${if up.when != "" then ":when\n${up.when}" else ""}
       ${if up.unless != "" then ":unless\n${up.unless}" else ""}
-      ${if up.after != "" then ":after\n${up.after}" else ""}
+      ${if up.after != [] then ":after (${builtins.concatStringsSep " " up.after})" else ""}
       ${if up.defines != "" then ":defines\n${up.defines}" else ""}
       ${if up.functions != "" then ":functions\n${up.functions}" else ""}
       ${if up.diminish != null then ":diminish\n${up.diminish}" else ""}

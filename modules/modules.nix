@@ -70,6 +70,7 @@
   ./packages/literate-agda-mode.nix
   ./packages/lsp-haskell.nix
   ./packages/lsp-mode.nix
+  ./packages/lsp-pyright.nix
   ./packages/lsp-ui.nix
   ./packages/markdown-agda-mode.nix
   ./packages/markdown-mode.nix
@@ -92,6 +93,8 @@
   ./packages/powerline.nix
   ./packages/projectile.nix
   ./packages/proof-general.nix
+  ./packages/protobuf-mode.nix
+  ./packages/python-mode.nix
   ./packages/racer.nix
   ./packages/rainbow-delimiters.nix
   ./packages/rainbow-mode.nix
@@ -102,6 +105,9 @@
   ./packages/smooth-scrolling.nix
   ./packages/swiper.nix
   ./packages/systemd.nix
+  ./packages/treemacs.nix
+  ./packages/treemacs-magit.nix
+  ./packages/treemacs-projectile.nix
   ./packages/toml-mode.nix
   ./packages/tuareg.nix
   ./packages/unicode-fonts.nix

@@ -3,5 +3,5 @@
 with lib;
 
 {
-  package.mu4e-overview.use-package.after = "mu4e";
+  package.mu4e-overview.use-package.after = singleton "mu4e";
 }

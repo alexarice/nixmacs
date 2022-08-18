@@ -15,7 +15,6 @@ in
       adaptive-wrap.enable = mkDefault true;
       crux.enable = mkDefault true;
       flycheck.enable = mkDefault true;
-      neotree.enable = mkDefault true;
       doom-modeline.enable = mkDefault true;
       projectile.enable = mkDefault true;
       rainbow-delimiters.enable = mkDefault true;
@@ -24,6 +23,9 @@ in
       which-key.enable = mkDefault true;
       smartparens.enable = mkDefault true;
       smooth-scrolling.enable = mkDefault true;
+      treemacs.enable = mkDefault true;
+      treemacs-projectile.enable = mkDefault true;
+      treemacs-magit.enable = mkDefault true;
     };
 
     settings = {
