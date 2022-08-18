@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 1. Configuration Options</title><link rel="stylesheet" type="text/css" href="style.css" /><link rel="stylesheet" type="text/css" href="overrides.css" /><link rel="stylesheet" type="text/css" href="mono-blue.css" /><script src="highlight.pack.js" type="text/javascript"></script><script src="highlight.load.js" type="text/javascript"></script><meta name="generator" content="DocBook XSL Stylesheets V1.79.2" /><link rel="home" href="index.html" title="Nixmacs Manual" /><link rel="up" href="index.html" title="Nixmacs Manual" /><link rel="prev" href="index.html" title="Nixmacs Manual" /></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 1. Configuration Options</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="index.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> </td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="ch-options"></a>Chapter 1. Configuration Options</h1></div></div></div><p>
       This section lists the configuration options for <code class="filename">nixmacs</code>.
     </p><div class="variablelist"><a id="nixmacs-options"></a><dl class="variablelist"><dt><span class="term"><a id="opt-package"></a><a class="term" href="options.html#opt-package"><code class="option">package</code></a></span></dt><dd><p>Package setup organised by package name.
-</p><p><span class="emphasis"><em>Type:</em></span> attribute set of submodules</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of submodule</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         {
         
         }
@@ -33,15 +33,19 @@
                 </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/package.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/package.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package._name_.enable"></a><a class="term" href="options.html#opt-package._name_.enable"><code class="option">package.&lt;name&gt;.enable</code></a></span></dt><dd><p>Whether to enable ‹name›.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p></dd><dt><span class="term"><a id="opt-package._name_.package"></a><a class="term" href="options.html#opt-package._name_.package"><code class="option">package.&lt;name&gt;.package</code></a></span></dt><dd><p>Nix package to install that provides ‹name›. Can also be a list of packages to be installed, for example to include an optional dependency.
-</p><p><span class="emphasis"><em>Type:</em></span> package or list of packages</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">epkgs.‹name›</code></p></dd><dt><span class="term"><a id="opt-package._name_.external-packages"></a><a class="term" href="options.html#opt-package._name_.external-packages"><code class="option">package.&lt;name&gt;.external-packages</code></a></span></dt><dd><p>Packages that should be added to nixmacs' path.
-</p><p><span class="emphasis"><em>Type:</em></span> list of packages</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Type:</em></span> package or list of package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">epkgs.‹name›</code></p></dd><dt><span class="term"><a id="opt-package._name_.external-packages"></a><a class="term" href="options.html#opt-package._name_.external-packages"><code class="option">package.&lt;name&gt;.external-packages</code></a></span></dt><dd><p>Packages that should be added to nixmacs' path.
+</p><p><span class="emphasis"><em>Type:</em></span> list of package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         [
         
         ]
     </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">[ pkgs.silver-searcher ]</code></p></dd><dt><span class="term"><a id="opt-package._name_.name"></a><a class="term" href="options.html#opt-package._name_.name"><code class="option">package.&lt;name&gt;.name</code></a></span></dt><dd><p>Package name to be used within <code class="filename">init.el</code>.
 </p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">"‹name›"</code></p></dd><dt><span class="term"><a id="opt-package._name_.priority"></a><a class="term" href="options.html#opt-package._name_.priority"><code class="option">package.&lt;name&gt;.priority</code></a></span></dt><dd><p>How early in the <code class="filename">init.el</code> the use-package declaration should appear.
 </p><p><span class="emphasis"><em>Type:</em></span> signed integer</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">1000</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">500</code></p></dd><dt><span class="term"><a id="opt-package._name_.use-package.after"></a><a class="term" href="options.html#opt-package._name_.use-package.after"><code class="option">package.&lt;name&gt;.use-package.after</code></a></span></dt><dd><p>String to be passed to the <code class="option">:after</code> keyword of use-package.
-</p><p><span class="emphasis"><em>Type:</em></span> strings concatenated with "\n"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">""</code></p></dd><dt><span class="term"><a id="opt-package._name_.use-package.bind"></a><a class="term" href="options.html#opt-package._name_.use-package.bind"><code class="option">package.&lt;name&gt;.use-package.bind</code></a></span></dt><dd><p>Attribute set of bindings to be passed to <code class="option">:bind</code> keyword of use-package.
+</p><p><span class="emphasis"><em>Type:</em></span> list of string or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        [
+        
+        ]
+    </code></p></dd><dt><span class="term"><a id="opt-package._name_.use-package.bind"></a><a class="term" href="options.html#opt-package._name_.use-package.bind"><code class="option">package.&lt;name&gt;.use-package.bind</code></a></span></dt><dd><p>Attribute set of bindings to be passed to <code class="option">:bind</code> keyword of use-package.
 </p><p><span class="emphasis"><em>Type:</em></span> attribute set of strings or a nested attribute set of strings
 </p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         {
@@ -60,20 +64,20 @@
         
         }
     </code></p></dd><dt><span class="term"><a id="opt-package._name_.use-package.commands"></a><a class="term" href="options.html#opt-package._name_.use-package.commands"><code class="option">package.&lt;name&gt;.use-package.commands</code></a></span></dt><dd><p>List of strings to be passed to <code class="option">:commands</code> keyword of use-package.
-</p><p><span class="emphasis"><em>Type:</em></span> list of strings or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Type:</em></span> list of string or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         [
         
         ]
     </code></p></dd><dt><span class="term"><a id="opt-package._name_.use-package.config"></a><a class="term" href="options.html#opt-package._name_.use-package.config"><code class="option">package.&lt;name&gt;.use-package.config</code></a></span></dt><dd><p>String to be passed to the <code class="option">:config</code> keyword of use-package.
 </p><p><span class="emphasis"><em>Type:</em></span> strings concatenated with "\n"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">""</code></p></dd><dt><span class="term"><a id="opt-package._name_.use-package.custom"></a><a class="term" href="options.html#opt-package._name_.use-package.custom"><code class="option">package.&lt;name&gt;.use-package.custom</code></a></span></dt><dd><p>Attribute set to be passed to the <code class="option">:custom</code> keyword of use-package.
 </p><p><span class="emphasis"><em>Type:</em></span> attribute set of int, float, bool, string, or null to represent a value in elisp
-s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         {
         
         }
     </code></p></dd><dt><span class="term"><a id="opt-package._name_.use-package.custom-face"></a><a class="term" href="options.html#opt-package._name_.use-package.custom-face"><code class="option">package.&lt;name&gt;.use-package.custom-face</code></a></span></dt><dd><p>Attribute set to be passed to the <code class="option">:custom-face</code> keyword of use-package.
 </p><p><span class="emphasis"><em>Type:</em></span> attribute set of int, float, bool, string, or null to represent a value in elisp
-s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         {
         
         }
@@ -97,14 +101,14 @@ s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
 </p><p><span class="emphasis"><em>Type:</em></span> signed integer</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">2</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/adaptive-wrap.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/packages/adaptive-wrap.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.company.settings.company-hooks"></a><a class="term" href="options.html#opt-package.company.settings.company-hooks"><code class="option">package.company.settings.company-hooks</code></a></span></dt><dd><p>Company backends for major modes.
-</p><p><span class="emphasis"><em>Type:</em></span> attribute set of list of stringss</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of list of string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         {
         
         }
     </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/company.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/packages/company.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.flycheck.settings.disabled-checkers"></a><a class="term" href="options.html#opt-package.flycheck.settings.disabled-checkers"><code class="option">package.flycheck.settings.disabled-checkers</code></a></span></dt><dd><p>Checkers to be added to flycheck-disabled-checkers.
-</p><p><span class="emphasis"><em>Type:</em></span> list of strings</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Type:</em></span> list of string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         [
         
         ]
@@ -114,7 +118,7 @@ s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
 </p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/lsp-mode.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/packages/lsp-mode.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.lsp-mode.settings.lsp-hooks"></a><a class="term" href="options.html#opt-package.lsp-mode.settings.lsp-hooks"><code class="option">package.lsp-mode.settings.lsp-hooks</code></a></span></dt><dd><p>Modes to activate lsp in.
-</p><p><span class="emphasis"><em>Type:</em></span> list of strings</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Type:</em></span> list of string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         [
         
         ]
@@ -130,13 +134,13 @@ s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
 </p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/org-roam.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/packages/org-roam.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.smartparens.settings.smartparens-modes"></a><a class="term" href="options.html#opt-package.smartparens.settings.smartparens-modes"><code class="option">package.smartparens.settings.smartparens-modes</code></a></span></dt><dd><p>Modes to start smartparens on
-</p><p><span class="emphasis"><em>Type:</em></span> list of strings</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/smartparens.nix#blob-path" target="_top">
+</p><p><span class="emphasis"><em>Type:</em></span> list of string</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/smartparens.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/packages/smartparens.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.smartparens.settings.strict"></a><a class="term" href="options.html#opt-package.smartparens.settings.strict"><code class="option">package.smartparens.settings.strict</code></a></span></dt><dd><p>Whether to use smartparens-strict-mode.
 </p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/smartparens.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/packages/smartparens.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.tex.settings.TeX-view-program-selection"></a><a class="term" href="options.html#opt-package.tex.settings.TeX-view-program-selection"><code class="option">package.tex.settings.TeX-view-program-selection</code></a></span></dt><dd><p>Builds the TeX-view-program-selection variable.
-</p><p><span class="emphasis"><em>Type:</em></span> attribute set of strings</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         {
         
         }
@@ -150,7 +154,7 @@ s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
 </p><p><span class="emphasis"><em>Type:</em></span> null or one of "bottom", "right", "right-bottom", "minibuffer"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">"bottom"</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">null</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/which-key.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/packages/which-key.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.xah-fly-keys.settings.command-mode-bindings"></a><a class="term" href="options.html#opt-package.xah-fly-keys.settings.command-mode-bindings"><code class="option">package.xah-fly-keys.settings.command-mode-bindings</code></a></span></dt><dd><p>Extra keybindings for command mode.
-</p><p><span class="emphasis"><em>Type:</em></span> attribute set of strings</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         {
         
         }
@@ -165,6 +169,59 @@ s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-package.yasnippet.settings.yas-snippet-dirs"></a><a class="term" href="options.html#opt-package.yasnippet.settings.yas-snippet-dirs"><code class="option">package.yasnippet.settings.yas-snippet-dirs</code></a></span></dt><dd><p>Yasnippet snippet directory.
 </p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">''(list (concat user-emacs-directory "snippets/"))''</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/packages/yasnippet.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/packages/yasnippet.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-_module.args"></a><a class="term" href="options.html#opt-_module.args"><code class="option">_module.args</code></a></span></dt><dd><p>Additional arguments passed to each module in addition to ones
+like <code class="literal">lib</code>, <code class="literal">config</code>,
+and <code class="literal">pkgs</code>, <code class="literal">modulesPath</code>.
+</p><p>
+This option is also available to all submodules. Submodules do not
+inherit args from their parent module, nor do they provide args to
+their parent module or sibling submodules. The sole exception to
+this is the argument <code class="literal">name</code> which is provided by
+parent modules to a submodule and contains the attribute name
+the submodule is bound to, or a unique generated name if it is
+not bound to an attribute.
+</p><p>
+Some arguments are already passed by default, of which the
+following <span class="emphasis"><em>cannot</em></span> be changed with this option:
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+   <code class="varname">lib</code>: The nixpkgs library.
+  </p></li><li class="listitem"><p>
+   <code class="varname">config</code>: The results of all options after merging the values from all modules together.
+  </p></li><li class="listitem"><p>
+   <code class="varname">options</code>: The options declared in all modules.
+  </p></li><li class="listitem"><p>
+   <code class="varname">specialArgs</code>: The <code class="literal">specialArgs</code> argument passed to <code class="literal">evalModules</code>.
+  </p></li><li class="listitem"><p>
+   All attributes of <code class="varname">specialArgs</code>
+  </p><p>
+   Whereas option values can generally depend on other option values
+   thanks to laziness, this does not apply to <code class="literal">imports</code>, which
+   must be computed statically before anything else.
+  </p><p>
+   For this reason, callers of the module system can provide <code class="literal">specialArgs</code>
+   which are available during import resolution.
+  </p><p>
+   For NixOS, <code class="literal">specialArgs</code> includes
+   <code class="varname">modulesPath</code>, which allows you to import
+   extra modules from the nixpkgs package tree without having to
+   somehow make the module aware of the location of the
+   <code class="literal">nixpkgs</code> or NixOS directories.
+</p><pre class="programlisting">
+{ modulesPath, ... }: {
+  imports = [
+    (modulesPath + "/profiles/minimal.nix")
+  ];
+}
+</pre><p>
+  </p></li></ul></div><p>
+</p><p>
+For NixOS, the default value for this option includes at least this argument:
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+   <code class="varname">pkgs</code>: The nixpkgs package set according to
+   the <code class="option">nixpkgs.pkgs</code> option.
+  </p></li></ul></div><p>
+</p><p><span class="emphasis"><em>Type:</em></span> lazy attribute set of raw value</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/lib/modules.nix#blob-path" target="_top">
+                    &lt;nixmacs/lib/modules.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-appearance.fonts.font"></a><a class="term" href="options.html#opt-appearance.fonts.font"><code class="option">appearance.fonts.font</code></a></span></dt><dd><p>Font string to use or null to not set font.
 </p><p><span class="emphasis"><em>Type:</em></span> null or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">null</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">"Source Code Pro 9"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/font.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/font.nix&gt;
@@ -194,7 +251,7 @@ s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
 </p><p><span class="emphasis"><em>Type:</em></span> strings concatenated with "\n\n"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">""</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/init-el.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/init-el.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.hydra"></a><a class="term" href="options.html#opt-keybindings.hydra"><code class="option">keybindings.hydra</code></a></span></dt><dd><p>Attribute set defining hydras.
-</p><p><span class="emphasis"><em>Type:</em></span> attribute set of submodules</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of submodule</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         {
         
         }
@@ -204,7 +261,7 @@ s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
 </p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">""</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">''"global-map \"&lt;f2&gt;\""''</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/hydra.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/keybindings/hydra.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.hydra._name_.bindings"></a><a class="term" href="options.html#opt-keybindings.hydra._name_.bindings"><code class="option">keybindings.hydra.&lt;name&gt;.bindings</code></a></span></dt><dd><p>Bindings for this hydra.
-</p><p><span class="emphasis"><em>Type:</em></span> attribute set of string or submodules</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of string or submodule</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         {
         
         }
@@ -235,10 +292,10 @@ s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
 </p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">"‹name›"</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">"hydra-zoom"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/hydra.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/keybindings/hydra.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.major-mode"></a><a class="term" href="options.html#opt-keybindings.major-mode"><code class="option">keybindings.major-mode</code></a></span></dt><dd><p>Key bindings for major modes.
-</p><p><span class="emphasis"><em>Type:</em></span> attribute set of submodules</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/major-modes.nix#blob-path" target="_top">
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of submodule</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/alexarice/nixmacs/blob/master/modules/keybindings/major-modes.nix#blob-path" target="_top">
                     &lt;nixmacs/modules/keybindings/major-modes.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-keybindings.major-mode._name_.binds"></a><a class="term" href="options.html#opt-keybindings.major-mode._name_.binds"><code class="option">keybindings.major-mode.&lt;name&gt;.binds</code></a></span></dt><dd><p>Key bindings to be set for given major mode. Implementation is up to keybinding system.
-</p><p><span class="emphasis"><em>Type:</em></span> null or attribute set of strings</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Type:</em></span> null or attribute set of string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         {
         
         }
@@ -302,7 +359,7 @@ s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
                     &lt;nixmacs/modules/layers/org.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-layers.org.agenda-files"></a><a class="term" href="options.html#opt-layers.org.agenda-files"><code class="option">layers.org.agenda-files</code></a></span></dt><dd><p>List of paths to add to org-agenda-files or a file containing
 a list of files within it.
-</p><p><span class="emphasis"><em>Type:</em></span> path or list of paths</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Type:</em></span> path or list of path</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         [
         
         ]
@@ -332,7 +389,7 @@ a list of files within it.
                     &lt;nixmacs/modules/settings.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-settings.global-variables"></a><a class="term" href="options.html#opt-settings.global-variables"><code class="option">settings.global-variables</code></a></span></dt><dd><p>Variables to be set in <code class="filename">init.el</code>.
 </p><p><span class="emphasis"><em>Type:</em></span> attribute set of int, float, bool, string, or null to represent a value in elisp
-s</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         {
         
         }
