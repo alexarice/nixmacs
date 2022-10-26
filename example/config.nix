@@ -21,6 +21,8 @@
       direnv.enable = true;
       nix-update.enable = true;
       xah-fly-keys.enable = true;
+      literate-agda-mode.enable = true;
+      markdown-agda-mode.enable = true;
     };
 
     appearance = {

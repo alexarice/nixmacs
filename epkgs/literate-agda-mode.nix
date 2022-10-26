@@ -1,14 +1,14 @@
 { trivialBuild, lib, fetchFromGitHub, polymode, agda2-mode, auctex }:
 
 trivialBuild rec {
-  pname = "org-agda-mode";
+  pname = "literate-agda-mode";
   version = "master";
 
   src = fetchFromGitHub {
     owner = "alexarice";
     repo = "literate-agda-mode";
-    rev = "0247d74f1a48782e869f1f8854fb7e1b9d9d8334";
-    sha256 = "y/pF0Pn7LrU7c7te1YkMnC2HbCZRCNLhoqPUXeK9hCo=";
+    rev = "7b7a194c18cb33d8eb6d04fd6e04186ff5dea235";
+    sha256 = "sha256-gVcuGvdZ98CBdfdLcAlpVhyKp28CXyw74YIAjHykSQ0=";
   };
 
   packageRequires = [ polymode agda2-mode auctex ];
