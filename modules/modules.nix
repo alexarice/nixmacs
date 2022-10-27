@@ -30,6 +30,7 @@
   ./layers/python.nix
   ./layers/rust.nix
   ./layers/systemd.nix
+  ./layers/treemacs.nix
   ./layers/yaml.nix
   ./package.nix
   ./packages/adaptive-wrap.nix
@@ -71,6 +72,7 @@
   ./packages/lsp-haskell.nix
   ./packages/lsp-mode.nix
   ./packages/lsp-pyright.nix
+  ./packages/lsp-treemacs.nix
   ./packages/lsp-ui.nix
   ./packages/markdown-agda-mode.nix
   ./packages/markdown-mode.nix

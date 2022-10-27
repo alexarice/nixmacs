@@ -7,7 +7,7 @@ let
 in
 {
   options.layers.lsp = {
-    enable = mkEnableOption "Language Server Protocal Layer";
+    enable = mkEnableOption "Language Server Protocol Layer";
 
     ui = mkEnableOption "lsp-ui mode";
   };

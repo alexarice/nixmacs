@@ -23,9 +23,6 @@ in
       which-key.enable = mkDefault true;
       smartparens.enable = mkDefault true;
       smooth-scrolling.enable = mkDefault true;
-      treemacs.enable = mkDefault true;
-      treemacs-projectile.enable = mkDefault true;
-      treemacs-magit.enable = mkDefault true;
     };
 
     settings = {
@@ -39,5 +36,6 @@ in
     layers.better-defaults.enable = mkDefault true;
     layers.ivy.enable = mkDefault true;
     layers.nix.enable = mkDefault true;
+    layers.treemacs.enable = mkDefault true;
   };
 }
