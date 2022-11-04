@@ -58,6 +58,7 @@
   ./packages/flycheck-irony.nix
   ./packages/flycheck-rust.nix
   ./packages/flycheck.nix
+  ./packages/flyspell.nix
   ./packages/general.nix
   ./packages/git-gutter.nix
   ./packages/haskell-mode.nix
